@@ -1,0 +1,105 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
+
+/* reset */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td{margin:0;padding:0;}
+address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;}
+ul{list-style:none;}
+table{border-collapse:collapse;border-spacing:0;}
+caption,th{text-align:left;}
+q:before,q:after{content:'';}
+object,embed{vertical-align:top;}
+legend{display:none;}
+h1,h2,h3,h4,h5,h6{font-size:100%;}
+img,abbr,acronym,fieldset{border:0;}
+
+body{
+	font: 14px/1.9 'Noto Sans JP', Arial, Verdana, 游ゴシック, YuGothic,'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', メイリオ, Meiryo,sans-serif;
+	font-weight: 300;
+	-webkit-text-size-adjust:100%;
+	overflow-x: hidden;
+	color: #000;
+	background: #fff;
+}
+
+a{
+	color: #0066ff;
+	text-decoration: none;
+}
+
+a:hover, .active{
+  text-decoration: underline;
+}
+
+a:active, a:focus,input:active, input:focus{outline:0;}
+
+
+/* ヘッダー
+------------------------------------------------------------*/
+#header{
+	text-align: center;
+}
+
+#header h1{
+	padding-top: 60px;
+}
+
+#header a{
+	color: #000;
+	padding-top: 50px;
+	font-family: 'Pacifico', cursive;
+	font-size: 18px;
+}
+
+
+/* フッター
+------------------------------------------------------------*/
+#footer{
+	clear: both;
+	padding: 50px 10px 50px 0;
+	text-align: center;
+	font-size: 12px;
+}
+
+
+/* 共通
+------------------------------------------------------------*/
+
+img{
+	max-width: 100%;
+	height: auto;
+}
+
+section{
+	clear:both;
+	padding-top: 70px;
+}
+
+section h2{
+	font-family: 'Pacifico', cursive;
+	width: 40%;
+	margin: 0 auto 40px;
+	font-size: 22px;
+	font-weight:normal;
+	text-align: center;
+	background: url(../images/borderBlack.png) repeat-x 0 50%;
+	background-size: 1px 1px;
+}
+
+section h2 span {
+	background: #fff;
+	padding: 0 80px;
+}
+
+.inner{
+	width: 94%;
+	margin: 0 auto;
+	padding-bottom: 50px;
+}
+
+.innerS{
+	width: 40%;
+	margin: 0 auto;
+	padding-bottom: 80px;
+}
+

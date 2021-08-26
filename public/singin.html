@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+            https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-firestore.js">
+            const firebase = require("firebase");
+            // Required for side-effects
+            require("firebase/firestore");
+        </script>
+
+
+        <script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
+        <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
+
+        <script>
+            // Your web app's Firebase configuration
+            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+            var firebaseConfig = {
+                apiKey: "AIzaSyCki9YaxV17q6tPE1qU3x-rYaPdi3oo3d0",
+                authDomain: "tap-f4f38.firebaseapp.com",
+                projectId: "tap-f4f38",
+                storageBucket: "tap-f4f38.appspot.com",
+                messagingSenderId: "682346204597",
+                appId: "1:682346204597:web:efed7a8ae3b43a82f61dfc",
+                measurementId: "G-D86Y46WSLT"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            var db = firebase.firestore();
+        </script>
+
+        <title>signin.html</title>
+
+    </head>
+
+    <body>
+         <script type="text/javascript">
+            var ui = new firebaseui.auth.AuthUI(firebase.auth());
+
+            var uiConfig = {
+                callbacks: {
+                    signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+                        return true;
+                    },
+                    uiShown: function() {
+                        document.getElementById('loader').style.display = 'none';
+                    }
+                },
+                signInFlow: 'popup',
+                // signInSuccessUrl: 'index.html',
+                signInOptions: [
+                    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+                    firebase.auth.EmailAuthProvider.PROVIDER_ID,
+                    firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+                ],
+            };
+            ui.start('#auth', uiConfig);
+
+            firebase.auth().onAuthStateChanged(user => {
+                // user signed in
+                if (user) {
+                    // hello
+                    const signOutMessage = `
+                        <p>Hello, ${user.displayName}! Your user uid is ${user.uid}.<\/p>
+                        <button type="submit"  onClick="signOut()">Sign out<\/button>
+                    `;
+                    document.getElementById('auth').innerHTML = signOutMessage;
+
+
+                    // add firestore
+                        // wallet_idはウォレットの生成時に...てかここで垢作った瞬間にウォレット作った方が良くね？わざわざupdateせんでも良くなるが
+                    const usersRef = db.collection("users").doc(user.uid);
+                    usersRef.get().then((docSnapshot) => {
+                        if (docSnapshot.exists) {
+                            usersRef.onSnapshot((doc) => {
+                        });
+                        } else {
+                            usersRef.set({
+                                uid: user.uid,
+                                email: user.email,
+                                name: user.displayName,
+                                wallet: "Not created yet"
+                            })
+                        }
+                    });
+
+
+                    // mail verified
+                    var verified = firebase.auth().currentUser.emailVerified;
+                    if (!verified) {
+                        firebase.auth().currentUser.sendEmailVerification(); // send mail
+                        const verifyMessage = `
+                            <p>Your email address is not verified. We send verify mail, so check your mail box.
+                            If you don't have recieved mail, please click <a href="#" onclick="javascript:resendVerifyMail();">here</a>.</p>
+                        `;
+                        document.getElementById('veri').innerHTML = verifyMessage;
+                    }
+                }
+            });
+
+            function resendVerifyMail(){
+                firebase.auth().currentUser.sendEmailVerification()
+                    .then(() => {
+                        alert("Send mail. Please check your mail box.");
+                    });
+            }
+
+            function signOut() {
+                firebase.auth().onAuthStateChanged(user => {
+                    firebase.auth().signOut()
+                        .then(() => {
+                            console.log('ログアウトしました');
+                            location.reload();
+                        })
+                        .catch((error) => {
+                            console.log(`ログアウト時にエラーが発生しました (${error})`);
+                        });
+                });
+            }
+        </script>
+        <h1>hoge</h1>
+        <div id="auth"></div>
+        <div id="loader">Loading...</div>
+        <div id="veri"></div>
+    </body>
+</html>
