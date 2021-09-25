@@ -11,6 +11,7 @@
   <script src='https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js'></script>
   <script src='https://www.gstatic.com/firebasejs/7.5.0/firebase-storage.js'></script>
   <script>
+    filename = "";
 
     //firebase初期化
     var firebaseConfig = {
@@ -29,6 +30,7 @@
       for (var file of imgs.files) {
           //選択したファイルのファイル名を使うが、場合によってはかぶるので注意
         var storageRef = firebase.storage().ref('tmp/' + file.name);
+        filename = file.name
         uploads.push(storageRef.put(file));
       }
       //すべての画像のアップロード完了を待つ
@@ -41,10 +43,11 @@
       // 名義はtestuidで発行
 
     // サーバへ送りたいデータ
-    const data = {uid:"testuid", data: "gs://tap-f4f38.appspot.com/tmp/" + file.name};
+    const data = {uid:"testuid", data: "gs://tap-f4f38.appspot.com/tmp/" + filename};
 
     // FetchAPIのオプション準備
     const param  = {
+      mode: 'cors',
       method: "POST",
       headers: { "Content-Type": "application/json;" },
       body: JSON.stringify(data)
