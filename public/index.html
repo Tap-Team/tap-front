@@ -55,11 +55,11 @@
 
     // paramを付ける以外はGETと同じ
     fetch("https://tap-api.shmn7iii.net/tokens", param)
-      .then((res)=>{
-        return res.json();
-      })
-      .then((json)=>{
-        token_id = json['data']['token_id']
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
+        var json = data.json();
+        var token_id = json['data']['token_id']
         const tokenMessage = `
             <p>token_id: ` + token_id + `</p>
         `;
