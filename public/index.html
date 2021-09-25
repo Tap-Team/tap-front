@@ -43,7 +43,7 @@
       // 名義はtestuidで発行
 
     // サーバへ送りたいデータ
-    const data = {uid:"testuid", data: "gs://tap-f4f38.appspot.com/tmp/" + filename};
+    const data = { uid:"testuid", data: "gs://tap-f4f38.appspot.com/tmp/" + filename};
 
     // FetchAPIのオプション準備
     const param  = {
@@ -56,7 +56,7 @@
     // paramを付ける以外はGETと同じ
     fetch("https://tap-api.shmn7iii.net/tokens", param)
       .then((res)=>{
-        return( res.json() );
+        return(res.json());
       })
       .then((json)=>{
         token_id = json['data']['token_id']
