@@ -43,22 +43,22 @@
       // 名義はtestuidで発行
 
     // サーバへ送りたいデータ
-    const data = { "uid":"testuid", "data": "gs://tap-f4f38.appspot.com/tmp/" + filename};
+    const data = { 'uid':'testuid', 'data': 'gs://tap-f4f38.appspot.com/tmp/' + filename };
 
     // FetchAPIのオプション準備
     const param  = {
       mode: 'no-cors',
-      method: "POST",
-      headers: { "Content-Type": "application/json;" },
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json;' },
       body: JSON.stringify(data)
     };
 
     // paramを付ける以外はGETと同じ
-    fetch("https://tap-api.shmn7iii.net/tokens", param)
+    fetch('https://tap-api.shmn7iii.net/tokens', param)
       .then(data => {
-        console.log(data)
+        console.log(data);
         var json = data.json();
-        var token_id = json['data']['token_id']
+        var token_id = json['data']['token_id'];
         const tokenMessage = `
             <p>token_id: ` + token_id + `</p>
         `;
