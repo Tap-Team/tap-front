@@ -55,7 +55,6 @@
 
     // paramを付ける以外はGETと同じ
     fetch("https://tap-api.shmn7iii.net/tokens", param)
-      .then(response => response.json())
       .then(data => {
         console.log(data)
         var json = data.json();
