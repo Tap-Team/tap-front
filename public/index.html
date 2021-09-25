@@ -1,39 +1,68 @@
-<!doctype html>
-<html lang="ja">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="description" content="ですくりぷしょん">
-        <title>index.html</title>
-        <link rel="stylesheet" media="all" href="css/style.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-        <script src="js/script.js"></script>
-    </head>
+<html>
+<head></head>
+<body>
+  <form>
+    <input type='file' accept='image/*' multiple='multiple' name='imgs[]'>
+    <button type='submit'>送信</button>
+  </form>
 
-    <body id="top">
-        <!-- HEADER -->
-        <header id="header">
-            <div id="headerWrap">
-                <h1><img src="images/logoo.png" width="260" height="80" alt="logo"></h1>
-                <a href="singin.html">Sign in</a>
-            </div>
-        </header>
+  <div id="token"></div>
 
+  <script src='https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js'></script>
+  <script src='https://www.gstatic.com/firebasejs/7.5.0/firebase-storage.js'></script>
+  <script>
 
-        <!-- MESSAGE -->
-        <section id="about">
-            <header>
-                <h2><span>About</span></h2>
-            </header>
-            <div class="innerS">
-                oeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-            </div>
-        </section>
+    //firebase初期化
+    var firebaseConfig = {
+      apiKey: 'AIzaSyCki9YaxV17q6tPE1qU3x-rYaPdi3oo3d0',
+      projectId: 'tap-f4f38',
+      storageBucket: 'tap-f4f38.appspot.com',
+    }
+    firebase.initializeApp(firebaseConfig);
 
+    //formのsubmitにイベント設定
+    var form = document.querySelector('form');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var imgs = form.querySelector('input');
+      var uploads = [];
+      for (var file of imgs.files) {
+          //選択したファイルのファイル名を使うが、場合によってはかぶるので注意
+        var storageRef = firebase.storage().ref('tmp/' + file.name);
+        uploads.push(storageRef.put(file));
+      }
+      //すべての画像のアップロード完了を待つ
+      Promise.all(uploads).then(function () {
+        console.log('アップロード完了');
+      });
+    });
 
-        <!-- FOOTER -->
-        <footer id="footer">
-            Copyright(c) 2021 shmn7iii.net. All Rights Reserved. Design by <a href="http://f-tpl.com" target="_blank">http://f-tpl.com</a><!-- ←クレジット表記を外す場合はシリアルキーが必要です http://f-tpl.com/credit/ -->
-        </footer>
+    // APIサーバーに送信してトークン発行しちゃえ
+      // 名義はtestuidで発行
 
-    </body>
+    // サーバへ送りたいデータ
+    const data = {uid:"testuid", data: "gs://tap-f4f38.appspot.com/tmp/" + file.name};
+
+    // FetchAPIのオプション準備
+    const param  = {
+      method: "POST",
+      headers: { "Content-Type": "application/json;" },
+      body: JSON.stringify(data)
+    };
+
+    // paramを付ける以外はGETと同じ
+    fetch("http://api.tap.shmn7iii.net/tokens", param)
+      .then((res)=>{
+        return( res.json() );
+      })
+      .then((json)=>{
+        token_id = json['data']['token_id']
+        const tokenMessage = `
+            <p>token_id: ` + token_id + `</p>
+        `;
+        document.getElementById('token').innerHTML = tokenMessage;
+      });
+  </script>
+
+</body>
 </html>
