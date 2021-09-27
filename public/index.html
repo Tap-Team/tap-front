@@ -59,15 +59,14 @@
     //     document.getElementById('token').innerHTML = tokenMessage;
     //   });
 
-    fetch(
-      'https://tap-api.shmn7iii.net/tokens/info/c3355558de07d610231dfff47816dab7860fd23319f1e821296da7c2e6f736c893',{
+    fetch( 'https://tap-api.shmn7iii.net/tokens/info/c3355558de07d610231dfff47816dab7860fd23319f1e821296da7c2e6f736c893',
+        {
           mode: 'no-cors',
           method: 'GET',
         }
       )
-      .then(response => response.json())
       .then(data => {
-        console.log(data)
+        console.log(data);
         var json = data.json();
         var token_id = json['data']['token_id'];
         var data = json['data']['data'];
