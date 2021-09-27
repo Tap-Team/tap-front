@@ -68,8 +68,8 @@
       .then(data => {
         console.log(data);
         const tokenMessage = `
-            <p>token_id: ` + data.json()['data']['token_id'] + `</p>
-            <p>data: ` + data.json()['data']['data'] + `</p>
+            <p>token_id: ${data.json()['data']['token_id']} + </p>
+            <p>data: ${data.json()['data']['data']} </p>
         `;
         document.getElementById('token').innerHTML = tokenMessage;
       });
