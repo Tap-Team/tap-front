@@ -1,7 +1,6 @@
 {
   "hosting": {
-    "site": "tap-f4f38",
-    "public": "public",
+    "public": "dist",
     "ignore": [
       "firebase.json",
       "**/.*",
