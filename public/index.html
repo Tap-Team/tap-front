@@ -1,39 +1,78 @@
-<!doctype html>
-<html lang="ja">
+<html>
     <head>
-        <meta charset="UTF-8">
-        <meta name="description" content="ですくりぷしょん">
-        <title>index.html</title>
-        <link rel="stylesheet" media="all" href="css/style.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-        <script src="js/script.js"></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tap!</title>
+        <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+        <link rel="stylesheet" href="sampleCss3.css">
+        <link rel="stylesheet" href="sampleCssR3.css">
     </head>
+    <body>
+        <header>
+            <div class="container">
+                <div class="header-left">
+                    <img src="../htmlCss/logo_transparent.png" width="8%">
+                    <form id="form2" action="自分のサイトURL" method="get">
+                        <input id="sbox2"  id="s" name="s" type="text" placeholder="Serch NFT"/>
+                        <button type="submit" id="sbtn2"><i class="fas fa-search"></i></button>
+                    </form>
+                </div>
 
-    <body id="top">
-        <!-- HEADER -->
-        <header id="header">
-            <div id="headerWrap">
-                <h1><img src="images/logoo.png" width="260" height="80" alt="logo"></h1>
-                <a href="singin.html">Sign in</a>
+                <span class="fa fa-bars menu-icon"></span>
+
+                <div class="header-right">
+                    <a href="#" class="signup">Sign up</a>
+                    <a href="#" class="signin">Sign in</a>
+                </div>
             </div>
         </header>
 
-
-        <!-- MESSAGE -->
-        <section id="about">
-            <header>
-                <h2><span>About</span></h2>
-            </header>
-            <div class="innerS">
-                oeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+        <div class="top-wrapper">
+            <div class="container">
+                <img src="" id="image" />
             </div>
-        </section>
+        </div>
+
+        <script src='https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js'></script>
+        <script src='https://www.gstatic.com/firebasejs/7.5.0/firebase-storage.js'></script>
+        
+        <script>
+            var firebaseConfig = {
+            apiKey: 'AIzaSyCki9YaxV17q6tPE1qU3x-rYaPdi3oo3d0',
+            projectId: 'tap-f4f38',
+            storageBucket: 'gs://tap-f4f38.appspot.com',
+            }
+            firebase.initializeApp(firebaseConfig);
+
+            var storage = firebase.storage();
+
+            var getToken = fetch("https://tap-api.shmn7iii.net/debugs/getblockcount",
+                {
+                    mode: 'no-cors',
+                    method: 'GET'
+                }
+            )
+            .then(response => {
+                console.log(response);
+                return response;
+            })
+            .then(data => {
+                console.log(data);
+            })
+            .catch(error => {
+                console.log(response)
+                console.log(error);
+                console.log("失敗");
+            });
 
 
-        <!-- FOOTER -->
-        <footer id="footer">
-            Copyright(c) 2021 shmn7iii.net. All Rights Reserved. Design by <a href="http://f-tpl.com" target="_blank">http://f-tpl.com</a><!-- ←クレジット表記を外す場合はシリアルキーが必要です http://f-tpl.com/credit/ -->
-        </footer>
 
+            //var gsReference = storage.refFromURL(getToken["data"][1]);
+
+            //var url = gsReference.getDownloadURL().then(function(gsReference){
+            //    document.getElementById('image').src = gsReference;
+            //})
+
+        </script>
     </body>
 </html>
