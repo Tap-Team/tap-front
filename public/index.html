@@ -30,6 +30,12 @@
                 <img src="" id="image" />
             </div>
         </div>
+        
+        <!-- <div id="app" class="style1">
+            <h1>{{ message }}</h1>
+            <p v-for="user in users">{{ user.name.title }} {{ user.name.last }}</p>
+        </-div>
+        -->
 
         <script src='https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js'></script>
         <script src='https://www.gstatic.com/firebasejs/7.5.0/firebase-storage.js'></script>
@@ -53,10 +59,11 @@
                 .then(json => {
                     var data = json;
                     var gsReference = storage.refFromURL(data["data"]["tokens"][0]["data"]);
-
+                    //const tokens = storage.refFromURL(data["data"]["tokens"]);
+                    //console.log(tokens);
                     const length = Object.keys(refFromURL(data["data"]["tokens"])).length;
                     console.log(length);
-
+                    //const length = Object.keys(storage.refFromURL(data["data"]["tokens"])).length;
                     var url = gsReference.getDownloadURL().then(function(gsReference){
                     document.getElementById('image').src = gsReference
                     })
