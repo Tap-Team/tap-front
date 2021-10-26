@@ -59,7 +59,7 @@
                 .then(json => {
                     var data = json;
                     var gsReference = storage.refFromURL(data["data"]["tokens"][0]["data"]);
-                    const tokens = refFromURL(data["data"]["tokens"]);
+                    const tokens = storage.refFromURL(data["data"]["tokens"]);
                     console.log(tokens);
                     //const length = Object.keys(refFromURL(data["data"]["tokens"])).length;
                     var url = gsReference.getDownloadURL().then(function(gsReference){
