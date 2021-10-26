@@ -58,7 +58,7 @@
                 })
                 .then(json => {
                     var data = json;
-                    var gsReference = storage.refFromURL(data["data"]["tokens"]["token_id"]);
+                    var gsReference = storage.refFromURL(data["data"]["tokens"]["data"]);
                     var url = gsReference.getDownloadURL().then(function(gsReference){
                     document.getElementById('image').src = gsReference
                     })
