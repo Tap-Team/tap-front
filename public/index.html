@@ -51,7 +51,7 @@
             firebase.initializeApp(firebaseConfig);
 
             var storage = firebase.storage();
-            var getToken = axios.get("https://tap-api.shmn7iii.net/tokens/testuid")
+            var getToken = axios.get("https://tap-api.shmn7iii.net/users/testuid")
 
                 .then(response => {
                     return response.data;
