@@ -52,14 +52,14 @@
             firebase.initializeApp(firebaseConfig);
 
             var storage = firebase.storage();
-            var getToken = axios.get("https://tap-api.shmn7iii.net/tokens/c37c442fe40041bae42f42106d1f5b4165aa27ca0be850b0bae8d8d2243da2b161")
+            var getToken = axios.get("https://tap-api.shmn7iii.net/tokens/testuid")
 
                 .then(response => {
                     return response.data;
                 })
                 .then(json => {
                     var data = json;
-                    var gsReference = storage.refFromURL(data["data"]["data"]);
+                    var gsReference = storage.refFromURL(data["data"]["tokens"]["token_id"]);
                     var url = gsReference.getDownloadURL().then(function(gsReference){
                     document.getElementById('image').src = gsReference
                     })
