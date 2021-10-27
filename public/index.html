@@ -32,51 +32,51 @@
                  </div>
             </div>
         </div>
-
-        <script src='https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js'></script>
-        <script src='https://www.gstatic.com/firebasejs/7.5.0/firebase-storage.js'></script>
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-        <script src="https://www.promisejs.org/polyfills/promise-7.0.4.min.js"></script>
-
-        <script>
-            var firebaseConfig = {
-            apiKey: 'AIzaSyCki9YaxV17q6tPE1qU3x-rYaPdi3oo3d0',
-            projectId: 'tap-f4f38',
-            storageBucket: 'gs://tap-f4f38.appspot.com',
-            }
-            firebase.initializeApp(firebaseConfig);
-
-            var storage = firebase.storage();
-            var getToken = axios.get("https://tap-api.shmn7iii.net/users/testuid")
-
-                .then(response => {
-                    return response.data;
-                })
-                .then(json => {
-                    var data = json;
-                    
-                    const le = Object.keys(data["data"]["tokens"]).length;
-                    console.log(le);
-
-                    for (let i = 0; i<le; i++){
-                        var gsReference = storage.refFromURL(data["data"]["tokens"][i]["data"]);
-                        var url = gsReference.getDownloadURL().then(function(gsReference){
-                        document.getElementById('image'+String([i])).src = gsReference
-                        })
-
-                        var newElement = document.createElement("img");
-                        newElement.setAttribute("id","image"+String[i+1]);
-                        var parentDiv = document.getElementById("parent-div");
-                        var childP3 = document.getElementById("image"+String([i]));
-                        parentDiv.insertBefore(newElement, childP3);
-                    }
-
-                    return json;
-                })
-                .catch(error => {
-                    console.log(error);
-                    console.log("失敗");
-                });
-        </script>
     </body>
+
+    <script src='https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js'></script>
+    <script src='https://www.gstatic.com/firebasejs/7.5.0/firebase-storage.js'></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://www.promisejs.org/polyfills/promise-7.0.4.min.js"></script>
+
+    <script>
+        var firebaseConfig = {
+        apiKey: 'AIzaSyCki9YaxV17q6tPE1qU3x-rYaPdi3oo3d0',
+        projectId: 'tap-f4f38',
+        storageBucket: 'gs://tap-f4f38.appspot.com',
+        }
+        firebase.initializeApp(firebaseConfig);
+
+        var storage = firebase.storage();
+        var getToken = axios.get("https://tap-api.shmn7iii.net/users/testuid")
+
+            .then(response => {
+                return response.data;
+            })
+            .then(json => {
+                var data = json;
+                
+                const le = Object.keys(data["data"]["tokens"]).length;
+                console.log(le);
+
+                for (let i = 0; i<le; i++){
+                    var gsReference = storage.refFromURL(data["data"]["tokens"][i]["data"]);
+                    var url = gsReference.getDownloadURL().then(function(gsReference){
+                    document.getElementById('image'+String([i])).src = gsReference
+                    })
+
+                    var newElement = document.createElement("img");
+                    newElement.setAttribute("id","image"+String[i+1]);
+                    var parentDiv = document.getElementById("parent-div");
+                    var childP3 = document.getElementById("image"+String([i]));
+                    parentDiv.insertBefore(newElement, childP3);
+                }
+
+                return json;
+            })
+            .catch(error => {
+                console.log(error);
+                console.log("失敗");
+            });
+    </script>
 </html>
