@@ -60,13 +60,20 @@
                     var data = json;
                     var gsReference = storage.refFromURL(data["data"]["tokens"][0]["data"]);
                     
+                    //予約語を変数に書かない！！！！！！！！！！！！！！！！！！！
                     const le = Object.keys(data["data"]["tokens"]).length;
-                    //const length = Object.keys(refFromURL(data["data"]["tokens"])).length;
                     console.log(le);
-
-                    var url = gsReference.getDownloadURL().then(function(gsReference){
-                    document.getElementById('image').src = gsReference
+                    let str = '';
+                    for (let i = 0; i<le; i++){
+                        var url = gsReference.getDownloadURL().then(function(gsReference){
+                        document.getElementById('image').src = gsReference
                     })
+                        str = str + i;
+                    }
+
+                    //var url = gsReference.getDownloadURL().then(function(gsReference){
+                    //document.getElementById('image').src = gsReference
+                    //})
                     return json;
                 })
                 .catch(error => {
