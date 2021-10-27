@@ -66,7 +66,6 @@
 
                     for (let i = 0; i<le; i++){
                         var gsReference = storage.refFromURL(data["data"]["tokens"][i]["data"]);
-                        conosle.log(i)
                         var url = gsReference.getDownloadURL().then(function(gsReference){
                         document.getElementById('image').src = gsReference
                         })
