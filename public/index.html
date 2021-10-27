@@ -32,12 +32,6 @@
                  </div>
             </div>
         </div>
-        
-        <!-- <div id="app" class="style1">
-            <h1>{{ message }}</h1>
-            <p v-for="user in users">{{ user.name.title }} {{ user.name.last }}</p>
-        </-div>
-        -->
 
         <script src='https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js'></script>
         <script src='https://www.gstatic.com/firebasejs/7.5.0/firebase-storage.js'></script>
@@ -61,26 +55,22 @@
                 .then(json => {
                     var data = json;
                     
-                    //予約語を変数に書かない！！！！！！！！！！！！！！！！！！！
                     const le = Object.keys(data["data"]["tokens"]).length;
                     console.log(le);
 
                     for (let i = 0; i<le; i++){
                         var gsReference = storage.refFromURL(data["data"]["tokens"][i]["data"]);
                         var url = gsReference.getDownloadURL().then(function(gsReference){
-                        document.getElementById('image').src = gsReference
+                        document.getElementById('image'+String([i])).src = gsReference
                         })
 
                         var newElement = document.createElement("img");
-                        newElement.setAttribute("id","image");
+                        newElement.setAttribute("id","image"+String[i+1]);
                         var parentDiv = document.getElementById("parent-div");
-                        var childP3 = document.getElementById("image");
+                        var childP3 = document.getElementById("image"+String([i]));
                         parentDiv.insertBefore(newElement, childP3);
                     }
 
-                    //var url = gsReference.getDownloadURL().then(function(gsReference){
-                    //document.getElementById('image').src = gsReference
-                    //})
                     return json;
                 })
                 .catch(error => {
