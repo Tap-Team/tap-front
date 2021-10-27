@@ -60,9 +60,9 @@
                     var data = json;
                     var gsReference = storage.refFromURL(data["data"]["tokens"][0]["data"]);
                     
-                    const length = Object.keys(data["data"]["tokens"]).length;
+                    const le = Object.keys(data["data"]["tokens"]).length;
                     //const length = Object.keys(refFromURL(data["data"]["tokens"])).length;
-                    console.log(length);
+                    console.log(le);
 
                     var url = gsReference.getDownloadURL().then(function(gsReference){
                     document.getElementById('image').src = gsReference
