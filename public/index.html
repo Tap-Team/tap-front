@@ -68,10 +68,10 @@
                     for (let i = 0; i<le; i++){
                         var gsReference = storage.refFromURL(data["data"]["tokens"][i]["data"]);
                         var url = gsReference.getDownloadURL().then(function(gsReference){
-                        document.getElementById('image'+String([i])).src = gsReference
+                        document.getElementById('image'+String([i+1])).src = gsReference
                         })
+
                         var newElement = document.createElement("img");
-                        newElement.appendChild(newContent);
                         newElement.setAttribute("id","image"+String[i]);
                         var parentDiv = document.getElementById("parent-div");
                         var childP3 = document.getElementById("main"+String([i-1]));
