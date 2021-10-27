@@ -65,10 +65,10 @@
                     console.log(le);
 
                     for (let i = 0; i<le; i++){
-                        var gsReference = storage.refFromURL(data["data"]["tokens"][i]["data"]);
+                        vargsReference = storage.refFromURL(data["data"]["tokens"][i]["data"]);
                         var url = gsReference.getDownloadURL().then(function(gsReference){
                         document.getElementById('image').src = gsReference
-                        })
+                        });
                     }
                     //htmlのimageのところ、永遠にループみたいにしてnullだったらberakとかでできんかな。わからん。
 
