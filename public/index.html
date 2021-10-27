@@ -28,7 +28,7 @@
         <div class="top-wrapper">
             <div class="container">
                 <div id="parent-div">
-                    <img src="" id="image1">
+                    <img src="" id="image0">
                  </div>
             </div>
         </div>
@@ -72,9 +72,9 @@
                         })
 
                         var newElement = document.createElement("img");
-                        newElement.setAttribute("id","image"+String[i]);
+                        newElement.setAttribute("id","image"+String[i+1]);
                         var parentDiv = document.getElementById("parent-div");
-                        var childP3 = document.getElementById("main"+String([i-1]));
+                        var childP3 = document.getElementById("image"+String([i]));
                         parentDiv.insertBefore(newElement, childP3);
                     }
 
