@@ -27,7 +27,9 @@
 
         <div class="top-wrapper">
             <div class="container">
-                <img src="" id="image" />
+                <div id="parent-div">
+                    <img src="" id="image1">
+                 </div>
             </div>
         </div>
         
@@ -65,12 +67,16 @@
 
                     for (let i = 0; i<le; i++){
                         var gsReference = storage.refFromURL(data["data"]["tokens"][i]["data"]);
-                        console.log(i)
                         var url = gsReference.getDownloadURL().then(function(gsReference){
-                        document.getElementById('image').src = gsReference
+                        document.getElementById('image'+String([i])).src = gsReference
                         })
+                        var newElement = document.createElement("img");
+                        newElement.appendChild(newContent);
+                        newElement.setAttribute("id","image"+String[i]);
+                        var parentDiv = document.getElementById("parent-div");
+                        var childP3 = document.getElementById("main"+String([i-1]));
+                        parentDiv.insertBefore(newElement, childP3);
                     }
-                    //htmlのimageのところ、永遠にループみたいにしてnullだったらberakとかでできんかな。わからん。
 
                     //var url = gsReference.getDownloadURL().then(function(gsReference){
                     //document.getElementById('image').src = gsReference
