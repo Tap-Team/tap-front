@@ -62,13 +62,13 @@
                 for (let i = 0; i<le; i++){
                     var gsReference = storage.refFromURL(data["data"]["tokens"][i]["data"]);
                     var url = gsReference.getDownloadURL().then(function(gsReference){
-                    document.getElementById('image'+String([i])).src = gsReference
+                    document.getElementById('image'+String(i)).src = gsReference
                     })
 
                     var newElement = document.createElement("img");
-                    newElement.setAttribute("id","image"+String([i+1]));
+                    newElement.setAttribute("id","image"+String(i+1));
                     var parentDiv = document.getElementById("parent-div");
-                    var childP3 = document.getElementById("image"+String([i]));
+                    var childP3 = document.getElementById("image"+String(i));
                     parentDiv.insertBefore(newElement, childP3);
                 }
 
