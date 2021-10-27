@@ -67,7 +67,7 @@
                     for (let i = 0; i<le; i++){
                         vargsReference = storage.refFromURL(data["data"]["tokens"][i]["data"]);
                         var url = gsReference.getDownloadURL().then(function(gsReference){
-                        document.getElementById('image').src = gsReference;
+                        document.getElementById('image').src = gsReference
                         });
                     }
                     //htmlのimageのところ、永遠にループみたいにしてnullだったらberakとかでできんかな。わからん。
