@@ -24,6 +24,11 @@
 
         <div class="top-wrapper">
             <div class="container">
+                <p>ここはTopだあよ</p>
+            </div>
+        </div>
+        <div class="token-wrapper">
+            <div class="container">
                 <div class = token>
                     <div id="parent-div">
                         <img src="" id="image0">
@@ -33,13 +38,10 @@
         </div>
     </body>
 
-    <script src='https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js'></script>
-    <script src='https://www.gstatic.com/firebasejs/7.5.0/firebase-storage.js'></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://www.promisejs.org/polyfills/promise-7.0.4.min.js"></script>
 
     <script>
-
 
         var getToken = axios.get("https://tap-api.shmn7iii.net/v2/tokens")
             .then(response => {
