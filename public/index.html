@@ -71,7 +71,7 @@
                 console.log(le);
 
                 for (let i = 1; i=le; i++){
-                    var base64 = data["data"][i]["token_data"];
+                    var base64 = data["data"][i-1]["token_data"];
 
                     document.getElementById('image'+String(i)).src = base64
 
