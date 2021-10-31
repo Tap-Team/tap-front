@@ -27,13 +27,30 @@
                 <p>ここはTopだあよ</p>
             </div>
         </div>
-
+<!--
         <div class="token-wrapper">
             <div class="container">
-                <div class = "token">
+                <div class = "tokens">
                     <div id="parent-div">
                         <img src="" width=50% id="image0">
                     </div>
+                </div>
+            </div>
+        </div>
+    -->
+        <div class="token-wrapper">
+            <div class="container">
+                <div id="parent-div1">
+                    <img src="" width=50% id="image1">
+                    <p>parent1</p>
+                </div>
+                <div id="parent-div2">
+                    <img src="" width=50% id="image1">
+                    <p>parent2</p>
+                </div>
+                <div id="parent-div3">
+                    <img src="" width=50% id="image1">
+                    <p>parent3</p>
                 </div>
             </div>
         </div>
@@ -43,7 +60,6 @@
     <script src="https://www.promisejs.org/polyfills/promise-7.0.4.min.js"></script>
 
     <script>
-
         var getToken = axios.get("https://tap-api.shmn7iii.net/v2/tokens")
             .then(response => {
                 return response.data;
@@ -54,16 +70,27 @@
                 const le = Object.keys(data["data"]).length;
                 console.log(le);
 
-                for (let i = 0; i<le; i++){
+                for (let i = 1; i=le; i++){
                     var base64 = data["data"][i]["token_data"];
 
                     document.getElementById('image'+String(i)).src = base64
 
                     var newElement = document.createElement("img");
                     newElement.setAttribute("id","image"+String(i+1));
-                    var parentDiv = document.getElementById("parent-div");
-                    var childP3 = document.getElementById("image"+String(i));
-                    parentDiv.insertBefore(newElement, childP3);
+
+                    if(i%3==0){
+                        var parentDiv = document.getElementById("parent-div3");
+                        var childP3 = document.getElementById("image"+String(i));
+                        parentDiv.insertBefore(newElement, childP3);
+                    }else if(i%3==1){
+                        var parentDiv = document.getElementById("parent-div1");
+                        var childP3 = document.getElementById("image"+String(i));
+                        parentDiv.insertBefore(newElement, childP3);
+                    }else{
+                        var parentDiv = document.getElementById("parent-div2");
+                        var childP3 = document.getElementById("image"+String(i));
+                        parentDiv.insertBefore(newElement, childP3);
+                    }
                 }
 
                 return json;
