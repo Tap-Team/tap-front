@@ -53,7 +53,7 @@
                 console.log(le);
 
                 for (let i = 0; i<le; i++){
-                    var base64 = storage.refFromURL(data["data"][i]["token_data"]);
+                    var base64 = data["data"][i]["token_data"];
 
                     document.getElementById('image'+String(i)).src = base64
 
