@@ -126,3 +126,15 @@ header {
     height: auto;
     position: absolute;
 }
+
+#div-parent1{
+    width: 30%;
+}
+
+#div-parent2{
+    width: 30%;
+}
+
+#div-parent3{
+    width: 30%;
+}
