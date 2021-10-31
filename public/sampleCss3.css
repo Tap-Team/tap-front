@@ -123,5 +123,6 @@ header {
 
 .token {
     width: 30%;
-    position: relative;
+    height: auto;
+    position: absolute;
 }
