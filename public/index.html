@@ -70,7 +70,7 @@
                 const le = Object.keys(data["data"]).length;
                 console.log(le);
 
-                for (let i = 1; i=le; i++){
+                for (let i = 1; i>le; i++){
                     var base64 = data["data"][i-1]["token_data"];
 
                     document.getElementById('image'+String(i)).src = base64
