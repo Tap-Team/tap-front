@@ -127,17 +127,17 @@ header {
     position: absolute;
 }
 
-#div-parent1{
+#parent-div1{
     width: 30%;
     display: inline-block;
 }
 
-#div-parent2{
+#parent-div2{
     width: 30%;
     display: inline-block;
 }
 
-#div-parent3{
+#parent-div3{
     width: 30%;
     display: inline-block;
 }
