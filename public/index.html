@@ -88,23 +88,23 @@
                     console.log("初期")
 
                     if(i%3==0){
-                        newElement.setAttribute("id","image"+third);
+                        newElement.setAttribute("id","image"+String(third));
                         var parentDiv = document.getElementById("parent-div3");
-                        var childP3 = document.getElementById("image"+third);
+                        var childP3 = document.getElementById("image"+String(third));
                         parentDiv.insertBefore(newElement, childP3);
                         third++;
                         console.log(3)
                     }else if(i%3==1){
-                        newElement.setAttribute("id","image"+first);
+                        newElement.setAttribute("id","image"+String(first));
                         var parentDiv = document.getElementById("parent-div1");
-                        var childP3 = document.getElementById("image"+first);
+                        var childP3 = document.getElementById("image"+String(first));
                         parentDiv.insertBefore(newElement, childP3);
                         console.log(1)
                         first++;
                     }else{
-                        newElement.setAttribute("id","image"+second);
+                        newElement.setAttribute("id","image"+String(second));
                         var parentDiv = document.getElementById("parent-div2");
-                        var childP3 = document.getElementById("image"+second);
+                        var childP3 = document.getElementById("image"+String(second));
                         //childP3(image1とか)の前に新しく作ったやつの前に挿入。でもエラー出てる。逆かな？
                         parentDiv.insertBefore(newElement, childP3);
                         console.log(2)
