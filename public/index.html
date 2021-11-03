@@ -74,6 +74,9 @@
                 var data = json;
 
                 const le = Object.keys(data["data"]).length;
+                var first = 1;
+                var second = 1;
+                var third = 1;
 
                 for (let i = 1; i<le+1; i++){
                     var base64 = data["data"][i-1]["token_data"];
@@ -86,20 +89,23 @@
 
                     if(i%3==0){
                         var parentDiv = document.getElementById("parent-div3");
-                        var childP3 = document.getElementById("image"+String(i));
+                        var childP3 = document.getElementById("image"+third);
                         parentDiv.insertBefore(newElement, childP3);
+                        third++;
                         console.log(3)
                     }else if(i%3==1){
                         var parentDiv = document.getElementById("parent-div1");
-                        var childP3 = document.getElementById("image"+String(i));
+                        var childP3 = document.getElementById("image"+first);
                         parentDiv.insertBefore(newElement, childP3);
                         console.log(1)
+                        first++;
                     }else{
                         var parentDiv = document.getElementById("parent-div2");
-                        var childP3 = document.getElementById("image"+String(i));
+                        var childP3 = document.getElementById("image"+second);
                         //childP3(image1とか)の前に新しく作ったやつの前に挿入。でもエラー出てる。逆かな？
                         parentDiv.insertBefore(newElement, childP3);
                         console.log(2)
+                        second++;
                     }
                 }
 
