@@ -85,8 +85,8 @@
 
                     if(i%3==0){
                         document.getElementById('image'+String(third)).src = base64
-                        newElement.setAttribute("id","image"+String(third+1));
                         var newElement = document.createElement("img");
+                        newElement.setAttribute("id","image"+String(third+1));
 
                         var parentDiv = document.getElementById("parent-div3");
                         var childP3 = document.getElementById("image"+String(third));
@@ -95,8 +95,8 @@
                         console.log(3)
                     }else if(i%3==1){
                         document.getElementById('image'+String(first)).src = base64
-                        newElement.setAttribute("id","image"+String(first+1));
                         var newElement = document.createElement("img");
+                        newElement.setAttribute("id","image"+String(first+1));
 
                         var parentDiv = document.getElementById("parent-div1");
                         var childP3 = document.getElementById("image"+String(first));
@@ -105,8 +105,8 @@
                         first++;
                     }else{
                         document.getElementById('image'+String(second)).src = base64
-                        newElement.setAttribute("id","image"+String(second+1));
                         var newElement = document.createElement("img");
+                        newElement.setAttribute("id","image"+String(second+1));
 
                         var parentDiv = document.getElementById("parent-div2");
                         var childP3 = document.getElementById("image"+String(second));
