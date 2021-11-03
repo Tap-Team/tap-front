@@ -72,47 +72,64 @@
             })
             .then(json => {
                 var data = json;
-
+                //トークンの数
                 const le = Object.keys(data["data"]).length;
+                //1列目2列目3列目それぞれでimage1→image2ってできる用の変数
                 var first = 1;
                 var second = 1;
                 var third = 1;
 
 
                 for (let i = 1; i<le+1; i++){
+                    //変数base64にトークンのbase64の文字列を渡す
                     var base64 = data["data"][i-1]["token_data"];
+
+                    //どこまで動いてるのか確認用
                     console.log("初期")
 
+                    //もしiが３の倍数なら３列目
                     if(i%3==0){
+                        //3列目にあるimage〇にbaseのデータを渡す。
                         document.getElementById('image'+String(third)).src = base64
+                        //新しいimg属性を作成
                         var newElement = document.createElement("img");
+                        //新しいimage属性にid=iamge〇+1って名前をあげる
                         newElement.setAttribute("id","image"+String(third+1));
 
+                        //parent-div3をparentDivとする
                         var parentDiv = document.getElementById("parent-div3");
-                        var childP3 = document.getElementById("image"+String(third));
-                        parentDiv.insertBefore(newElement, childP3);
+                        //元々あったimage〇にbeforeって名前をあげる
+                        var before = document.getElementById("image"+String(third));
+                        //parentDivの中のbefore(もともとあったimage)の前にnewElement(新しく作ったimage)を追加
+                        //してるつもりなんだけどエラーが出る...
+                        parentDiv.insertBefore(newElement, before);
+                        //image〇の〇の部分を更新
                         third++;
+                        //３列目が動いたことの確認用
                         console.log(3)
+                    //もしiが1の倍数なら1列目
                     }else if(i%3==1){
                         document.getElementById('image'+String(first)).src = base64
                         var newElement = document.createElement("img");
                         newElement.setAttribute("id","image"+String(first+1));
 
                         var parentDiv = document.getElementById("parent-div1");
-                        var childP3 = document.getElementById("image"+String(first));
-                        parentDiv.insertBefore(newElement, childP3);
+                        var before = document.getElementById("image"+String(first));
+                        parentDiv.insertBefore(newElement, before);
                         console.log(1)
                         first++;
+                    //もしiが2の倍数なら2列目
                     }else{
                         document.getElementById('image'+String(second)).src = base64
                         var newElement = document.createElement("img");
                         newElement.setAttribute("id","image"+String(second+1));
+                        console.log(2-1)
 
                         var parentDiv = document.getElementById("parent-div2");
-                        var childP3 = document.getElementById("image"+String(second));
-                        //childP3(image1とか)の前に新しく作ったやつの前に挿入。でもエラー出てる。逆かな？
-                        parentDiv.insertBefore(newElement, childP3);
-                        console.log(2)
+                        var before = document.getElementById("image"+String(second));
+                        //childP3(image1とか)の前に新しく作ったやつの前に挿入。
+                        parentDiv.insertBefore(newElement, before);
+                        console.log(2-2)
                         second++;
                     }
                 }
