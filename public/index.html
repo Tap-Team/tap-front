@@ -109,6 +109,7 @@
                         console.log(3)
                     //もしiが1の倍数なら1列目
                     }else if(i%3==1){
+                        console.log("最初の"+first)
                         document.getElementById('image'+String(first)).src = base64
                         var newElement = document.createElement("img");
                         newElement.setAttribute("id","image"+String(first+1));
@@ -118,6 +119,7 @@
                         parentDiv.insertBefore(newElement, before);
                         console.log(1)
                         first++;
+                        console.log("更新後の"+first)
                     //もしiが2の倍数なら2列目
                     }else{
                         document.getElementById('image'+String(second)).src = base64
