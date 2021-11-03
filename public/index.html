@@ -78,28 +78,31 @@
                 var second = 1;
                 var third = 1;
 
+
                 for (let i = 1; i<le+1; i++){
                     var base64 = data["data"][i-1]["token_data"];
 
                     document.getElementById('image'+String(i)).src = base64
 
                     var newElement = document.createElement("img");
-                    newElement.setAttribute("id","image"+String(i+1));
                     console.log("初期")
 
                     if(i%3==0){
+                        newElement.setAttribute("id","image"+third);
                         var parentDiv = document.getElementById("parent-div3");
                         var childP3 = document.getElementById("image"+third);
                         parentDiv.insertBefore(newElement, childP3);
                         third++;
                         console.log(3)
                     }else if(i%3==1){
+                        newElement.setAttribute("id","image"+first);
                         var parentDiv = document.getElementById("parent-div1");
                         var childP3 = document.getElementById("image"+first);
                         parentDiv.insertBefore(newElement, childP3);
                         console.log(1)
                         first++;
                     }else{
+                        newElement.setAttribute("id","image"+second);
                         var parentDiv = document.getElementById("parent-div2");
                         var childP3 = document.getElementById("image"+second);
                         //childP3(image1とか)の前に新しく作ったやつの前に挿入。でもエラー出てる。逆かな？
