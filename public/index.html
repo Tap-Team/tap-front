@@ -82,19 +82,24 @@
 
                     var newElement = document.createElement("img");
                     newElement.setAttribute("id","image"+String(i+1));
+                    console.log("初期")
 
                     if(i%3==0){
                         var parentDiv = document.getElementById("parent-div3");
                         var childP3 = document.getElementById("image"+String(i));
                         parentDiv.insertBefore(newElement, childP3);
+                        console.log(3)
                     }else if(i%3==1){
                         var parentDiv = document.getElementById("parent-div1");
                         var childP3 = document.getElementById("image"+String(i));
                         parentDiv.insertBefore(newElement, childP3);
+                        console.log(1)
                     }else{
                         var parentDiv = document.getElementById("parent-div2");
                         var childP3 = document.getElementById("image"+String(i));
+                        //childP3(image1とか)の前に新しく作ったやつの前に挿入。でもエラー出てる。逆かな？
                         parentDiv.insertBefore(newElement, childP3);
+                        console.log(2)
                     }
                 }
 
