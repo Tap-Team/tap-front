@@ -125,13 +125,13 @@
                         document.getElementById('image'+String(second)).src = base64
                         var newElement = document.createElement("img");
                         newElement.setAttribute("id","image"+String(second+1));
-                        console.log(2-1)
+                        console.log("2列目ですその１")
 
                         var parentDiv = document.getElementById("parent-div2");
+                        console.log("2列目ですその2")
                         var before = document.getElementById("image"+String(second));
-                        //childP3(image1とか)の前に新しく作ったやつの前に挿入。
                         parentDiv.insertBefore(newElement, before);
-                        console.log(2-2)
+                        console.log("2列目です3")
                         second++;
                     }
                 }
