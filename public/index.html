@@ -33,19 +33,19 @@
             <div class="container">
                 <div class="parents">
                     <div id="parent-div1">
-                        <img src="" width=100px id="image1">
+                        <img src="" width=100px id="image11">
                         <p>parent1</p>
                     </div>
                 </div>
                 <div class="parents">
                     <div id="parent-div2">
-                        <img src="" width=100px id="image1">
+                        <img src="" width=100px id="image21">
                         <p>parent2</p>
                     </div>
                 </div>
                 <div class="parents">
                     <div id="parent-div3">
-                        <img src="" width=100px id="image1">
+                        <img src="" width=100px id="image31">
                         <p>parent3</p>
                     </div>
                 </div>
@@ -80,16 +80,16 @@
                     //もしiが３の倍数なら３列目
                     if(i%3==0){
                         //3列目にあるimage〇にbaseのデータを渡す。
-                        document.getElementById('image'+String(third)).src = base64
+                        document.getElementById('image3'+String(third)).src = base64
                         //新しいimg属性を作成
                         var newElement = document.createElement("img");
                         //新しいimage属性にid=iamge〇+1って名前をあげる
-                        newElement.setAttribute("id","image"+String(third+1));
+                        newElement.setAttribute("id","image3"+String(third+1));
 
                         //parent-div3をparentDivとする
                         var parentDiv = document.getElementById("parent-div3");
                         //元々あったimage〇にbeforeって名前をあげる
-                        var before = document.getElementById("image"+String(third));
+                        var before = document.getElementById("image3"+String(third));
                         //parentDivの中のbefore(もともとあったimage)の前にnewElement(新しく作ったimage)を追加
                         parentDiv.insertBefore(newElement, before);
                         //image〇の〇の部分を更新
@@ -99,36 +99,36 @@
                     //もしiが1の倍数なら1列目
                     }else if(i%3==1){
                         console.log("最初の"+first)
-                        document.getElementById('image'+String(first)).src = base64
+                        document.getElementById('image1'+String(first)).src = base64
                         console.log("1列目↓")
                         console.log(newElement)
                         var newElement = document.createElement("img");
                         console.log("1列目↓")
                         console.log(newElement)
-                        newElement.setAttribute("id","image"+String(first+1));
+                        newElement.setAttribute("id","image1"+String(first+1));
                         console.log("1列目↓")
                         console.log(newElement)
 
                         var parentDiv = document.getElementById("parent-div1");
-                        var before = document.getElementById("image"+String(first));
+                        var before = document.getElementById("image1"+String(first));
                         parentDiv.insertBefore(newElement, before);
                         console.log("1列目です")
                         first++;
                         console.log("更新後の"+first)
                     //もしiが2の倍数なら2列目
                     }else{
-                        console.log(base64)
-                        document.getElementById('image'+String(second)).src = base64
+                        //これ！！！！
+                        document.getElementById('image2'+String(second)).src = base64
                         var newElement = document.createElement("img");
                         console.log("2列目↓")
                         console.log(newElement)
-                        newElement.setAttribute("id","image"+String(second+1));
+                        newElement.setAttribute("id","image2"+String(second+1));
                         console.log("2列目↓")
                         console.log(newElement)
                         console.log("2列目ですその１")
 
                         var parentDiv = document.getElementById("parent-div2");
-                        var before = document.getElementById("image"+String(second));
+                        var before = document.getElementById("image2"+String(second));
                         console.log("2列目↓")
                         console.log(newElement)
                         console.log("2列目ですその2")
