@@ -101,7 +101,9 @@
                         console.log("最初の"+first)
                         document.getElementById('image'+String(first)).src = base64
                         var newElement = document.createElement("img");
+                        console.log("1列目："+newElement)
                         newElement.setAttribute("id","image"+String(first+1));
+                        console.log("1列目："+newElement)
 
                         var parentDiv = document.getElementById("parent-div1");
                         var before = document.getElementById("image"+String(first));
@@ -113,9 +115,9 @@
                     }else{
                         document.getElementById('image'+String(second)).src = base64
                         var newElement = document.createElement("img");
-                        console.log(newElement)
+                        console.log("2列目："+newElement)
                         newElement.setAttribute("id","image"+String(second+1));
-                        console.log(newElement)
+                        console.log("2列目："+newElement)
                         console.log("2列目ですその１")
 
                         var parentDiv = document.getElementById("parent-div2");
