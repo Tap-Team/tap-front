@@ -28,17 +28,7 @@
                 <p>ここはTopだあよ</p>
             </div>
         </div>
-<!--
-        <div class="token-wrapper">
-            <div class="container">
-                <div class = "tokens">
-                    <div id="parent-div">
-                        <img src="" width=50% id="image0">
-                    </div>
-                </div>
-            </div>
-        </div>
-    -->
+
         <div class="token-wrapper">
             <div class="container">
                 <div class="parents">
@@ -101,7 +91,6 @@
                         //元々あったimage〇にbeforeって名前をあげる
                         var before = document.getElementById("image"+String(third));
                         //parentDivの中のbefore(もともとあったimage)の前にnewElement(新しく作ったimage)を追加
-                        //してるつもりなんだけどエラーが出る...
                         parentDiv.insertBefore(newElement, before);
                         //image〇の〇の部分を更新
                         third++;
@@ -124,11 +113,14 @@
                     }else{
                         document.getElementById('image'+String(second)).src = base64
                         var newElement = document.createElement("img");
+                        console.log(newElement)
                         newElement.setAttribute("id","image"+String(second+1));
+                        console.log(newElement)
                         console.log("2列目ですその１")
 
                         var parentDiv = document.getElementById("parent-div2");
                         var before = document.getElementById("image"+String(second));
+                        console.log(newElement)
                         console.log("2列目ですその2")
                         parentDiv.insertBefore(newElement, before);
                         console.log("2列目です3")
