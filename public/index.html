@@ -34,18 +34,25 @@
                 <div class="parents">
                     <div id="parent-div1">
                         <img src="" width=400px id="image11">
-                        <p>parent11</p>
+                        <div class="p1">
+                            <div class=blnak11></div>
+                            <p>parent11</p>
+                        </div>
                     </div>
                 </div>
                 <div class="parents">
                     <div id="parent-div2">
                         <img src="" width=400px id="image21">
-                        <p>parent21</p>
+                        <div class="p2">
+                            <div class=blnak21></div>
+                            <p>parent21</p>
+                        </div>
                     </div>
                 </div>
                 <div class="parents">
                     <div id="parent-div3">
                         <img src="" width=400px id="image31">
+                        <div class=blnak31></div>
                         <p>parent31</p>
                     </div>
                 </div>
@@ -57,12 +64,11 @@
 
     <script>
 
-        function title(x,y){
+        function Blank(x,y){
         var newElement = document.createElement("div");
-        newElement.setAttribute("p","parent"+String(x)+String(y+1));
-
-        var parentDiv = document.getElementById("parent-div"+String(x));
-        var before = document.getElementById("image2"+String(y+1));
+        newElement.setAttribute("class","blank"+x+String(y+1));
+        var parentDiv = document.getElementById("parent-div"+x);
+        var before = document.getElementById("image"+x+String(y));
         parentDiv.insertBefore(newElement, before.nextSibling);
         }
 
@@ -100,11 +106,11 @@
                         //parent-div3をparentDivとする
                         var parentDiv = document.getElementById("parent-div3");
                         //元々あったimage〇にbeforeって名前をあげる
-                        var before = document.getElementById("image3"+String(third));
+                        var before = document.getElementById("blank3"+String(third));
                         //parentDivの中のbefore(もともとあったimage)の前にnewElement(新しく作ったimage)を追加
                         parentDiv.insertBefore(newElement, before.nextSibling);
 
-                        title(3,third);
+                        Blank(3,third);
 
                         //image〇の〇の部分を更新
                         third++;
@@ -125,11 +131,11 @@
                         console.log(newElement)
 
                         var parentDiv = document.getElementById("parent-div1");
-                        var before = document.getElementById("image1"+String(first));
+                        var before = document.getElementById("blank1"+String(first));
                         parentDiv.insertBefore(newElement, before.nextSibling);
                         console.log("1列目です")
 
-                        title(1, first);
+                        Blank(1, first);
 
                         first++;
                         console.log("更新後の"+first)
@@ -146,13 +152,13 @@
                         console.log("2列目ですその１")
 
                         var parentDiv = document.getElementById("parent-div2");
-                        var before = document.getElementById("image2"+String(second));
+                        var before = document.getElementById("blank2"+String(second));
                         console.log("2列目↓")
                         console.log(newElement)
                         console.log("2列目ですその2")
                         parentDiv.insertBefore(newElement, before.nextSibling);
 
-                        title(2, second);
+                        Blank(2, second);
 
                         second++;
 
