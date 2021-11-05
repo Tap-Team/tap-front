@@ -89,7 +89,6 @@
                 var second = 1;
                 var third = 1;
 
-
                 for (let i = 1; i<le+1; i++){
                     //変数base64にトークンのbase64の文字列を渡す
                     var base64 = data["data"][i-1]["token_data"];
@@ -99,50 +98,16 @@
 
                     //もしiが３の倍数なら３列目
                     if(i%3==0){
-                        //3列目にあるimage〇にbaseのデータを渡す。
-                        document.getElementById('image3'+String(third)).src = base64
-                        //新しいimg属性を作成
-                        var newElement = document.createElement("img");
-                        //新しいimage属性にid=iamge〇+1って名前をあげる
-                        newElement.setAttribute("id","image3"+String(third+1));
-                        newElement.setAttribute("width", 400);
-
-                        //parent-div3をparentDivとする
-                        var parentDiv = document.getElementById("parent-div3");
-                        //元々あったimage〇にbeforeって名前をあげる
-                        var before = document.getElementById("image3"+String(third));
-                        //parentDivの中のbefore(もともとあったimage)の前にnewElement(新しく作ったimage)を追加
-                        parentDiv.insertBefore(newElement, before.nextSibling);
-                        //image〇の〇の部分を更新
-                        third++;
-                        //３列目が動いたことの確認用
-                        console.log(3)
+                        createImage(3,third,base64);
                     //もしiが1の倍数なら1列目
                     }else if(i%3==1){
                         createImage(1,first,base64);
                     //もしiが2の倍数なら2列目
                     }else{
-                        document.getElementById('image2'+String(second)).src = base64
-                        var newElement = document.createElement("img");
-                        console.log("2列目↓")
-                        console.log(newElement)
-                        newElement.setAttribute("id","image2"+String(second+1));
-                        newElement.setAttribute("width", 400);
-                        console.log("2列目↓")
-                        console.log(newElement)
-                        console.log("2列目ですその１")
-
-                        var parentDiv = document.getElementById("parent-div2");
-                        var before = document.getElementById("image2"+String(second));
-                        console.log("2列目↓")
-                        console.log(newElement)
-                        console.log("2列目ですその2")
-                        parentDiv.insertBefore(newElement, before.nextSibling);
-                        second++;
+                        createImage(2,second,base64);
 
                     }
                 }
-
                 return json;
             })
             .catch(error => {
