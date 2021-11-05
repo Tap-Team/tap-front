@@ -34,25 +34,18 @@
                 <div class="parents">
                     <div id="parent-div1">
                         <img src="" width=400px id="image11">
-                        <div class="p1">
-                            <div class=blnak11></div>
-                            <p>parent11</p>
-                        </div>
+                        <p>parent11</p>
                     </div>
                 </div>
                 <div class="parents">
                     <div id="parent-div2">
                         <img src="" width=400px id="image21">
-                        <div class="p2">
-                            <div class=blnak21></div>
-                            <p>parent21</p>
-                        </div>
+                        <p>parent21</p>
                     </div>
                 </div>
                 <div class="parents">
                     <div id="parent-div3">
                         <img src="" width=400px id="image31">
-                        <div class=blnak31></div>
                         <p>parent31</p>
                     </div>
                 </div>
@@ -63,15 +56,26 @@
     <script src="https://www.promisejs.org/polyfills/promise-7.0.4.min.js"></script>
 
     <script>
+        function createImage(x,y){
+            console.log("最初の"+y)
+            document.getElementById('image'+String(x)+String(y)).src = base64
+            console.log("1列目↓")
+            console.log(newElement)
+            var newElement = document.createElement("img");
+            console.log("1列目↓")
+            console.log(newElement)
+            newElement.setAttribute("id","image"+String(x)+String(y+1));
+            newElement.setAttribute("width", 400);
+            console.log("1列目↓")
+            console.log(newElement)
 
-        function Blank(x,y){
-        var newElement = document.createElement("div");
-        newElement.setAttribute("class","blank"+x+String(y+1));
-        var parentDiv = document.getElementById("parent-div"+x);
-        var before = document.getElementById("image"+x+String(y));
-        parentDiv.insertBefore(newElement, before.nextSibling);
+            var parentDiv = document.getElementById("parent-div"+String(x));
+            var before = document.getElementById("image"+String(x)+String(first));
+            parentDiv.insertBefore(newElement, before.nextSibling);
+            console.log("1列目です")
+            y++;
+            console.log("更新後の"+first)
         }
-
         var getToken = axios.get("https://tap-api.shmn7iii.net/v2/tokens")
             .then(response => {
                 return response.data;
@@ -106,40 +110,16 @@
                         //parent-div3をparentDivとする
                         var parentDiv = document.getElementById("parent-div3");
                         //元々あったimage〇にbeforeって名前をあげる
-                        var before = document.getElementById("blank3"+String(third));
+                        var before = document.getElementById("image3"+String(third));
                         //parentDivの中のbefore(もともとあったimage)の前にnewElement(新しく作ったimage)を追加
                         parentDiv.insertBefore(newElement, before.nextSibling);
-
-                        Blank(3,third);
-
                         //image〇の〇の部分を更新
                         third++;
                         //３列目が動いたことの確認用
                         console.log(3)
                     //もしiが1の倍数なら1列目
                     }else if(i%3==1){
-                        console.log("最初の"+first)
-                        document.getElementById('image1'+String(first)).src = base64
-                        console.log("1列目↓")
-                        console.log(newElement)
-                        var newElement = document.createElement("img");
-                        console.log("1列目↓")
-                        console.log(newElement)
-                        newElement.setAttribute("id","image1"+String(first+1));
-                        newElement.setAttribute("width", 400);
-                        console.log("1列目↓")
-                        console.log(newElement)
-
-                        var parentDiv = document.getElementById("parent-div1");
-                        var before = document.getElementById("blank1"+String(first));
-                        print(before);
-                        parentDiv.insertBefore(newElement, before.nextSibling);
-                        console.log("1列目です")
-
-                        Blank(1, first);
-
-                        first++;
-                        console.log("更新後の"+first)
+                        createImage(1,First);
                     //もしiが2の倍数なら2列目
                     }else{
                         document.getElementById('image2'+String(second)).src = base64
@@ -153,14 +133,11 @@
                         console.log("2列目ですその１")
 
                         var parentDiv = document.getElementById("parent-div2");
-                        var before = document.getElementById("blank2"+String(second));
+                        var before = document.getElementById("image2"+String(second));
                         console.log("2列目↓")
                         console.log(newElement)
                         console.log("2列目ですその2")
                         parentDiv.insertBefore(newElement, before.nextSibling);
-
-                        Blank(2, second);
-
                         second++;
 
                     }
