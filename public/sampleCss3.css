@@ -131,7 +131,8 @@ header {
     display: inline-block;
     width: 30%;
     margin: 50px;
-    background-color: 50%;
+    padding: 10%;
+    background-color: #000000;
 }
 
 .parent-div1{
