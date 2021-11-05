@@ -33,19 +33,19 @@
             <div class="container">
                 <div class="parents">
                     <div id="parent-div1">
-                        <img src="" width=300px id="image11">
+                        <img src="" width=100px id="image11">
                         <p>parent1</p>
                     </div>
                 </div>
                 <div class="parents">
                     <div id="parent-div2">
-                        <img src="" width=300px id="image21">
+                        <img src="" width=100px id="image21">
                         <p>parent2</p>
                     </div>
                 </div>
                 <div class="parents">
                     <div id="parent-div3">
-                        <img src="" width=300px id="image31">
+                        <img src="" width=100px id="image31">
                         <p>parent3</p>
                     </div>
                 </div>
@@ -85,7 +85,7 @@
                         var newElement = document.createElement("img");
                         //新しいimage属性にid=iamge〇+1って名前をあげる
                         newElement.setAttribute("id","image3"+String(third+1));
-                        newElement.setAttribute("width", 300);
+                        newElement.setAttribute("width", 100);
 
                         //parent-div3をparentDivとする
                         var parentDiv = document.getElementById("parent-div3");
@@ -107,7 +107,7 @@
                         console.log("1列目↓")
                         console.log(newElement)
                         newElement.setAttribute("id","image1"+String(first+1));
-                        newElement.setAttribute("width", 300);
+                        newElement.setAttribute("width", 100);
                         console.log("1列目↓")
                         console.log(newElement)
 
@@ -125,7 +125,7 @@
                         console.log("2列目↓")
                         console.log(newElement)
                         newElement.setAttribute("id","image2"+String(second+1));
-                        newElement.setAttribute("width", 300);
+                        newElement.setAttribute("width", 100);
                         console.log("2列目↓")
                         console.log(newElement)
                         console.log("2列目ですその１")
