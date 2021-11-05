@@ -56,9 +56,9 @@
     <script src="https://www.promisejs.org/polyfills/promise-7.0.4.min.js"></script>
 
     <script>
-        function createImage(x,y){
+        function createImage(x,y,z){
             console.log("最初の"+y)
-            document.getElementById('image'+String(x)+String(y)).src = base64
+            document.getElementById('image'+String(x)+String(y)).src = z
             console.log("1列目↓")
             console.log(newElement)
             var newElement = document.createElement("img");
@@ -119,7 +119,7 @@
                         console.log(3)
                     //もしiが1の倍数なら1列目
                     }else if(i%3==1){
-                        createImage(1,first);
+                        createImage(1,first,base64);
                     //もしiが2の倍数なら2列目
                     }else{
                         document.getElementById('image2'+String(second)).src = base64
