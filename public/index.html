@@ -56,12 +56,13 @@
     <script src="https://www.promisejs.org/polyfills/promise-7.0.4.min.js"></script>
 
     <script>
+
         function title(x,y){
         var newElement = document.createElement("div");
         newElement.setAttribute("p","parent"+String(x)+String(y+1));
 
         var parentDiv = document.getElementById("parent-div"+String(x));
-        var before = document.getElementById("image2"+String(y));
+        var before = document.getElementById("image2"+String(y+1));
         parentDiv.insertBefore(newElement, before.nextSibling);
         }
 
