@@ -130,17 +130,5 @@ header {
 .parents{
     display: inline-block;
     width: 30%;
-}
-
-.parent-div1 {
-    padding: 10%;
-}
-
-.parent-div2 {
-    padding: 10%;
-}
-
-.parent-div3 {
     margin: 30%;
-    padding: 30%;
 }
