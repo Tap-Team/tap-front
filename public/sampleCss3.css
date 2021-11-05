@@ -126,3 +126,8 @@ header {
     height: auto;
     position: absolute;
 }
+
+.parebts{
+    display: inline-block;
+    width: 30%;
+}
