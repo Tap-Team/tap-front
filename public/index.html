@@ -34,19 +34,19 @@
                 <div class="parents">
                     <div id="parent-div1">
                         <img src="" width=400px id="image11">
-                        <p>parent1</p>
+                        <p>parent11</p>
                     </div>
                 </div>
                 <div class="parents">
                     <div id="parent-div2">
                         <img src="" width=400px id="image21">
-                        <p>parent2</p>
+                        <p>parent21</p>
                     </div>
                 </div>
                 <div class="parents">
                     <div id="parent-div3">
                         <img src="" width=400px id="image31">
-                        <p>parent3</p>
+                        <p>parent31</p>
                     </div>
                 </div>
             </div>
@@ -56,6 +56,15 @@
     <script src="https://www.promisejs.org/polyfills/promise-7.0.4.min.js"></script>
 
     <script>
+        function title(x,y){
+        var newElement = document.createElement("div");
+        newElement.setAttribute("p","parent"+String(x)+String(y+1));
+
+        var parentDiv = document.getElementById("parent-div"+String(x));
+        var before = document.getElementById("image2"+String(y));
+        parentDiv.insertBefore(newElement, before.nextSibling);
+        }
+
         var getToken = axios.get("https://tap-api.shmn7iii.net/v2/tokens")
             .then(response => {
                 return response.data;
@@ -93,6 +102,9 @@
                         var before = document.getElementById("image3"+String(third));
                         //parentDivの中のbefore(もともとあったimage)の前にnewElement(新しく作ったimage)を追加
                         parentDiv.insertBefore(newElement, before.nextSibling);
+
+                        title(3,third);
+
                         //image〇の〇の部分を更新
                         third++;
                         //３列目が動いたことの確認用
@@ -115,6 +127,9 @@
                         var before = document.getElementById("image1"+String(first));
                         parentDiv.insertBefore(newElement, before.nextSibling);
                         console.log("1列目です")
+
+                        title(1, first);
+
                         first++;
                         console.log("更新後の"+first)
                     //もしiが2の倍数なら2列目
@@ -135,6 +150,9 @@
                         console.log(newElement)
                         console.log("2列目ですその2")
                         parentDiv.insertBefore(newElement, before.nextSibling);
+
+                        title(2, second);
+
                         second++;
 
                     }
