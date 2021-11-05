@@ -92,7 +92,7 @@
                         //元々あったimage〇にbeforeって名前をあげる
                         var before = document.getElementById("image3"+String(third));
                         //parentDivの中のbefore(もともとあったimage)の前にnewElement(新しく作ったimage)を追加
-                        parentDiv.insertBefore(newElement, before);
+                        parentDiv.insertBefore(newElement, before.nextSibling);
                         //image〇の〇の部分を更新
                         third++;
                         //３列目が動いたことの確認用
@@ -113,7 +113,7 @@
 
                         var parentDiv = document.getElementById("parent-div1");
                         var before = document.getElementById("image1"+String(first));
-                        parentDiv.insertBefore(newElement, before);
+                        parentDiv.insertBefore(newElement, before.nextSibling);
                         console.log("1列目です")
                         first++;
                         console.log("更新後の"+first)
@@ -135,7 +135,7 @@
                         console.log("2列目↓")
                         console.log(newElement)
                         console.log("2列目ですその2")
-                        parentDiv.insertBefore(newElement, before);
+                        parentDiv.insertBefore(newElement, before.nextSibling);
                         second++;
 
                     }
