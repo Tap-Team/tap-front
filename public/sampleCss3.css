@@ -134,13 +134,13 @@ header {
 
 .parent-div1{
     margin: 50px;
-    background-color: "red";
+    background-color: #000000;
 }
 .parent-div2{
     margin: 50px;
-    background-color: "blue";
+    background-color: #696969;
 }
 .parent-div3{
     margin: 50px;
-    background-color: "yellow";
+    background-color: #808080;
 }
