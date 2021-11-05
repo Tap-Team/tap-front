@@ -23,6 +23,12 @@ text-decoration: none;
     margin: 0 auto;
 }
 
+.tokens-container {
+    max-width: 1170px;
+    width: 100%;
+    height: 1000px;
+}
+
 .top-container {
     max-width: 1170px;
     width: 100%;
