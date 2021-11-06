@@ -57,7 +57,6 @@
 
     <script>
         function createImage(x,y,z){
-            print(y);
             document.getElementById('image'+String(x)+String(y)).src = z
             var newElement = document.createElement("img");
             newElement.setAttribute("id","image"+String(x)+String(y+1));
@@ -65,7 +64,6 @@
             var parentDiv = document.getElementById("parent-div"+String(x));
             var before = document.getElementById("image"+String(x)+String(y));
             parentDiv.insertBefore(newElement, before.nextSibling);
-            print(y);
         }
         var getToken = axios.get("https://tap-api.shmn7iii.net/v2/tokens")
             .then(response => {
