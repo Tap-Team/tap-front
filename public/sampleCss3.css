@@ -123,14 +123,24 @@ header {
 .token {
     height: auto;
     position: absolute;
+    width: 30%;
 }
 
 .parents{
     display: inline-block;
-    width: 30%;
 }
 
-.parents {
-    width: 30%;
+.parent-div1 {
+    margin: 30%;
 }
+
+.parent-div2 {
+    margin: 30%;
+}
+
+.parent-div3 {
+    margin: 30%;
+}
+
+
 
