@@ -116,12 +116,6 @@ header {
     color: rgb(26,33,57);
 }
 
-.token {
-    height: auto;
-    width: 30%;
-    margin: 30%;
-}
-
 .parents{
     display: inline-block;
     width: 30%;
