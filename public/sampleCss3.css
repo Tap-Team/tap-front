@@ -1,33 +1,27 @@
 * {
     box-sizing: border-box;
 }
-
 body {
     margin: 0;
     font-family: "Hiragino Kaku Gothic ProN", sans-serif;
   }
-
 a {
 text-decoration: none;
 }
-
 .clear {
     clear: left;
 }
-
 .container {
     max-width: 1170px;
     width: 100%;
     height: 1000px;
 }
-
 .top-container {
     max-width: 1170px;
     width: 100%;
     padding: 0 15px;
     margin: 5% 30%;
 }
-
 .top-wrapper {
     padding: 180px 0 100px 0;
     background-image: url(./images/steve2.jpg);
@@ -36,7 +30,6 @@ text-decoration: none;
     color: white;
     height: 90%;
 }
-
 header {
     height: 80px;
     width: 100%;
@@ -46,7 +39,6 @@ header {
     z-index: 10;
     display: inline-block;
 }
-
 .header-left {
     float: left;
     position: relative;
@@ -54,7 +46,6 @@ header {
     color: rgba(234,223,202);
     font-family: 'Comic Sans MS';
 }
-
 .header-left img {
     float: left;
     position: relative;
@@ -65,7 +56,6 @@ header {
     left: 100px;
     margin-top: 2%;
 }
-
 .menu-icon {
     color: white;
     float: right;
@@ -73,7 +63,6 @@ header {
     padding: 21px 0;
     display: none;
 }
-
 .header-right {
     float: right;
     margin-right: -25px;
@@ -89,11 +78,9 @@ header {
     position: relative;
     margin-top: -40%;
 }
-
 .signup {
     font-family: 'Comic Sans MS';
 }
-
 .signin {
     font-family: 'Comic Sans MS';
 }
@@ -101,7 +88,6 @@ header {
 .header-right a:hover {
     background-color: rgba(255, 255, 255, 0.3);
 }
-
 .token-wrapper {
     padding-bottom: 80px;
     padding-left: 5%;
@@ -109,29 +95,23 @@ header {
     background-color: #f7f7f7;
     text-align: center;
 }
-
 .heading {
     padding-top: 55px;
     padding-bottom: 50px;
     color: rgb(26,33,57);
 }
-
+.token-wrapper h2 {
+    font-family: 'Comic Sans MS';
+}
+.token {
+    height: auto;
+    position: absolute;
+}
 .parents{
     display: inline-block;
     width: 30%;
 }
 
-.parent-div1 {
+.parents-div1 {
     margin: 30%;
 }
-
-.parent-div2 {
-    margin: 30%;
-}
-
-.parent-div3 {
-    margin: 30%;
-}
-
-
-
