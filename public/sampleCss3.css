@@ -127,10 +127,7 @@ header {
 
 .parents{
     display: inline-block;
-}
-
-.image {
-    margin: 30%;
+    width: 30%;
 }
 
 
