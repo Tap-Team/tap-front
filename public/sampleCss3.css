@@ -132,6 +132,7 @@ header {
 
 .parent-div1{
     margin: 50%;
+    
 }
 
 .parent-div2{
@@ -141,3 +142,9 @@ header {
 .parent-div3{
     margin: 50%;
 }
+
+.image {
+    object-fit: contain;
+}
+
+
