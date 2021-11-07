@@ -127,24 +127,10 @@ header {
 
 .parents{
     display: inline-block;
-    width: 90%;
-}
-
-.parent-div1{
-    margin: 50%;
-    
-}
-
-.parent-div2{
-    margin: 50%;
-}
-
-.parent-div3{
-    margin: 50%;
 }
 
 .image {
-    object-fit: contain;
+    margin: 50%;
 }
 
 
