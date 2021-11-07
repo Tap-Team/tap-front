@@ -113,5 +113,13 @@ header {
 }
 
 .parents-div1 {
-    margin: 30%;
+    width: 30%;
+}
+
+.parents-div2 {
+    width: 30%;
+}
+
+.parents-div3 {
+    width: 30%;
 }
