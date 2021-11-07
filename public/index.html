@@ -61,19 +61,11 @@
             var newElement = document.createElement("img");
             newElement.setAttribute("id","image"+String(x)+String(y+1));
             newElement.setAttribute("width", 300);
+            newElement.setAttribute("class","token");
             var parentDiv = document.getElementById("parent-div"+String(x));
             var before = document.getElementById("image"+String(x)+String(y));
             parentDiv.insertBefore(newElement, before.nextSibling);
         }
-
-        function addClass(x,y){
-            var newElement = document.createElement("div");
-            newElement.setAttribute("class","token");
-            var parentDiv = document.getElementById("parent-div"+String(x));
-            var before = document.getElementById("image"+String(x)+String(y+1));
-            parentDiv.insertBefore(newElement, before);
-        }
-
         var getToken = axios.get("https://tap-api.shmn7iii.net/v2/tokens")
             .then(response => {
                 return response.data;
@@ -97,17 +89,14 @@
                     //もしiが３の倍数なら３列目
                     if(i%3==0){
                         addImage(3,third,base64);
-                        addClass(3,third);
                         third++;
                     //もしiが1の倍数なら1列目
                     }else if(i%3==1){
                         addImage(1,first,base64);
-                        addClass(1,first);
                         first++;
                     //もしiが2の倍数なら2列目
                     }else{
                         addImage(2,second,base64);
-                        addClass(2,second)
                         second++;
                     }
                 }
