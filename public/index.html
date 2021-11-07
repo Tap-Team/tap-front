@@ -61,7 +61,7 @@
             var newElement = document.createElement("img");
             newElement.setAttribute("id","image"+String(x)+String(y+1));
             newElement.setAttribute("width", 300);
-            newElement.setAttribute("class","token");
+            //newElement.setAttribute("class","token");
             var parentDiv = document.getElementById("parent-div"+String(x));
             var before = document.getElementById("image"+String(x)+String(y));
             parentDiv.insertBefore(newElement, before.nextSibling);
