@@ -59,7 +59,7 @@
         
         <!-- ボタン -->       
         <button type="button" class="btn btn-primary btn-lg" 
-        data-toggle="modal" data-target="#sampleA"><img src="" width=300px id="image!!!"></button>
+        data-toggle="modal" data-target="#sampleA"><img src="" width=300px id="image11"></button>
  
         <!-- モーダルダイアログ -->
         <div class="modal fade" id="sampleA" tabindex="-1">
@@ -89,12 +89,6 @@
 
     <script>
 
-        document.getElementById('image!!!').src = base64
-        var newElement = document.createElement("img");
-        newElement.setAttribute("id","image");
-        newElement.setAttribute("width", 300);
-
-
         function addImage(x,y,z){
             document.getElementById('image'+String(x)+String(y)).src = z
             var newElement = document.createElement("img");
@@ -105,6 +99,7 @@
             var before = document.getElementById("image"+String(x)+String(y));
             parentDiv.insertBefore(newElement, before.nextSibling);
         }
+
         var getToken = axios.get("https://tap-api.shmn7iii.net/v2/tokens")
             .then(response => {
                 return response.data;
