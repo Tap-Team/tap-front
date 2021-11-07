@@ -128,5 +128,8 @@ header {
 .parents{
     display: inline-block;
     width: 30%;
+}
+
+.parents-div1 {
     margin: 30%;
 }

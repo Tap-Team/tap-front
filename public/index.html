@@ -56,7 +56,7 @@
     <script src="https://www.promisejs.org/polyfills/promise-7.0.4.min.js"></script>
 
     <script>
-        function createImage(x,y,z){
+        function addImage(x,y,z){
             document.getElementById('image'+String(x)+String(y)).src = z
             var newElement = document.createElement("img");
             newElement.setAttribute("id","image"+String(x)+String(y+1));
@@ -87,15 +87,15 @@
 
                     //もしiが３の倍数なら３列目
                     if(i%3==0){
-                        createImage(3,third,base64);
+                        addImage(3,third,base64);
                         third++;
                     //もしiが1の倍数なら1列目
                     }else if(i%3==1){
-                        createImage(1,first,base64);
+                        addImage(1,first,base64);
                         first++;
                     //もしiが2の倍数なら2列目
                     }else{
-                        createImage(2,second,base64);
+                        addImage(2,second,base64);
                         second++;
                     }
                 }
