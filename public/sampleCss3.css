@@ -111,3 +111,11 @@ header {
     display: inline-block;
     width: 30%;
 }
+
+.parents a:hover {
+    opacity: 0.8;
+}
+
+.parents a img {
+    width: 100%;
+}
