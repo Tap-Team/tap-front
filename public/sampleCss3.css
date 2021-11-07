@@ -130,6 +130,14 @@ header {
     width: 30%;
 }
 
-.token {
+.parent-div1{
+    margin: 30%;
+}
+
+.parent-div2{
+    margin: 30%;
+}
+
+.parent-div3{
     margin: 30%;
 }
