@@ -124,6 +124,7 @@ header {
 
 .parents{
     display: inline-block;
+    width: 30%;
 }
 
 .parent-div1 {
