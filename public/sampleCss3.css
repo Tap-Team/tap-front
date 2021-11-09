@@ -86,18 +86,6 @@ header {
 
 .parents{
     display: inline-block;
-    /*width: 33%;*/
-}
-
-.parent-div1 {
-    width: 33%;
-}
-
-.parent-div2 {
-    width: 33%;
-}
-
-.parent-div3 {
     width: 33%;
 }
 
