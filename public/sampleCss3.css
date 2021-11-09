@@ -89,7 +89,9 @@ header {
 
 .parents{
     display: inline-block;
-    width: 30%;
+    margin: 300px;
+    /*width: 30%;
+    */
 }
 
 .parents a:hover {
