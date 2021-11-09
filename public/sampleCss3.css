@@ -32,23 +32,13 @@ header {
     color: rgba(234,223,202);
     font-family: 'Comic Sans MS';
 }
-.header-left img {
-    float: left;
-    position: relative;
-    left: -7%;
-}
+
 .header-left form {
     position: relative;
     left: 100px;
     margin-top: 2%;
 }
-.menu-icon {
-    color: white;
-    float: right;
-    font-size: 25px;
-    padding: 21px 0;
-    display: none;
-}
+
 .header-right {
     float: right;
     margin-right: -25px;
@@ -74,6 +64,7 @@ header {
 .header-right a:hover {
     background-color: rgba(255, 255, 255, 0.3);
 }
+
 .token-wrapper {
     padding-bottom: 80px;
     padding-left: 5%;
