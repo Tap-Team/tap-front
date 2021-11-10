@@ -90,10 +90,14 @@ header {
 }
 
 .parents img {
-    margin: 5%　5%;
+    margin: 5% 5%;
 }
 
 .test-wrapper {
     padding: 10% 20%;
     color: white;
+}
+
+.modal-content{
+    display: inline-block;
 }
