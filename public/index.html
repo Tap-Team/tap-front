@@ -25,19 +25,19 @@
             <div class="container">
                 <div class="parents">
                     <div id="parent-div1">
-                        <img src="" width=300px id="image11">
+                        <img src="" id="image11">
                         <p>parent11</p>
                     </div>
                 </div>
                 <div class="parents">
                     <div id="parent-div2">
-                        <img src="" width=300px id="image21">
+                        <img src="" id="image21">
                         <p>parent21</p>
                     </div>
                 </div>
                 <div class="parents">
                     <div id="parent-div3">
-                        <img src="" width=300px id="image31">
+                        <img src="" id="image31">
                         <p>parent31</p>
                     </div>
                 </div>
@@ -53,7 +53,6 @@
             document.getElementById('image'+String(x)+String(y)).src = z
             var newElement = document.createElement("img");
             newElement.setAttribute("id","image"+String(x)+String(y+1));
-            newElement.setAttribute("width", 300);
 
             var parentDiv = document.getElementById("parent-div"+String(x));
             var before = document.getElementById("image"+String(x)+String(y));
