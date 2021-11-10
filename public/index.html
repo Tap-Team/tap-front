@@ -25,6 +25,11 @@
                 <div class="parents">
                     <div id="parent-div1">
                         <img src="" width=300px id="image11">
+                        <div class="row mb-5">
+                            <div class="col-2">
+                                <button type="button" class="btn btn-primary mb-12" data-toggle="modal" data-target="#testModal"><img src="" width=300px id="image11"></button>
+                            </div>
+                        </div>
                         <p>parent11</p>
                     </div>
                 </div>
@@ -44,35 +49,27 @@
         </div>
         <div class="test-wrapper">
             <!-- モーダルを開くボタン・リンク -->
-    <div class="container">
-        <div class="row my-3">
-            <h1>モーダルを開く</h1>
-        </div>
-        <div class="row mb-5">
-            <div class="col-2">
-                <button type="button" class="btn btn-primary mb-12" data-toggle="modal" data-target="#testModal"><img src="" width=300px id="image11"></button>
-            </div>
-        </div>
-    </div>
  
-    <!-- ボタン・リンククリック後に表示される画面の内容 -->
-    <div class="modal fade" id="testModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4>class="modal-title" id="myModalLabel">削除確認画面</h4></h4>
-                    <img src="" width=300px id="image11">
-                </div>
-                <div class="modal-body">
-                    <label>データを削除しますか？</label>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
-                    <button type="button" class="btn btn-danger">削除</button>
+    
+            <!-- ボタン・リンククリック後に表示される画面の内容 -->
+            <div class="modal fade" id="testModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4>TITLETITLETITLE</h4></h4>
+                            <img src="" width=300px id="image11">
+                        </div>
+                        <div class="modal-body">
+                            <img src="" width=300px id="image11">
+                            <label>TESTTESTTEST</label>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+                            <button type="button" class="btn btn-danger">削除</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
         </div>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
