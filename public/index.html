@@ -25,9 +25,7 @@
                 <div class="parents">
                     <div id="parent-div1">
                         <!--<img src="" width=300px id="image11">-->
-                        <div class="col-1">
-                            <button type="button" class="btn btn-light mb-12" data-toggle="modal" data-target="#Modal1"><img src="" width=300px id="image11"></button>
-                        </div>
+                        <button type="button" class="btn btn-light mb-12" data-toggle="modal" data-target="#Modal1"><img src="" width=300px id="image11"></button>
                         <p>parent11</p>
                     </div>
                 </div>
@@ -52,11 +50,7 @@
             </div>
         </div>
         <div class="test-wrapper">
-            <!-- モーダルを開くボタン・リンク -->
- 
-    
-            <!-- ボタン・リンククリック後に表示される画面の内容 -->
-            <div class="modal fade" id="Modal1" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+            <div class="modal fade" id="Modal11" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-body">
@@ -75,7 +69,7 @@
                     </div>
                 </div>
             </div>
-            <div class="modal fade" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+            <div class="modal fade" id="Modal21" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-body">
@@ -95,7 +89,7 @@
                     </div>
                 </div>
             </div>
-            <div class="modal fade" id="Modal3" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+            <div class="modal fade" id="Modal31" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-body">
@@ -133,6 +127,19 @@
             var parentDiv = document.getElementById("parent-div"+String(x));
             var before = document.getElementById("image"+String(x)+String(y));
             parentDiv.insertBefore(newElement, before.nextSibling);
+        }
+
+        function addmodal(x){
+            var newelement = document.createElement("div")
+            newElement.setAttribute("class","modal fade");
+            newElement.setAttribute("id","Modal1"+String(x));
+            newElement.setAttribute("tabindex","-1");
+            newElement.setAttribute("role","dialog");
+            newElement.setAttribute("aria-labelledby","basicModal");
+            newElement.setAttrinbute("aria-hidden","true");
+
+            var testWrapper = document.getElementById("tesr-wrapper");
+            testWrapper.insertBefore(newElement, null);
         }
 
         var getToken = axios.get("https://tap-api.shmn7iii.net/v2/tokens")
