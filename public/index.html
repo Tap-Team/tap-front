@@ -57,7 +57,8 @@
 
             var parentDiv = document.getElementById("parent-div"+String(x));
             var before = document.getElementById("image"+String(x)+String(y));
-            parentDiv.insertBefore(newElement, before.nextSibling);
+            //parentDiv.insertBefore(newElement, before.nextSibling);
+            parentDiv.insertBefore(newElement, before);
         }
 
         var getToken = axios.get("https://tap-api.shmn7iii.net/v2/tokens")
