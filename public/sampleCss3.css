@@ -98,6 +98,10 @@ header {
     color: white;
 }
 
+.modal-content {
+    width: 40%;
+}
+
 .modal-body{
     display: inline-block;
 }
