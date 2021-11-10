@@ -42,6 +42,7 @@
                     </div>
                 </div>
             </div>
+            <div id="graydisplay"></div>
         </div>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -57,8 +58,7 @@
 
             var parentDiv = document.getElementById("parent-div"+String(x));
             var before = document.getElementById("image"+String(x)+String(y));
-            //parentDiv.insertBefore(newElement, before.nextSibling);
-            parentDiv.insertBefore(newElement, before);
+            parentDiv.insertBefore(newElement, before.nextSibling);
         }
 
         var getToken = axios.get("https://tap-api.shmn7iii.net/v2/tokens")
@@ -101,6 +101,16 @@
                 console.log(error);
                 console.log("失敗");
             });
+        
+        $(function(){
+            $("main img").click(function(){
+                $("$graydisplay").html($(this).prop('outerHTML'));
+                $("#graydisplay").fadeIn(200);
+            });
+            $("#graydisplay, #graydisplay img").click(function(){
+                $("#graydisplay").fadeOut(200);
+            });
+        })
 
     </script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
