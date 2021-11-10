@@ -27,6 +27,7 @@
                 <div class="parents">
                     <div id="parent-div1">
                         <img src="" width=300px id="image11">
+                        <div id="graydisplay"></div>
                         <p>parent11</p>
                     </div>
                 </div>
@@ -44,11 +45,6 @@
                 </div>
             </div>
         </div>
-        <div class="test-Wrapper">
-            <div class="container">
-                <div id="graydisplay"></div>
-            </div>
-        </div>d
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://www.promisejs.org/polyfills/promise-7.0.4.min.js"></script>
@@ -93,6 +89,15 @@
                     //もしiが1の倍数なら1列目
                     }else if(i%3==1){
                         addImage(1,first,base64);
+                        $(function(){
+                        $("parent-div1 img").click(function(){
+                            $("$graydisplay").html($(this).prop('outerHTML'));
+                            $("#graydisplay").fadeIn(200);
+                        });
+                        $("#graydisplay, #graydisplay img").click(function(){
+                            $("#graydisplay").fadeOut(200);
+                        });
+                        })
                         first++;
                     //もしiが2の倍数なら2列目
                     }else{
@@ -106,16 +111,6 @@
                 console.log(error);
                 console.log("失敗");
             });
-        
-        $(function(){
-            $("parent-div1 img").click(function(){
-                $("$graydisplay").html($(this).prop('outerHTML'));
-                $("#graydisplay").fadeIn(200);
-            });
-            $("#graydisplay, #graydisplay img").click(function(){
-                $("#graydisplay").fadeOut(200);
-            });
-        })
 
     </script>
     </body>
