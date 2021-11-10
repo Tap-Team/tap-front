@@ -103,5 +103,6 @@ header {
 }
 
 .modal-body{
+    max-width: 500x;
     display: inline-block;
 }
