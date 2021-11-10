@@ -44,10 +44,11 @@
                 </div>
             </div>
         </div>
-        
-        <div class="container">
-            <div id="graydisplay"></div>
-        </div>
+        <div class="test-Wrapper">
+            <div class="container">
+                <div id="graydisplay"></div>
+            </div>
+        </div>d
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://www.promisejs.org/polyfills/promise-7.0.4.min.js"></script>
@@ -107,7 +108,7 @@
             });
         
         $(function(){
-            $("main img").click(function(){
+            $("parent-div1 img").click(function(){
                 $("$graydisplay").html($(this).prop('outerHTML'));
                 $("#graydisplay").fadeIn(200);
             });
