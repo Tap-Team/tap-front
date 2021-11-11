@@ -116,7 +116,7 @@
         function addModal(x,y){
             var newElement = document.createElement("div");
             newElement.setAttribute("class","modal fade");
-            newElement.setAttribute("id","Modal"+String(x)+String(y));
+            newElement.setAttribute("id","Modal"+String(x)+String(y+1));
             newElement.setAttribute("tabindex","-1");
             newElement.setAttribute("role","dialog");
             newElement.setAttribute("aria-labelledby","basicModal");
@@ -127,19 +127,19 @@
 
             var newElement2 = document.createElement("div");
             newElement2.setAttribute("class","modal-dialog");
-            newElement2.setAttribute("id","modal-dialog"+String(x)+String(y));
-            var ModalFade = document.getElementById("Modal"+String(x)+String(y));
+            newElement2.setAttribute("id","modal-dialog"+String(x)+String(y+1));
+            var ModalFade = document.getElementById("Modal"+String(x)+String(y+1));
             ModalFade.insertBefore(newElement2, null);
 
             var newElement3 = document.createElement("div");
             newElement3.setAttribute("class","modal-content");
-            newElement3.setAttribute("id","modal-content"+String(x)+String(y));
-            var ModalDialog = document.getElementById("modal-dialog"+String(x)+String(y));
+            newElement3.setAttribute("id","modal-content"+String(x)+String(y+1));
+            var ModalDialog = document.getElementById("modal-dialog"+String(x)+String(y+1));
             ModalDialog.insertBefore(newElement3,null);
 
             var newElement4 = document.createElement("div");
             newElement4.setAttribute("class","modal-body");
-            var ModalContent = document.getElementById("modal-content"+String(x)+String(y));
+            var ModalContent = document.getElementById("modal-content"+String(x)+String(y+1));
             ModalContent.insertBefore(newElement4,null);
         }
 
@@ -149,8 +149,8 @@
             newElement.setAttribute("type", "button");
             newElement.setAttribute("class", "btn btn-light");
             newElement.setAttribute("data-toggle", "modal");
-            newElement.setAttribute("data-target","#Modal"+String(x)+String(y));
-            newElement.setAttribute("id", "btn"+String(x)+String(y));
+            newElement.setAttribute("data-target","#Modal"+String(x)+String(y+1));
+            newElement.setAttribute("id", "btn"+String(x)+String(y+1));
             //一応前のボタンの後ろってしてるけどnullとの違いは分からない()
             var parentDiv = document.getElementById("parent-div"+String(x));
             //var before = document.getelementById("btn"+String(x)+String(y-1))
@@ -158,7 +158,7 @@
 
         }
 
-                //btnの中に<btn～><img～></btn>みたいなイメージで入れる
+        //btnの中に<btn～><img～></btn>みたいなイメージで入れる
         function addImage(x,y,z){
             document.getElementById('image'+String(x)+String(y)).src = z
             var newElement = document.createElement("img");
