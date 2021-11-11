@@ -19,6 +19,7 @@ text-decoration: none;
 
 .token-wrapper {
     padding: 10% 20%;
+    max-width: 1170px;
     color: white;
 }
 
