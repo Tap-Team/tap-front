@@ -15,6 +15,7 @@ text-decoration: none;
 .container {
     max-width: 1170px;
     width: 100%;
+    color: red;
 }
 
 header {
@@ -91,8 +92,9 @@ header {
 
 .test-wrapper {
     padding: 10% 20%;
-    color: red;
+    color: black;
     max-width: 1170px;
+    width: 100%;
 }
 
 .modal-content {
