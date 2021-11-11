@@ -25,27 +25,21 @@
                 <div class="parents">
                     <div id="parent-div1">
                         <!--<img src="" width=300px id="image11">-->
-                        <div class="col-1">
-                            <button type="button" class="btn btn-light mb-12" data-toggle="modal" data-target="#Modal11"><img src="" width=300px id="image11"></button>
-                        </div>
+                        <button type="button" class="btn btn-light mb-12" data-toggle="modal" data-target="#Modal11" id="btn11"><img src="" width=300px id="image11"></button>
                         <p>parent11</p>
                     </div>
                 </div>
                 <div class="parents">
                     <div id="parent-div2">
                         <!--<img src="" width=300px id="image21">-->
-                        <div class="col-2">
-                            <button type="button" class="btn btn-light mb-12" data-toggle="modal" data-target="#Modal21"><img src="" width=300px id="image21"></button>
-                        </div>
+                        <button type="button" class="btn btn-light mb-12" data-toggle="modal" data-target="#Modal21" id=btn21><img src="" width=300px id="image21"></button>
                         <p>parent21</p>
                     </div>
                 </div>
                 <div class="parents">
                     <div id="parent-div3">
                         <!--<img src="" width=300px id="image31">-->
-                        <div class="col-3">
-                            <button type="button" class="btn btn-light btn-ignore mb-12" data-toggle="modal" data-target="#Modal31"><img src="" width=300px id="image31"></button>
-                        </div>
+                        <button type="button" class="btn btn-light mb-12" data-toggle="modal" data-target="#Modal31" id="btn31"><img src="" width=300px id="image31"></button>
                         <p>parent31</p>
                     </div>
                 </div>
@@ -76,7 +70,6 @@
                     <div class="modal-content">
                         <div class="modal-body">
                             <img src="" width=300px id="image11">
-                            <label>2222222222222</label>
                         </div>
                         <div class="modal-body">
                             <p>所有者</p>
@@ -96,7 +89,6 @@
                     <div class="modal-content">
                         <div class="modal-body">
                             <img src="" width=300px id="image11">
-                            <label>33333333333333</label>
                         </div>
                         <div class="modal-body">
                             <p>所有者</p>
@@ -120,29 +112,77 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script>
 
+        //btnの中に<btn～><img～></btn>みたいなイメージで入れる
         function addImage(x,y,z){
             document.getElementById('image'+String(x)+String(y)).src = z
             var newElement = document.createElement("img");
             newElement.setAttribute("id","image"+String(x)+String(y+1));
             newElement.setAttribute("width", 300);
 
-            var parentDiv = document.getElementById("parent-div"+String(x));
-            var before = document.getElementById("image"+String(x)+String(y));
-            parentDiv.insertBefore(newElement, before.nextSibling);
+            var btnXY = document.getElementById("btn"+String(x)+String(y));
+            //var before = document.getElementById("image"+String(x)+String(y));
+            btnXY.insertBefore(newElement, null);
         }
 
-        function addmodal(x){
-            var newelement = document.createElement("div")
+        //ボタン(画像)じゃなくて表示される内容の一番大枠の部分
+        function addmodal(x,y){
+            var newElement = document.createElement("div");
             newElement.setAttribute("class","modal fade");
-            newElement.setAttribute("id","Modal1"+String(x));
+            newElement.setAttribute("id","Modal"+String(x)+String(y));
             newElement.setAttribute("tabindex","-1");
             newElement.setAttribute("role","dialog");
             newElement.setAttribute("aria-labelledby","basicModal");
             newElement.setAttrinbute("aria-hidden","true");
-
+            //test-Wrapperにぶっこむ
             var testWrapper = document.getElementById("tesr-wrapper");
             testWrapper.insertBefore(newElement, null);
+
+            var newElement2 = document.createElement("div");
+            newElement2.setAttribute("class","modal-dialog");
+            var ModalFade = document.getElementById("modal fade");
+            Modalfade.insertBefore(newElement2, null);
+
+            var newElement3 = document.createElement("div");
+            newElement3.setAttribute("class","modal-content");
+            var ModalDialog = document.getElementById("modal-dialog");
+            ModalDialog.insertBefore(newElement3,null);
+
+            var newElement4 = document.createElement("div");
+            newElement4.setAttribute("class","modal-body");
+            var ModalDialog = document.getElementById("modal-content");
+            ModalDialog.insertBefore(newElement4,null);
         }
+
+        //モーダルのボタンをparent-divにぶちこむ
+        function addModalBtn(x,y){
+            var newElement = document.create("button");
+            newElement.setAttribute("type", "button");
+            newElement.setAttribute("class", "btn btn-light");
+            newElement.setAttribute("data-toggle", "modal");
+            newElement.setAttribute("data-target","#Modal"+String(x)+String(y));
+            newelement.setAttribute("id", "btn"+String(x)+String(y));
+            //一応前のボタンの後ろってしてるけどnullとの違いは分からない
+            var parentDiv = document.getElemntById("parent-div"+String(x));
+            var before = document.getelementById("btn"+String(x)+String(y-1))
+            parentDiv.insertBefore(newElement, before.nextSibling);
+
+        }
+
+        //btnにimgを入れる　前の関数でid追加したから指定できる（はず）
+        //nullの部分は信用するしかない
+        /*
+        function addModalBtnImage(x,y,z){
+            document.getElementById('image'+String(x)+String(y)).src = z
+            var newElement = document.createElement("img");
+            newElement.setAttribute("id","image"+String(x)+String(y+1));
+            newElement.setAttribute("width", 300);
+            var parentDiv = document.getElementById("btn"+String(x));
+            parentDiv.insertBefore(newElement, null);
+        }
+        */
+
+        //<button type="button" class="btn btn-light mb-12" data-toggle="modal" data-target="#Modal11"><img src="" width=300px id="image11"></button>
+
 
         var getToken = axios.get("https://tap-api.shmn7iii.net/v2/tokens")
             .then(response => {
@@ -166,14 +206,20 @@
 
                     //もしiが３の倍数なら３列目
                     if(i%3==0){
+                        addModal(3,third);
+                        addModalBtn(3,third);
                         addImage(3,third,base64);
                         third++;
                     //もしiが1の倍数なら1列目
                     }else if(i%3==1){
+                        addModal(1,first);
+                        addModalBtn(1,first);
                         addImage(1,first,base64);
                         first++;
                     //もしiが2の倍数なら2列目
                     }else{
+                        addModal(2,second);
+                        addModalBtn(2,second);
                         addImage(2,second,base64);
                         second++;
                     }
