@@ -45,7 +45,7 @@
                 </div>
             </div>
         </div>
-        <div class="test-wrapper">
+        <div class="test-wrapper" id="TestWrapper">
             <div class="modal fade" id="Modal11" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
                 <div class="modal-dialog" id="modal-dialog11">
                     <div class="modal-content" id="modal-content11">
@@ -122,7 +122,7 @@
             newElement.setAttribute("aria-labelledby","basicModal");
             newElement.setAttribute("aria-hidden","true");
             //test-Wrapperにぶっこむ
-            var testWrapper = document.getElementByClassName('test-wrapper');
+            var testWrapper = document.getElementsById('TestWrapper');
             testWrapper.insertBefore(newElement, null);
 
             var newElement2 = document.createElement("div");
