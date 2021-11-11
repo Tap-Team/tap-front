@@ -47,8 +47,8 @@
         </div>
         <div class="test-wrapper">
             <div class="modal fade" id="Modal11" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
+                <div class="modal-dialog" id="modal-dialog11">
+                    <div class="modal-content" id="modal-content11">
                         <div class="modal-body">
                             <img src="" width=300px id="image11">
                         </div>
@@ -66,8 +66,8 @@
                 </div>
             </div>
             <div class="modal fade" id="Modal21" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
+                <div class="modal-dialog" id="modal-dialog21">
+                    <div class="modal-content" id="modal-content21">
                         <div class="modal-body">
                             <img src="" width=300px id="image11">
                         </div>
@@ -85,8 +85,8 @@
                 </div>
             </div>
             <div class="modal fade" id="Modal31" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
+                <div class="modal-dialog" id="modal-dialog31">
+                    <div class="modal-content" id="modal-content31">
                         <div class="modal-body">
                             <img src="" width=300px id="image11">
                         </div>
@@ -134,22 +134,24 @@
             newElement.setAttribute("aria-labelledby","basicModal");
             newElement.setAttrinbute("aria-hidden","true");
             //test-Wrapperにぶっこむ
-            var testWrapper = document.getElementById("tesr-wrapper");
+            var testWrapper = document.getElementByClassName("test-wrapper");
             testWrapper.insertBefore(newElement, null);
 
             var newElement2 = document.createElement("div");
             newElement2.setAttribute("class","modal-dialog");
-            var ModalFade = document.getElementById("modal fade");
+            newElement2.setAttribute("id","modal-dialog"+String(x)+String(y));
+            var ModalFade = document.getElementById("Modal"+String(x)+String(y));
             Modalfade.insertBefore(newElement2, null);
 
             var newElement3 = document.createElement("div");
             newElement3.setAttribute("class","modal-content");
-            var ModalDialog = document.getElementById("modal-dialog");
+            newElement3.setAttribute("id","modali-content"+String(x)+String(y));
+            var ModalDialog = document.getElementById("modal-dialog"+String(x)+String(y));
             ModalDialog.insertBefore(newElement3,null);
 
             var newElement4 = document.createElement("div");
             newElement4.setAttribute("class","modal-body");
-            var ModalDialog = document.getElementById("modal-content");
+            var ModalDialog = document.getElementById("modal-content"+String(x)+String(y));
             ModalDialog.insertBefore(newElement4,null);
         }
 
@@ -161,10 +163,10 @@
             newElement.setAttribute("data-toggle", "modal");
             newElement.setAttribute("data-target","#Modal"+String(x)+String(y));
             newelement.setAttribute("id", "btn"+String(x)+String(y));
-            //一応前のボタンの後ろってしてるけどnullとの違いは分からない
+            //一応前のボタンの後ろってしてるけどnullとの違いは分からない()
             var parentDiv = document.getElemntById("parent-div"+String(x));
-            var before = document.getelementById("btn"+String(x)+String(y-1))
-            parentDiv.insertBefore(newElement, before.nextSibling);
+            //var before = document.getelementById("btn"+String(x)+String(y-1))
+            parentDiv.insertBefore(newElement, null);
 
         }
 
