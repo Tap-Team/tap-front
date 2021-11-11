@@ -17,12 +17,6 @@ text-decoration: none;
     width: 100%;
 }
 
-.token-wrapper {
-    padding: 10% 20%;
-    max-width: 1170px;
-    color: white;
-}
-
 header {
     height: 80px;
     width: 100%;
@@ -78,6 +72,7 @@ header {
     padding-right: 5%;
     background-color: #f7f7f7;
     text-align: center;
+    max-width: 1170px;
 }
 .heading {
     padding-top: 55px;
@@ -97,6 +92,7 @@ header {
 .test-wrapper {
     padding: 10% 20%;
     color: white;
+    max-width: 1170px;
 }
 
 .modal-content {
