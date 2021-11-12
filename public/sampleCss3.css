@@ -16,12 +16,6 @@ text-decoration: none;
     width: 100%;
 }
 
-.token-wrapper {
-    padding: 10% 20%;
-    max-width: 1170px;
-    color: white;
-}
-
 header {
     height: 80px;
     width: 100%;
@@ -61,8 +55,7 @@ header {
 
 .token-wrapper {
     padding-bottom: 80px;
-    padding-left: 5%;
-    padding-right: 5%;
+    padding: 10%;
     background-color: #f7f7f7;
     text-align: center;
 }
@@ -76,7 +69,7 @@ header {
 }
 .test-wrapper {
     padding: 10% 20%;
-    color: white;
+    background-color: black;
 }
 .modal-content {
     width: 40%;
