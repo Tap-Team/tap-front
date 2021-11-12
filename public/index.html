@@ -67,8 +67,11 @@
 
             var newElement4 = document.createElement("div");
             newElement4.setAttribute("class","modal-body");
+            newElement4.setAttribute("id","modal-body"+String(x)+String(y));
             var ModalContent = document.getElementById("modal-content"+String(x)+String(y));
             ModalContent.insertBefore(newElement4,null);
+
+
         }
 
          //モーダルのボタンをparent-divにぶちこむ
@@ -94,6 +97,59 @@
             btnXY.insertBefore(newElement, null);
             document.getElementById('image'+String(x)+String(y)).src = z
         }
+
+        function addImageInModal(x,y,z){
+            var newElement = document.creatElement("img");
+            newElement.setAttribute("id","imageInModal"+String(x)+String(y));
+            newElement.setAttribute("width", 300);
+            var modalBody = document.getElementById("modal-body"+String(x)+String(y));
+            modalBody.insertBefore(newElement,null);
+            document.getElementById("imageInModal"+String(x)+String(y)).src = z
+        }
+
+        function addTransferButton(x,y){
+            var newElement = document.createElement("button");
+            newElement.setAttribute("type","button");
+            newElement.setAttribute("class","btn btn-default");
+            newElement.setAttribute("id","transferBotton"+String(x)+String(y));
+            var modalBody = document.getElementById("modal-body"+String(x)+String(y));
+            modalBody.insertBefore(newElement,null)
+        }
+
+        function transfer(x,y){
+            var newElement = document.createElement("p");
+            newElement.setAttribute("")
+        }
+
+        function addIncinerationButton(x,y){
+            var newElement = document.createElement("button");
+            newElement.setAttribute("type","button");
+            newElement.setAttribute("class","btn btn-default");
+            newElement.setAttribute("id","incinerationBotton"+String(x)+String(y));
+            var modalBody = document.getElementById("modal-body"+String(x)+String(y));
+            modalBody.insertBefore(newElement,null)
+        }
+
+
+
+
+
+
+        <img src="" width=300px id="image11">
+                        </div>
+                        <div class="modal-body">
+                            <p>所有者</p>
+                            <p>test</p>
+                            <p>発行日</p>
+                            <p>test</p>
+                            <p>移転歴</p>
+                            <p>test</p>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+                            <button type="button" class="btn btn-danger">削除</button>
+        //<button type="button" class="btn btn-light mb-12" data-toggle="modal" data-target="#Modal11"><img src="" width=300px id="image11"></button>
+
+
+
         //<button type="button" class="btn btn-light mb-12" data-toggle="modal" data-target="#Modal11"><img src="" width=300px id="image11"></button>
         var getToken = axios.get("https://tap-api.shmn7iii.net/v2/tokens")
             .then(response => {
