@@ -68,8 +68,7 @@ header {
 
 .token-wrapper {
     padding-bottom: 80px;
-    padding-left: 5%;
-    padding-right: 5%;
+    padding: 10%;
     background-color: #f7f7f7;
     text-align: center;
     max-width: 1170px;
@@ -93,9 +92,5 @@ header {
     padding: 10% 20%;
     color: black;
     max-width: 1170px;
-    width: 100%;
-}
-
-.modal-content {
     width: 100%;
 }
