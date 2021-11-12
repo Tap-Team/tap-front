@@ -5,12 +5,11 @@ body {
     margin: 0;
     font-family: "Hiragino Kaku Gothic ProN", sans-serif;
   }
-a {
-text-decoration: none;
-}
+
 .clear {
     clear: left;
 }
+
 .container {
     max-width: 1170px;
     width: 100%;
@@ -54,20 +53,16 @@ header {
 }
 
 .token-wrapper {
-    padding-bottom: 80px;
     padding: 10%;
-    background-color: red;
-    text-align: center;
+    color: #f7f7f7;
 }
 
 .parents{
     display: inline-block;
     width: 33%;
 }
-.parents img {
-    margin: 5%;
-}
+
 .test-wrapper {
-    padding: 10% 20%;
-    background-color: black;
+    padding: 10%;
+    color: black;
 }
