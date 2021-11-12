@@ -20,52 +20,6 @@ text-decoration: none;
     color: white;
 }
 
-header {
-    height: 80px;
-    width: 100%;
-    background-color: white;
-    position :fixed;
-    top: 0;
-    z-index: 10;
-    display: inline-block;
-}
-.header-left {
-    float: left;
-    position: relative;
-    left: -100px;
-    color: rgba(234,223,202);
-    font-family: 'Comic Sans MS';
-}
-.header-left form {
-    position: relative;
-    left: 100px;
-    margin-top: 2%;
-}
-.header-right {
-    float: right;
-    margin-right: -25px;
-    margin-top: -70px;
-  }
-  
-.header-right a {
-    line-height: 80px;
-    padding: 0 25px;
-    color: black;
-    display: inline-block;
-    transition: all 0.5s;
-    position: relative;
-    margin-top: -40%;
-}
-.signup {
-    font-family: 'Comic Sans MS';
-}
-.signin {
-    font-family: 'Comic Sans MS';
-}
-  
-.header-right a:hover {
-    background-color: rgba(255, 255, 255, 0.3);
-}
 .token-wrapper {
     padding: 5%;
     background-color: #f7f7f7;
