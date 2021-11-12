@@ -89,11 +89,10 @@
             var newElement = document.createElement("img");
             newElement.setAttribute("id","image"+String(x)+String(y));
             newElement.setAttribute("width", 300);
-            document.getElementById('image'+String(x)+String(y)).src = z
-
             var btnXY = document.getElementById("btn"+String(x)+String(y));
             //var before = document.getElementById("image"+String(x)+String(y));
             btnXY.insertBefore(newElement, null);
+            document.getElementById('image'+String(x)+String(y)).src = z
         }
         //<button type="button" class="btn btn-light mb-12" data-toggle="modal" data-target="#Modal11"><img src="" width=300px id="image11"></button>
         var getToken = axios.get("https://tap-api.shmn7iii.net/v2/tokens")
