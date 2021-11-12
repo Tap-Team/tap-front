@@ -1,103 +1,25 @@
 * {
     box-sizing: border-box;
 }
-
 body {
     margin: 0;
     font-family: "Hiragino Kaku Gothic ProN", sans-serif;
   }
-
 a {
 text-decoration: none;
 }
-
 .clear {
     clear: left;
 }
-
 .container {
     max-width: 1170px;
     width: 100%;
-    padding: 0 15px;
-    margin: 0 auto;
 }
 
-.top-container {
+.token-wrapper {
+    padding: 10% 20%;
     max-width: 1170px;
-    width: 100%;
-    padding: 0 15px;
-    margin: 5% 30%;
-}
-
-.top-wrapper {
-    padding: 180px 0 100px 0;
-    background-image: url(../htmlCss/steve2.jpg);
-    opacity: 0.8;
-    background-size: cover;
     color: white;
-    height: 90%;
-}
-
-.top-wrapper h1 {
-    font-size: 45px;
-    letter-spacing: 5px;
-}
-
-.btn-wrapper {
-    margin: 20px 0;
-  }
-  
-  
-.btn-wrapper p {
-    margin: 10px 0;
-}
-
-.create {
-    background-color: rgba(95,193,199);
-    margin-right: 10px;
-    padding: 8px 24px;
-    color: rgba(234,223,202);
-    display: inline-block;
-    opacity: 0.8;
-    border-radius: 4px;
-    text-align: center;
-    font-family: 'Comic Sans MS';
-}
-
-
-#form2{
-    position:relative;
-    max-width:300px;	
-    margin-bottom:20px;
-    }
-#sbox2{
-    height:40px;
-    width: 600px;
-    padding:0 10px; 
-    position:absolute; 
-    left:0;
-    top:0; 
-    border-radius:2px;
-    outline:0;
-    background:#eee;
-    border-radius: 5px;	
-    }
-#sbtn2{
-    height:50px;
-    position:absolute; 
-    left:555px;/*アイコン左右の位置調整*/
-    top:-3px;
-    background:none;
-    color:#666;
-    border:none;
-    font-size:20px;/*アイコンサイズ*/
-    }
-#sbtn5:hover{
-    color:#7fbfff;
-    }
-  
-.create:hover {
-    opacity: 1;
 }
 
 header {
@@ -109,7 +31,6 @@ header {
     z-index: 10;
     display: inline-block;
 }
-
 .header-left {
     float: left;
     position: relative;
@@ -117,26 +38,11 @@ header {
     color: rgba(234,223,202);
     font-family: 'Comic Sans MS';
 }
-
-.header-left img {
-    float: left;
-    position: relative;
-    left: -7%;
-}
 .header-left form {
     position: relative;
     left: 100px;
     margin-top: 2%;
 }
-
-.menu-icon {
-    color: white;
-    float: right;
-    font-size: 25px;
-    padding: 21px 0;
-    display: none;
-}
-
 .header-right {
     float: right;
     margin-right: -25px;
@@ -152,11 +58,9 @@ header {
     position: relative;
     margin-top: -40%;
 }
-
 .signup {
     font-family: 'Comic Sans MS';
 }
-
 .signin {
     font-family: 'Comic Sans MS';
 }
@@ -164,7 +68,6 @@ header {
 .header-right a:hover {
     background-color: rgba(255, 255, 255, 0.3);
 }
-
 .token-wrapper {
     padding-bottom: 80px;
     padding-left: 5%;
@@ -172,76 +75,22 @@ header {
     background-color: #f7f7f7;
     text-align: center;
 }
-
 .heading {
     padding-top: 55px;
     padding-bottom: 50px;
     color: rgb(26,33,57);
 }
-
-.token-wrapper h2 {
-    font-family: 'Comic Sans MS';
+.parents{
+    display: inline-block;
+    width: 33%;
 }
-
-.token-icon {
+.parents img {
     margin: 5%;
-    position: relative;
 }
-
-.token-icon p {
-    position: absolute;
-    top: 72%;
-    left: 5%;
-    font-family: 'Comic Sans MS';
+.test-wrapper {
+    padding: 10% 20%;
+    color: white;
 }
-
-.token-icon i {
-    position: absolute;
-    top: 85%;
-    left: 90%;
-}
-
-.img {
-    border-radius: 4px;
-    border: 1px solid rgba(204, 204, 204, .9);
-    padding-bottom: 20%;
-    box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);
-}
-
-.token {
-    float: left;
-    width: 25%;
-  }
-
-  .token p {
-      float: left;
-  }
-
-.message-wrapper {
-    border-bottom: 1px solid #eee;
-    padding-bottom: 80px;
-    text-align: center;
-}
-
-footer {
-    padding-top: 30px;
-    padding-bottom: 20px;
-}
-
-.footer-logo {
-    text-align: center;
-}
-
-
-.footer-link {
-    text-align: center;
-}
-.link {
-    padding: 0 100px;
-    text-align: center;
-}
-
-footer a {
-    color: #b3aeb5;
-    font-size: 12px;
+.modal-content {
+    width: 40%;
 }
