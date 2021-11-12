@@ -36,6 +36,8 @@ text-decoration: none;
     padding: 10% 20%;
     color: white;
 }
+
 .modal-content {
-    width: 40%;
+    width: 1000px;
+    padding: 5%;
 }
