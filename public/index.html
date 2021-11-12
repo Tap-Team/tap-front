@@ -143,9 +143,8 @@
             ModalContent.insertBefore(newElement4,null);
         }
 
-        //モーダルのボタンをparent-divにぶちこむ
-        //test
-        function addModalBtn(x,y){
+         //モーダルのボタンをparent-divにぶちこむ
+         function addModalBtn(x,y){
             var newElement = document.createElement("button");
             newElement.setAttribute("type", "button");
             newElement.setAttribute("class", "btn btn-light");
@@ -156,9 +155,7 @@
             var parentDiv = document.getElementById("parent-div"+String(x));
             //var before = document.getelementById("btn"+String(x)+String(y-1))
             parentDiv.insertBefore(newElement, null);
-
         }
-
         //btnの中に<btn～><img～></btn>みたいなイメージで入れる
         function addImage(x,y,z){
             document.getElementById('image'+String(x)+String(y)).src = z
@@ -170,10 +167,7 @@
             //var before = document.getElementById("image"+String(x)+String(y));
             btnXY.insertBefore(newElement, null);
         }
-
         //<button type="button" class="btn btn-light mb-12" data-toggle="modal" data-target="#Modal11"><img src="" width=300px id="image11"></button>
-
-
         var getToken = axios.get("https://tap-api.shmn7iii.net/v2/tokens")
             .then(response => {
                 return response.data;
@@ -186,14 +180,11 @@
                 var first = 1;
                 var second = 1;
                 var third = 1;
-
                 for (let i = 1; i<le+1; i++){
                     //変数base64にトークンのbase64の文字列を渡す
                     var base64 = data["data"][i-1]["token_data"];
-
                     //どこまで動いてるのか確認用
                     console.log("初期")
-
                     //もしiが３の倍数なら３列目
                     if(i%3==0){
                         addModal(3,third);
@@ -220,7 +211,6 @@
                 console.log(error);
                 console.log("失敗");
             });
-
     </script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
