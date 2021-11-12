@@ -32,7 +32,12 @@ text-decoration: none;
 .parents img {
     margin: 5%;
 }
+
 .test-wrapper {
     padding: 10% 20%;
     color: white;
+}
+
+.modal-body img {
+    margin: 5%;
 }

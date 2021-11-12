@@ -54,7 +54,7 @@
             testWrapper.insertBefore(newElement, null);
 
             var newElement2 = document.createElement("div");
-            newElement2.setAttribute("class","modal-dialog modal-lg");
+            newElement2.setAttribute("class","modal-dialog modal-xl");
             newElement2.setAttribute("id","modal-dialog"+String(x)+String(y));
             var ModalFade = document.getElementById("Modal"+String(x)+String(y));
             ModalFade.insertBefore(newElement2, null);
@@ -101,7 +101,7 @@
         function addImageInModal(x,y,z){
             var newElement = document.createElement("img");
             newElement.setAttribute("id","imageInModal"+String(x)+String(y));
-            newElement.setAttribute("width", 300);
+            newElement.setAttribute("width", 500);
             var modalBody = document.getElementById("modal-body"+String(x)+String(y));
             modalBody.insertBefore(newElement,null);
             document.getElementById("imageInModal"+String(x)+String(y)).src = z
