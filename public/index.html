@@ -54,15 +54,15 @@
             testWrapper.insertBefore(newElement, null);
 
             var newElement2 = document.createElement("div");
-            newElement2.setAttribute("class","modal-dialog");
-            newElement2.setAttribute("id","modal-dialog"+String(x)+String(y)+ " modal-lg");
+            newElement2.setAttribute("class","modal-dialog modal-lg");
+            newElement2.setAttribute("id","modal-dialog"+String(x)+String(y));
             var ModalFade = document.getElementById("Modal"+String(x)+String(y));
             ModalFade.insertBefore(newElement2, null);
 
             var newElement3 = document.createElement("div");
             newElement3.setAttribute("class","modal-content");
             newElement3.setAttribute("id","modal-content"+String(x)+String(y));
-            var ModalDialog = document.getElementById("modal-dialog"+String(x)+String(y)+" modal-lg");
+            var ModalDialog = document.getElementById("modal-dialog"+String(x)+String(y));
             ModalDialog.insertBefore(newElement3,null);
 
             var newElement4 = document.createElement("div");
