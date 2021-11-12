@@ -116,11 +116,6 @@
             modalBody.insertBefore(newElement,null)
         }
 
-        function transfer(x,y){
-            var newElement = document.createElement("p");
-            newElement.setAttribute("")
-        }
-
         function addIncinerationButton(x,y){
             var newElement = document.createElement("button");
             newElement.setAttribute("type","button");
@@ -153,18 +148,27 @@
                         addModal(3,third);
                         addModalBtn(3,third);
                         addImage(3,third,base64);
+                        addImageInModal(3,third,base64);
+                        addTransferButton(3,third);
+                        addIncinerationButton(3,third);
                         third++;
                     //もしiが1の倍数なら1列目
                     }else if(i%3==1){
                         addModal(1,first);
                         addModalBtn(1,first);
                         addImage(1,first,base64);
+                        addImageInModal(1,first,base64);
+                        addTransferButton(1,first);
+                        addIncinerationButton(1,first);
                         first++;
                     //もしiが2の倍数なら2列目
                     }else{
                         addModal(2,second);
                         addModalBtn(2,second);
                         addImage(2,second,base64);
+                        addImageInModal(2,second,base64);
+                        addTransferButton(2,second);
+                        addIncinerationButton(2,second);
                         second++;
                     }
                 }
