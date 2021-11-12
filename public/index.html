@@ -3,16 +3,212 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Tap!</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" href="sampleCss3.css">
     </head>
     <body>
         <header>
+            <div class="container">
+                <div class="header-left">
+                    <div class = logo>TAP!</div>
+                </div>
+                <div class="header-right">
+                    <a href="#" class="signup">Sign up</a>
+                    <a href="#" class="signin">Sign in</a>
+                </div>
+            </div>
         </header>
         <div class="token-wrapper">
             <div class="container">
-                <p>RESET1</p>
-                <p>RESET2</p>
+                <div class="parents">
+                    <div id="parent-div1">
+                        <!--<img src="" width=300px id="image11">-->
+                        <button type="button" class="btn btn-light mb-12" data-toggle="modal" data-target="#Modal11" id="btn11"><img src="" width=300px id="image11"></button>
+                        <p>parent11</p>
+                    </div>
+                </div>
+                <div class="parents">
+                    <div id="parent-div2">
+                        <!--<img src="" width=300px id="image21">-->
+                        <button type="button" class="btn btn-light mb-12" data-toggle="modal" data-target="#Modal21" id=btn21><img src="" width=300px id="image21"></button>
+                        <p>parent21</p>
+                    </div>
+                </div>
+                <div class="parents">
+                    <div id="parent-div3">
+                        <!--<img src="" width=300px id="image31">-->
+                        <button type="button" class="btn btn-light mb-12" data-toggle="modal" data-target="#Modal31" id="btn31"><img src="" width=300px id="image31"></button>
+                        <p>parent31</p>
+                    </div>
+                </div>
             </div>
         </div>
+        <div class="test-wrapper" id="TestWrapper">
+            <div class="modal fade" id="Modal11" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                <div class="modal-dialog" id="modal-dialog11">
+                    <div class="modal-content" id="modal-content11">
+                        <div class="modal-body">
+                            <img src="" width=300px id="image11">
+                        </div>
+                        <div class="modal-body">
+                            <p>所有者</p>
+                            <p>test</p>
+                            <p>発行日</p>
+                            <p>test</p>
+                            <p>移転歴</p>
+                            <p>test</p>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+                            <button type="button" class="btn btn-danger">削除</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="Modal21" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                <div class="modal-dialog" id="modal-dialog21">
+                    <div class="modal-content" id="modal-content21">
+                        <div class="modal-body">
+                            <img src="" width=300px id="image11">
+                        </div>
+                        <div class="modal-body">
+                            <p>所有者</p>
+                            <p>test</p>
+                            <p>発行日</p>
+                            <p>test</p>
+                            <p>移転歴</p>
+                            <p>test</p>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+                            <button type="button" class="btn btn-danger">削除</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="Modal31" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                <div class="modal-dialog" id="modal-dialog31">
+                    <div class="modal-content" id="modal-content31">
+                        <div class="modal-body">
+                            <img src="" width=300px id="image11">
+                        </div>
+                        <div class="modal-body">
+                            <p>所有者</p>
+                            <p>test</p>
+                            <p>発行日</p>
+                            <p>test</p>
+                            <p>移転歴</p>
+                            <p>test</p>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+                            <button type="button" class="btn btn-danger">削除</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://www.promisejs.org/polyfills/promise-7.0.4.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script>
+
+        //ボタン(画像)じゃなくて表示される内容の一番大枠の部分
+        function addModal(x,y){
+            var newElement = document.createElement("div");
+            newElement.setAttribute("class","modal fade");
+            newElement.setAttribute("id","Modal"+String(x)+String(y+1));
+            newElement.setAttribute("tabindex","-1");
+            newElement.setAttribute("role","dialog");
+            newElement.setAttribute("aria-labelledby","basicModal");
+            newElement.setAttribute("aria-hidden","true");
+            //test-Wrapperにぶっこむ
+            var testWrapper = document.getElementById('TestWrapper');
+            testWrapper.insertBefore(newElement, null);
+
+            var newElement2 = document.createElement("div");
+            newElement2.setAttribute("class","modal-dialog");
+            newElement2.setAttribute("id","modal-dialog"+String(x)+String(y+1));
+            var ModalFade = document.getElementById("Modal"+String(x)+String(y+1));
+            ModalFade.insertBefore(newElement2, null);
+
+            var newElement3 = document.createElement("div");
+            newElement3.setAttribute("class","modal-content");
+            newElement3.setAttribute("id","modal-content"+String(x)+String(y+1));
+            var ModalDialog = document.getElementById("modal-dialog"+String(x)+String(y+1));
+            ModalDialog.insertBefore(newElement3,null);
+
+            var newElement4 = document.createElement("div");
+            newElement4.setAttribute("class","modal-body");
+            var ModalContent = document.getElementById("modal-content"+String(x)+String(y+1));
+            ModalContent.insertBefore(newElement4,null);
+        }
+
+         //モーダルのボタンをparent-divにぶちこむ
+         function addModalBtn(x,y){
+            var newElement = document.createElement("button");
+            newElement.setAttribute("type", "button");
+            newElement.setAttribute("class", "btn btn-light");
+            newElement.setAttribute("data-toggle", "modal");
+            newElement.setAttribute("data-target","#Modal"+String(x)+String(y+1));
+            newElement.setAttribute("id", "btn"+String(x)+String(y+1));
+            //一応前のボタンの後ろってしてるけどnullとの違いは分からない()
+            var parentDiv = document.getElementById("parent-div"+String(x));
+            //var before = document.getelementById("btn"+String(x)+String(y-1))
+            parentDiv.insertBefore(newElement, null);
+        }
+        //btnの中に<btn～><img～></btn>みたいなイメージで入れる
+        function addImage(x,y,z){
+            document.getElementById('image'+String(x)+String(y)).src = z
+            var newElement = document.createElement("img");
+            newElement.setAttribute("id","image"+String(x)+String(y+1));
+            newElement.setAttribute("width", 300);
+
+            var btnXY = document.getElementById("btn"+String(x)+String(y+1));
+            //var before = document.getElementById("image"+String(x)+String(y));
+            btnXY.insertBefore(newElement, null);
+        }
+        //<button type="button" class="btn btn-light mb-12" data-toggle="modal" data-target="#Modal11"><img src="" width=300px id="image11"></button>
+        var getToken = axios.get("https://tap-api.shmn7iii.net/v2/tokens")
+            .then(response => {
+                return response.data;
+            })
+            .then(json => {
+                var data = json;
+                //トークンの数
+                const le = Object.keys(data["data"]).length;
+                //1列目2列目3列目それぞれでimage1→image2ってできる用の変数
+                var first = 1;
+                var second = 1;
+                var third = 1;
+                for (let i = 1; i<le+1; i++){
+                    //変数base64にトークンのbase64の文字列を渡す
+                    var base64 = data["data"][i-1]["token_data"];
+                    //どこまで動いてるのか確認用
+                    console.log("初期")
+                    //もしiが３の倍数なら３列目
+                    if(i%3==0){
+                        addModal(3,third);
+                        addModalBtn(3,third);
+                        addImage(3,third,base64);
+                        third++;
+                    //もしiが1の倍数なら1列目
+                    }else if(i%3==1){
+                        addModal(1,first);
+                        addModalBtn(1,first);
+                        addImage(1,first,base64);
+                        first++;
+                    //もしiが2の倍数なら2列目
+                    }else{
+                        addModal(2,second);
+                        addModalBtn(2,second);
+                        addImage(2,second,base64);
+                        second++;
+                    }
+                }
+                return json;
+            })
+            .catch(error => {
+                console.log(error);
+                console.log("失敗");
+            });
+    </script>
     </body>
 </html>
