@@ -12,81 +12,19 @@
                 <div class="parents">
                     <div id="parent-div1">
                         <!--<img src="" width=300px id="image11">-->
-                        <button type="button" class="btn btn-light mb-12" data-toggle="modal" data-target="#Modal11" id="btn11"><img src="" width=300px id="image11"></button>
                         <p>parent11</p>
                     </div>
                 </div>
                 <div class="parents">
                     <div id="parent-div2">
                         <!--<img src="" width=300px id="image21">-->
-                        <button type="button" class="btn btn-light mb-12" data-toggle="modal" data-target="#Modal21" id=btn21><img src="" width=300px id="image21"></button>
                         <p>parent21</p>
                     </div>
                 </div>
                 <div class="parents">
                     <div id="parent-div3">
                         <!--<img src="" width=300px id="image31">-->
-                        <button type="button" class="btn btn-light mb-12" data-toggle="modal" data-target="#Modal31" id="btn31"><img src="" width=300px id="image31"></button>
                         <p>parent31</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="test-wrapper" id="TestWrapper">
-            <div class="modal fade" id="Modal11" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-                <div class="modal-dialog" id="modal-dialog11">
-                    <div class="modal-content" id="modal-content11">
-                        <div class="modal-body">
-                            <img src="" width=300px id="image11">
-                        </div>
-                        <div class="modal-body">
-                            <p>所有者</p>
-                            <p>test</p>
-                            <p>発行日</p>
-                            <p>test</p>
-                            <p>移転歴</p>
-                            <p>test</p>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
-                            <button type="button" class="btn btn-danger">削除</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal fade" id="Modal21" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-                <div class="modal-dialog" id="modal-dialog21">
-                    <div class="modal-content" id="modal-content21">
-                        <div class="modal-body">
-                            <img src="" width=300px id="image11">
-                        </div>
-                        <div class="modal-body">
-                            <p>所有者</p>
-                            <p>test</p>
-                            <p>発行日</p>
-                            <p>test</p>
-                            <p>移転歴</p>
-                            <p>test</p>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
-                            <button type="button" class="btn btn-danger">削除</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal fade" id="Modal31" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-                <div class="modal-dialog" id="modal-dialog31">
-                    <div class="modal-content" id="modal-content31">
-                        <div class="modal-body">
-                            <img src="" width=300px id="image11">
-                        </div>
-                        <div class="modal-body">
-                            <p>所有者</p>
-                            <p>test</p>
-                            <p>発行日</p>
-                            <p>test</p>
-                            <p>移転歴</p>
-                            <p>test</p>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
-                            <button type="button" class="btn btn-danger">削除</button>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -103,7 +41,7 @@
         function addModal(x,y){
             var newElement = document.createElement("div");
             newElement.setAttribute("class","modal fade");
-            newElement.setAttribute("id","Modal"+String(x)+String(y+1));
+            newElement.setAttribute("id","Modal"+String(x)+String(y));
             newElement.setAttribute("tabindex","-1");
             newElement.setAttribute("role","dialog");
             newElement.setAttribute("aria-labelledby","basicModal");
@@ -114,19 +52,19 @@
 
             var newElement2 = document.createElement("div");
             newElement2.setAttribute("class","modal-dialog");
-            newElement2.setAttribute("id","modal-dialog"+String(x)+String(y+1));
-            var ModalFade = document.getElementById("Modal"+String(x)+String(y+1));
+            newElement2.setAttribute("id","modal-dialog"+String(x)+String(y));
+            var ModalFade = document.getElementById("Modal"+String(x)+String(y));
             ModalFade.insertBefore(newElement2, null);
 
             var newElement3 = document.createElement("div");
             newElement3.setAttribute("class","modal-content");
-            newElement3.setAttribute("id","modal-content"+String(x)+String(y+1));
-            var ModalDialog = document.getElementById("modal-dialog"+String(x)+String(y+1));
+            newElement3.setAttribute("id","modal-content"+String(x)+String(y));
+            var ModalDialog = document.getElementById("modal-dialog"+String(x)+String(y));
             ModalDialog.insertBefore(newElement3,null);
 
             var newElement4 = document.createElement("div");
             newElement4.setAttribute("class","modal-body");
-            var ModalContent = document.getElementById("modal-content"+String(x)+String(y+1));
+            var ModalContent = document.getElementById("modal-content"+String(x)+String(y));
             ModalContent.insertBefore(newElement4,null);
         }
 
@@ -136,8 +74,8 @@
             newElement.setAttribute("type", "button");
             newElement.setAttribute("class", "btn btn-light");
             newElement.setAttribute("data-toggle", "modal");
-            newElement.setAttribute("data-target","#Modal"+String(x)+String(y+1));
-            newElement.setAttribute("id", "btn"+String(x)+String(y+1));
+            newElement.setAttribute("data-target","#Modal"+String(x)+String(y));
+            newElement.setAttribute("id", "btn"+String(x)+String(y));
             //一応前のボタンの後ろってしてるけどnullとの違いは分からない()
             var parentDiv = document.getElementById("parent-div"+String(x));
             //var before = document.getelementById("btn"+String(x)+String(y-1))
@@ -145,12 +83,12 @@
         }
         //btnの中に<btn～><img～></btn>みたいなイメージで入れる
         function addImage(x,y,z){
-            document.getElementById('image'+String(x)+String(y)).src = z
             var newElement = document.createElement("img");
-            newElement.setAttribute("id","image"+String(x)+String(y+1));
+            newElement.setAttribute("id","image"+String(x)+String(y));
             newElement.setAttribute("width", 300);
+            document.getElementById('image'+String(x)+String(y)).src = z
 
-            var btnXY = document.getElementById("btn"+String(x)+String(y+1));
+            var btnXY = document.getElementById("btn"+String(x)+String(y));
             //var before = document.getElementById("image"+String(x)+String(y));
             btnXY.insertBefore(newElement, null);
         }
