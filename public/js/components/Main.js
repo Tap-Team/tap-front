@@ -16,17 +16,17 @@ class Main extends React.Component {
                     <div className='token-container'>
                         <div className="parents">
                             <div className="div-parent1">
-
+                                <p>parent1</p>
                             </div>
                         </div>
                         <div className="parents">
                             <div className="div-parent2">
-
+                                <p>parent2</p>
                             </div>
                         </div>
                         <div className="parents">
                             <div className="div-parent3">
-
+                                <p>parent3</p>
                             </div>
                         </div>
                     </div>
