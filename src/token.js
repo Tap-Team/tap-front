@@ -6,7 +6,7 @@ class Token extends React.Component {
     this.state = {isModalOpen: false};
   }
 
-  handleClickLesson() {
+  handleClickToken() {
     this.setState({isModalOpen: true});
   }
   
@@ -24,9 +24,9 @@ class Token extends React.Component {
             <div className='modal-header'></div>
             <div className='modal-introduction'>
               <h2>{this.props.name}</h2>
-              <p>{this.props.introduction}</p>
+              <img src={this.props.image} alt=""/>
             </div>
-            {/* onClickイベントを追加してください */}
+            {/* onClickイベント */}
             <button
               className='modal-close-btn'
               onClick={() => {this.handleClickClose()}}
@@ -42,10 +42,10 @@ class Token extends React.Component {
       <div className='token-card'>
         <div
           className='token-item'
-          onClick={() => {this.handleClickLesson()}}
+          onClick={() => {this.handleClickToken()}}
         >
           <p>{this.props.name}</p>
-          <img src={this.props.image} />
+          <img src={this.props.image} alt=""/>
         </div>
         {modal}
       </div>
