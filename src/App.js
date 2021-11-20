@@ -2,6 +2,7 @@ import './App.css';
 import Main from './Main';
 import Header from './Header';
 import Footer from './Footer';
+import Issue from './Issue';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
         <Header />
         <Main />
         <Footer />
+        <Issue />
       </body>
     </div>
   );
