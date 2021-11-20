@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import Main from './Main';
 import Header from './Header';
+import SignIn from './SignIn';
 import Footer from './Footer';
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
       </header>
       <body>
         <Header />
+        <SignIn />
         <Main />
         <Footer />
       </body>

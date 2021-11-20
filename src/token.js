@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React from 'react';
 
 class Token extends React.Component {
@@ -10,9 +11,17 @@ class Token extends React.Component {
     this.setState({isModalOpen: true});
   }
   
-  // handleClickCloseメソッドを定義してください
   handleClickClose() {
     this.setState({isModalOpen: false});
+  }
+
+  //一旦保留
+  handleClickTransfer(tokenId) {
+    axios.post("https://tap-api.shmn7iii.net/v2/tokens/"+String(tokenId));
+  }
+
+  handleClickBurn(tokenId) {
+    axios.delete("https://tap-api.shmn7iii.net/v2/tokens/"+String(tokenId));
   }
 
   render() {
@@ -32,6 +41,18 @@ class Token extends React.Component {
               onClick={() => {this.handleClickClose()}}
             >
               とじる
+            </button>
+            <button
+              className='modal-transfer-btn'
+              onClick={() => {this.handleClickTransfer(this.props.image)}}
+            >
+              移転
+            </button>
+            <button
+              className='modal-burn-btn'
+              onClick={() => {this.handleClickBurn(this.props.image)}}
+            >
+              焼却
             </button>
           </div>
         </div>
