@@ -24,9 +24,9 @@ function App() {
       </header>
       <body>
         <Header />
-        <SignIn />
         <Main />
         <Footer />
+        <SignIn />
       </body>
     </div>
   );

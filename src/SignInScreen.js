@@ -6,9 +6,10 @@ const uiConfig = {
     signInFlow: 'popup',
     signInSuccessUrl: "/",
     signInOptions: [
-        firebase.auth.TwitterAuthProvider.PROVIDER_ID
+        firebase.auth.TwitterAuthProvider.PROVIDER_ID,
     ],
 }
+
 
 const SignInScreen = (props) => {
     return (
@@ -18,5 +19,4 @@ const SignInScreen = (props) => {
         </div>
     );
 }
-
 export default SignInScreen;
