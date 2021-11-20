@@ -14,7 +14,6 @@ const uiConfig = {
 const SignInScreen = (props) => {
     return (
         <div>
-            <p>Please sign-in:</p>
             <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
         </div>
     );

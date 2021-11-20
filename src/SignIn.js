@@ -8,7 +8,7 @@ class SignIn extends React.Component {
       loading: true,
       user: null
     };
-  
+
     componentDidMount() {
       firebase.auth().onAuthStateChanged(user => {
         this.setState({
@@ -17,23 +17,26 @@ class SignIn extends React.Component {
         });
       });
     }
-  
+
     logout() {
       firebase.auth().signOut();
     }
-  
+
     render() {
-      if (this.state.loading) return <div>loading</div>;
-      return (
-        <div>
-          Username: {this.state.user && this.state.user.displayName}
-          <br />
-          {this.state.user ?
-            (<button onClick={this.logout}>Logout</button>) :
-            (<SignInScreen />)
-          }
-        </div>
-      );
+      if(this.state.user) {
+          return (
+            <div>
+              <img className="icon" src={this.state.user.photoURL} alt="icon" />
+              <button onClick={this.logout}>Logout</button>
+            </div>
+          );
+      } else {
+          return (
+            <div>
+              <SignInScreen />
+            </div>
+          );
+      }
     }
   }
 

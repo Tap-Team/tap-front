@@ -1,11 +1,12 @@
 import React from 'react';
+import SignIn from './SignIn';
 
 class Header extends React.Component {
     render() {
-
         return (
-            <div className="header-wrapper">
+            <div>
                 <p>This is HEADER!!!</p>
+                <SignIn />
             </div>
         );
     }
