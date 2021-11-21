@@ -61,19 +61,23 @@ class SignIn extends React.Component {
       let modal;
       if (this.state.isModalOpen) {
         modal = (
-          <div id="modal" className='modal' onClick={(event)=>{event.stopPropagation()}}>
-            <div className='modal-inner'>
-              <div className='modal-choice'>                
-              </div>
+          <div id="modal" className='header-modal' onClick={(event)=>{event.stopPropagation()}}>
+            <div className='header-modal-inner'>
+              <button
+                className='modal-close-btn'
+                onClick={() => {this.handleClickClose()}}
+              >
+                wallet
+              </button>
+              <button
+               onClick={() => {this.logout()}}>
+                Logout
+              </button>
               <button
                 className='modal-close-btn'
                 onClick={() => {this.handleClickClose()}}
               >
                 とじる
-              </button>
-              <button
-               onClick={() => {this.logout()}}>
-                Logout
               </button>
             </div>
           </div>

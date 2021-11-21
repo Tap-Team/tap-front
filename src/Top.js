@@ -8,6 +8,12 @@ class Top extends React.Component {
                 <div className="top-container">
                     <h1>Tap!</h1>
                     <p>nannkaiikanzino</p>
+                    <button
+                    className='create-btn'
+                    onClick={() => {this.handleClickClose()}}
+                    >
+                    Create
+                    </button>
                 </div>
                 <div className="NFTs-container">
                     <p>NFTs</p>
