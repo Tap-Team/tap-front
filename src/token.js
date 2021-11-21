@@ -5,14 +5,22 @@ class Token extends React.Component {
   constructor(props) {
     super(props);
     this.state = {isModalOpen: false};
+    this.handleClickClose = this.handleClickClose.bind(this);
   }
 
-  handleClickToken() {
+  handleClickToken(event) {
     this.setState({isModalOpen: true});
+    document.addEventListener('click',this.handleClickClose)
+    event.stopPropagation()
   }
   
   handleClickClose() {
     this.setState({isModalOpen: false});
+    document.removeEventListener('click',this.handleClickClose)
+  }
+
+  componentWillUnmount(){
+    document.removeEventListener('click',this.handleCliskClose)
   }
 
   //一旦保留
@@ -28,32 +36,38 @@ class Token extends React.Component {
     let modal;
     if (this.state.isModalOpen) {
       modal = (
-        <div className='modal'>
+        <div id="modal" className='modal' onClick={(event)=>{event.stopPropagation()}}>
           <div className='modal-inner'>
-            <div className='modal-header'></div>
-            <div className='modal-introduction'>
-              <h2>{this.props.name}</h2>
-              <img src={this.props.image} alt="" width="300"/>
+            <div className='modal-img'>
+              <img src={this.props.image} alt="" width="400"/>
             </div>
-            {/* onClickイベント */}
-            <button
-              className='modal-close-btn'
-              onClick={() => {this.handleClickClose()}}
-            >
-              とじる
-            </button>
-            <button
-              className='modal-transfer-btn'
-              onClick={() => {this.handleClickTransfer(this.props.image)}}
-            >
-              移転
-            </button>
-            <button
-              className='modal-burn-btn'
-              onClick={() => {this.handleClickBurn(this.props.image)}}
-            >
-              焼却
-            </button>
+            <div className="modal-explanation">
+              <div className="explanation">
+                <p>所有者</p>
+                <p>発行日</p>
+                <p>移転歴</p>
+              </div>
+              <div className="btn">
+                <button
+                  className='modal-transfer-btn'
+                  onClick={() => {this.handleClickClose()}}
+                >
+                  移転
+                </button>
+                <button
+                  className='modal-burn-btn'
+                  onClick={() => {this.handleClickClose()}}
+                >
+                  焼却
+                </button>
+                <button
+                  className='modal-close-btn'
+                  onClick={() => {this.handleClickClose()}}
+                >
+                  閉じる
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       );
@@ -63,10 +77,10 @@ class Token extends React.Component {
       <div className='token-card'>
         <div
           className='token-item'
-          onClick={() => {this.handleClickToken()}}
+          onClick={(event) => {this.handleClickToken(event)}}
         >
-          <p>{this.props.name}</p>
           <img src={this.props.image} alt="" width="300"/>
+          <p>{this.props.name}</p>
         </div>
         {modal}
       </div>

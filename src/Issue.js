@@ -25,6 +25,11 @@ class Issue extends React.Component {
                     user: user,
                     uid: user.uid
                 });
+            } else{
+                this.setState({
+                    user: null,
+                    uid: null
+                });
             }
         });
     }
@@ -73,15 +78,22 @@ class Issue extends React.Component {
 
     render() {
         return (
-            <div>
-                <div>
-                    <img id="imageid" src={this.state.imageURL} alt="gazo-" />
-                </div>
-                <div>
-                    <input type="file" accept="image/png" onChange={ (e) => { this.onFileChange(e) } } />
-                </div>
-                <div>
-                    <button onClick={this.issueToken(this.state)}>発行</button>
+            <div className="upload-wrapper">
+                <div className="upload-container">
+                    <div className="upload-area">
+                        <div>
+                            <img id="imageid" src={this.state.imageURL} alt="" width="700"/>
+                        </div>
+                        <div>
+                            <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet"></link>
+                            <i class="far fa-image"></i>
+                            <p>Drag and drop a image or click</p>
+                            <input type="file" accept="image/png" id="input-files" onChange={ (e) => { this.onFileChange(e) } } />
+                        </div>
+                    </div>
+                        <div className="issue-btn">
+                            <button onClick={this.issueToken(this.state)}>発行</button>
+                        </div>
                 </div>
             </div>
         )

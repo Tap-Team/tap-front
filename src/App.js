@@ -5,7 +5,6 @@ import Footer from './Footer';
 import Issue from './Issue';
 import Top from './Top';
 
-
 function App() {
   return (
     <div className="App">
@@ -13,8 +12,8 @@ function App() {
         <Header />
         <Top />
         <Main />
-        <Footer />
         <Issue />
+        <Footer />
       </body>
     </div>
   );
