@@ -3,6 +3,7 @@ import Main from './Main';
 import Header from './Header';
 import Footer from './Footer';
 import Issue from './Issue';
+import Top from './Top';
 
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
     <div className="App">
       <body>
         <Header />
+        <Top />
         <Main />
         <Footer />
         <Issue />

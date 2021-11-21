@@ -33,7 +33,7 @@ class Token extends React.Component {
             <div className='modal-header'></div>
             <div className='modal-introduction'>
               <h2>{this.props.name}</h2>
-              <img src={this.props.image} alt=""/>
+              <img src={this.props.image} alt="" width="300"/>
             </div>
             {/* onClickイベント */}
             <button

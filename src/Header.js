@@ -4,9 +4,11 @@ import SignIn from './SignIn';
 class Header extends React.Component {
     render() {
         return (
-            <div>
-                <p>This is HEADER!!!</p>
-                <SignIn />
+            <div className="header-wrapper">
+                <p>Tap!</p>
+                <div className="signin-header">
+                    <SignIn />
+                </div>
             </div>
         );
     }

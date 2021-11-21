@@ -38,6 +38,7 @@ class Main extends React.Component {
                 //トークンの数
                 const le = Object.keys(data["data"]).length;
                 console.log("test")
+                let num = 1;
                 for (let i = 1; i<le+1; i++){
                     //変数base64にトークンのbase64の文字列を渡す
                     var base64 = data["data"][i-1]["token_data"];
@@ -45,13 +46,13 @@ class Main extends React.Component {
                     console.log("初期")
                     //もしiが３の倍数なら３列目
                     if(i%3===0){
-                        tokenList3.push({name:'test',image:String(base64)});
+                        tokenList3.push({name:'test'+String(num),image:String(base64)});
                     //もしiが1の倍数なら1列目
                     }else if(i%3===1){
-                        tokenList1.push({name:'test',image:String(base64)});
+                        tokenList1.push({name:'test'+String(num),image:String(base64)});
                     //もしiが2の倍数なら2列目
                     }else{
-                        tokenList2.push({name:'test',image:String(base64)});
+                        tokenList2.push({name:'test'+String(num),image:String(base64)});
                     }
                 }
                 return json;
