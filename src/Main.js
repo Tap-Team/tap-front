@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import Token from './Token';
+import Token from './token';
 
 
 class Main extends React.Component {
