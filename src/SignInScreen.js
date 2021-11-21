@@ -13,7 +13,7 @@ const uiConfig = {
 
 const SignInScreen = (props) => {
     return (
-        <div>
+        <div className="twitter-auth">
             <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
         </div>
     );

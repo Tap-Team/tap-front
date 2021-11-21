@@ -25,14 +25,14 @@ class SignIn extends React.Component {
     render() {
       if(this.state.user) {
           return (
-            <div>
+            <div className="header-right">
               <img className="icon" src={this.state.user.photoURL} alt="icon" />
               <button onClick={this.logout}>Logout</button>
             </div>
           );
       } else {
           return (
-            <div>
+            <div className="twitter-auth">
               <SignInScreen />
             </div>
           );
