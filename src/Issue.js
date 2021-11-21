@@ -34,9 +34,11 @@ class Issue extends React.Component {
         if(st.user != null){
             var issuetoken = axios.post("https://tap-api.shmn7iii.net/v2/tokens",{
                 uid: st.uid,
-                token_data: st.base64}
+                token_data: st.base64
+            }
             ).then(response => {
                 console.log(response);
+                console.log(issuetoken);
                 return response.data;
             })
             .catch(error => {

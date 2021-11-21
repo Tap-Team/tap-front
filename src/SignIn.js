@@ -1,6 +1,7 @@
 import React from 'react';
 import firebase from './firebase';
 import SignInScreen from './SignInScreen';
+import axios from 'axios';
 
 
 class SignIn extends React.Component {
@@ -11,10 +12,23 @@ class SignIn extends React.Component {
 
     componentDidMount() {
       firebase.auth().onAuthStateChanged(user => {
-        this.setState({
-          loading: false,
-          user: user
-        });
+        if(user){
+          this.setState({
+            loading: false,
+            user: user
+          });
+          var createAcount = axios.post("https://tap-api.shmn7iii.net/v2/users",{
+                uid: user.uid
+              }
+            ).then(response => {
+                console.log(createAcount);
+                console.log(response);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+        }
+
       });
     }
 
