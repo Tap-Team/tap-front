@@ -86,8 +86,8 @@ class SignIn extends React.Component {
 
       if(this.state.user) {
           return (
-            <div className="header-right" onClick={(event) => {this.handleClickToken(event)}}>
-              <img className="icon" src={this.state.user.photoURL} alt="icon" />
+            <div className="header-right" >
+              <img className="icon" src={this.state.user.photoURL} alt="icon" onClick={(event) => {this.handleClickToken(event)}}/>
               {modal}
             </div>
           );

@@ -11,12 +11,13 @@ class Issue extends React.Component {
             user: null,
             uid: null,
             base64: null,
-            imageURL: null
+            imageURL: null,
+            isModalOpen: false
         };
 
+        this.handleClickClose = this.handleClickClose.bind(this);
         this.onFileChange = this.onFileChange.bind(this);
     }
-
 
     componentDidMount() {
         firebase.auth().onAuthStateChanged(user => {
@@ -76,27 +77,60 @@ class Issue extends React.Component {
         });
       }
 
+      handleClickIssue() {
+        this.setState({isModalOpen: true});
+      }
+      
+      handleClickClose() {
+        this.setState({isModalOpen: false});
+      }
+
     render() {
-        return (
-            <div className="upload-wrapper">
-                <div className="upload-container">
-                    <div className="upload-area">
-                        <div>
-                            <img id="imageid" src={this.state.imageURL} alt="" width="700"/>
+        let modal;
+        if (this.state.isModalOpen) {
+            modal =(
+                <div id="modal" className="issue-modal">
+                    <div className="upload-modal-inner">
+                        <div className="upload-area">
+                            <div>
+                                <img id="imageid" src={this.state.imageURL} alt="" width="700"/>
+                            </div>
+                            <div>
+                                <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet"></link>
+                                <i class="far fa-image"></i>
+                                <p>Drag and drop a image or click</p>
+                                <input type="file" accept="image/png" id="input-files" onChange={ (e) => { this.onFileChange(e) } } />
+                            </div>
                         </div>
-                        <div>
-                            <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet"></link>
-                            <i class="far fa-image"></i>
-                            <p>Drag and drop a image or click</p>
-                            <input type="file" accept="image/png" id="input-files" onChange={ (e) => { this.onFileChange(e) } } />
-                        </div>
-                    </div>
                         <div className="issue-btn">
                             <button onClick={this.issueToken(this.state)}>発行</button>
                         </div>
+                        <div>
+                            <div class="outer" onClick={() => {this.handleClickClose()}}>
+                                <div class="inner">
+                                    <label>close</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            );
+        }
+
+        return (
+            <div className="top-container">
+                <h1>Tap!</h1>
+                <p>nannkaiikanzino</p>
+                <button
+                className='btn btn-c'
+                onClick={() => {this.handleClickIssue()}}
+                >
+                <span>Create</span>
+                </button>
+                {modal}
             </div>
-        )
+        );
+        
     }
 }
 

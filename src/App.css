@@ -26,6 +26,8 @@
   height: 12%;
   background-color: white;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+  /*スクロールした際にCreateボタンが上に来ちゃうから仕方なく書いたz-indexくん*/
+  z-index: 100;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
@@ -104,6 +106,122 @@
   height: 500px;
   text-align: center;
   font-size: 50px;
+}
+
+.btn,
+button.btn {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.5;
+  position: relative;
+  display: inline-block;
+  padding: 1rem 4rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  color: #fff;
+  border-radius: 0.5rem;
+}
+
+.btn-c {
+  font-size: 1.8rem;
+
+  border: none;
+
+  position: relative;
+  top: 65%;
+  left: 45%;
+
+  padding: 2rem 5rem 2rem 3rem;
+
+  color: #fff;
+  border-radius: 8px;
+  background-image: -webkit-linear-gradient(
+    335deg,
+    #231557 0%,
+    #44107a 25%,
+    #ff1361 90%,
+    #fff800 100%
+  );
+  background-image: linear-gradient(
+    115deg,
+    #231557 0%,
+    #44107a 25%,
+    #ff1361 90%,
+    #fff800 100%
+  );
+  -webkit-box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-c span {
+  position: relative;
+}
+
+.btn-c:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  content: "";
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+
+  background-image: -webkit-linear-gradient(
+    335deg,
+    #231557 0%,
+    #44107a 15%,
+    #ff1361 70%,
+    #fff800 100%
+  );
+
+  background-image: linear-gradient(
+    115deg,
+    #231557 0%,
+    #44107a 15%,
+    #ff1361 70%,
+    #fff800 100%
+  );
+}
+
+.btn-c:after {
+  font-family: "Font Awesome 5 Free";
+  font-size: 1.6rem;
+  line-height: 1;
+
+  position: absolute;
+  top: calc(50% - 0.8rem);
+  right: 1rem;
+
+  margin: 0;
+  padding: 0;
+
+  content: "\f30b";
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.btn-c:hover {
+  color: #fff;
+}
+
+.btn-c:hover:before {
+  opacity: 0;
+}
+
+.btn-c:hover:after {
+  right: 0.5rem;
 }
 
 /*モーダル*/
@@ -296,6 +414,28 @@
 }
 
 /*Issue*/
+
+.issue-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.6);
+}
+
+.upload-modal-inner {
+  position: absolute;
+  top: 15%;
+  right: 0;
+  left: 0;
+  width: 850px;
+  height: 500px;
+  padding: 20px;
+  margin: auto;
+  background-color: rgb(255,255,255);
+  border-radius: 8px;
+}
 .upload-wrapper {
   position: relative;
   overflow: hidden;
@@ -369,30 +509,63 @@
   left: 49%;
 }
 
-.create-btn {
-  margin: 5px;
-  width: 100px;
-  color: #333;
-  font-size: 18px;
-  font-weight: 700;
-  background-color: #fff;
-  box-shadow: 0 5px 0 #aaaaaa;
-  transition: 0.3s;
+.outer {
   position: relative;
-  top: 60%;
-  left: 48%;
-  
+  margin: auto;
+  width: 35px;
+  cursor: pointer;
+  top: -400px;
+  left: 380px;
 }
 
-.create-btn::after {
+.inner {
+  width: inherit;
+  text-align: center;
+}
+
+label { 
+  font-size: .8em; 
+  line-height: 4em;
+  text-transform: uppercase;
+  color: #000b00;
+  transition: all .3s ease-in;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.inner:before, .inner:after {
+  position: absolute;
   content: '';
-  width: 5px;
-  height: 5px;
-  transform: rotate(45deg);
+  height: 1px;
+  width: inherit;
+  background: #000b00;
+  left: 0;
+  transition: all .3s ease-in;
 }
 
-.create-btn:hover {
-  transform: translateY(3px);
-  text-decoration: none;
-  box-shadow: 0 2px 0 #aaaaaa;
+.inner:before {
+  top: 50%; 
+  transform: rotate(45deg);  
+}
+
+.inner:after {  
+  bottom: 50%;
+  transform: rotate(-45deg);  
+}
+
+.outer:hover label {
+  opacity: 1;
+}
+
+.outer:hover .inner:before,
+.outer:hover .inner:after {
+  transform: rotate(0);
+}
+
+.outer:hover .inner:before {
+  top: 0;
+}
+
+.outer:hover .inner:after {
+  bottom: 0;
 }

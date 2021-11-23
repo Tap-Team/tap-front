@@ -1,20 +1,12 @@
 import React from 'react';
+import Issue from './Issue';
 
 class Top extends React.Component {
     render() {
 
         return (
             <div className="top-wrapper">
-                <div className="top-container">
-                    <h1>Tap!</h1>
-                    <p>nannkaiikanzino</p>
-                    <button
-                    className='create-btn'
-                    onClick={() => {this.handleClickClose()}}
-                    >
-                    Create
-                    </button>
-                </div>
+                <Issue />
                 <div className="NFTs-container">
                     <p>NFTs</p>
                 </div>
