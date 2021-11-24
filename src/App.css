@@ -72,6 +72,7 @@
 /*トップ*/
 .top-wrapper {
   width: 100%;
+  height: 4500px;
 }
 
 .top-container {
@@ -100,12 +101,6 @@
   height: 500px;
   text-align: center;
   font-size: 40px;
-}
-
-.service-container {
-  height: 500px;
-  text-align: center;
-  font-size: 50px;
 }
 
 .btn,
@@ -223,6 +218,82 @@ button.btn {
 .btn-c:hover:after {
   right: 0.5rem;
 }
+
+.service-container {
+  height: 1500px;
+  text-align: center;
+  font-size: 50px;
+}
+
+.service-card1 {
+  width: 100%;
+  height: 600px;
+  text-align: center;
+  margin-top: 20%;
+}
+
+.service-card2 {
+  width: 100%;
+  height: 600px;
+  text-align: center;
+}
+
+.service-card3 {
+  width: 100%;
+  height: 600px;
+  text-align: center;
+}
+
+.service-card4 {
+  width: 100%;
+  height: 600px;
+  text-align: center;
+}
+
+.service-card5 {
+  width: 100%;
+  height: 600px;
+  text-align: center;
+}
+.service-img {
+  width: 38%;
+  height: auto;
+  position: relative;
+  top: -75%;
+  left: 20%;
+}
+
+.service-explain {
+  width: 30%;
+  height: 300px;
+  position: relative;
+  left: 10%;
+  top: -100%;
+  padding: 1%;
+  font-size: 15px;
+  text-align: center;
+  background-color: white;
+  box-shadow: 6px 6px 10px 0px rgba(0, 0, 0, 0.4);
+}
+
+.service-explain h1{
+  color: #404142
+}
+
+.service-explain p {
+  color: #636466
+}
+
+.gray-box {
+  width: 50%;
+  position: relative;
+  left: 25%;
+  height: 50%;
+  background-color: #F0F0F0;
+  z-index: -1;
+}
+
+
 
 /*モーダル*/
 .modal {
@@ -524,7 +595,7 @@ button.btn {
 }
 
 label { 
-  font-size: .8em; 
+  font-size: 15px; 
   line-height: 4em;
   text-transform: uppercase;
   color: #000b00;
