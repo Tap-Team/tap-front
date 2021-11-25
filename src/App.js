@@ -7,12 +7,10 @@ import Top from './Top';
 function App() {
   return (
     <div className="App">
-      <body>
         <Header />
         <Top />
         <Main />
         <Footer />
-      </body>
     </div>
   );
 }

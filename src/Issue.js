@@ -38,18 +38,16 @@ class Issue extends React.Component {
 
     issueToken(st) {
         if(st.user != null){
-            var issuetoken = axios.post("https://tap-api.shmn7iii.net/v2/tokens",{
+            axios.post("https://tap-api.shmn7iii.net/v2/tokens",{
                 uid: st.uid,
                 token_data: st.base64
             }
-            ).then(response => {
-                console.log(response);
-                console.log(issuetoken);
-                return response.data;
-            })
-            .catch(error => {
-                console.log(error);
-            });
+                ).then(response => {
+                    return response.data;
+                })
+                .catch(error => {
+                    console.log(error);
+                });
         }
     }
 
@@ -60,14 +58,21 @@ class Issue extends React.Component {
         this.setState({
             imageURL: imageURL
         });
-
-        this.toBase64Url(document.getElementById("imageid"))
+        var parent = document.getElementById("parent-imageid");
+        parent.insertBefore(img, id="imageid" ,src=this.state.imageURL, alt="");
+        <img id="imageid" src={this.state.imageURL} alt=""/>
+        
+        this.toBase64Url(document.getElementById("imageid"));
     }
 
     toBase64Url(img) {
         var canvas = document.createElement("canvas");
+
         canvas.width = img.width;
         canvas.height = img.height;
+        console.log(img.width);
+        console.log(img.height);
+        console.log(canvas.width);
         var ctx = canvas.getContext("2d");
         ctx.drawImage(img, 0, 0);
         var dataURL = canvas.toDataURL("image/png");
@@ -92,12 +97,12 @@ class Issue extends React.Component {
                 <div id="modal" className="issue-modal">
                     <div className="upload-modal-inner">
                         <div className="upload-area">
-                            <div>
-                                <img id="imageid" src={this.state.imageURL} alt="" width="700"/>
+                            <div class="imgaid-parent">
+                                <img id="imageid" src={this.state.imageURL} alt=""/>
                             </div>
                             <div>
                                 <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet"></link>
-                                <i class="far fa-image"></i>
+                                <i className="far fa-image"></i>
                                 <p>Drag and drop a image or click</p>
                                 <input type="file" accept="image/png" id="input-files" onChange={ (e) => { this.onFileChange(e) } } />
                             </div>
@@ -106,8 +111,8 @@ class Issue extends React.Component {
                             <button onClick={this.issueToken(this.state)}>発行</button>
                         </div>
                         <div>
-                            <div class="outer" onClick={() => {this.handleClickClose()}}>
-                                <div class="inner">
+                            <div className="outer" onClick={() => {this.handleClickClose()}}>
+                                <div className="inner">
                                     <label>close</label>
                                 </div>
                             </div>
@@ -121,13 +126,9 @@ class Issue extends React.Component {
             <div className="top-container">
                 <h1>Tap!</h1>
                 <p>nannkaiikanzino</p>
-                <a
-                href
-                className='create-btn'
-                onClick={() => {this.handleClickIssue()}}
-                >
-                Create
-                </a>
+                <div className="create-btn">
+                    <a href onClick={() => {this.handleClickIssue()}}>Create</a>
+                </div>
                 {modal}
             </div>
         );

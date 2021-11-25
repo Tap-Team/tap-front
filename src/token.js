@@ -79,7 +79,7 @@ class Token extends React.Component {
           className='token-item'
           onClick={(event) => {this.handleClickToken(event)}}
         >
-          <img src={this.props.image} alt="" width="300"/>
+          <img src={this.props.image} alt=""/>
           <p>{this.props.name}</p>
         </div>
         {modal}
