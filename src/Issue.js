@@ -54,15 +54,19 @@ class Issue extends React.Component {
 
     onFileChange(e) {
         const imageFile = e.target.files[0];
+        //現在の（まだimageURLが更新されてない状態)で
         const imageURL = URL.createObjectURL(imageFile);
+        
         this.setState({
             imageURL: imageURL
         });
-        var parent = document.getElementById("parent-imageid");
-        parent.insertBefore(img, id="imageid" ,src=this.state.imageURL, alt="");
-        <img id="imageid" src={this.state.imageURL} alt=""/>
-        
-        this.toBase64Url(document.getElementById("imageid"));
+
+        console.log("imageURL");
+        //null！！！！！！
+        console.log(this.state.imageURL);
+        //input-files????????????????????/////
+        this.toBase64Url(document.getElementById("imageid"))
+
     }
 
     toBase64Url(img) {
@@ -97,8 +101,10 @@ class Issue extends React.Component {
                 <div id="modal" className="issue-modal">
                     <div className="upload-modal-inner">
                         <div className="upload-area">
-                            <div class="imgaid-parent">
+                            <div>
+                                {/* ここのthis.state.imageURLが更新されてない？ */}
                                 <img id="imageid" src={this.state.imageURL} alt=""/>
+
                             </div>
                             <div>
                                 <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet"></link>
