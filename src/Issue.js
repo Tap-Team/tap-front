@@ -121,12 +121,13 @@ class Issue extends React.Component {
             <div className="top-container">
                 <h1>Tap!</h1>
                 <p>nannkaiikanzino</p>
-                <button
-                className='btn btn-c'
+                <a
+                href
+                className='create-btn'
                 onClick={() => {this.handleClickIssue()}}
                 >
-                <span>Create</span>
-                </button>
+                Create
+                </a>
                 {modal}
             </div>
         );

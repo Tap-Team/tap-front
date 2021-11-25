@@ -97,126 +97,54 @@
   left: 47%;
 }
 
+
+.create-btn {
+  font-size: 50px;
+  text-align: center;
+  position: relative;
+  top: 60%;
+  left: 48%;
+  display: inline-block;
+  padding-left: 20px;
+  color: #fff;
+  text-decoration: none;
+}
+.create-btn:before {
+  content: '';
+  width: 30px;
+  height: 30px;
+  border-top: solid 2px #fff;
+  border-right: solid 2px #fff;
+  border-left: solid 2px #fff;
+  border-bottom: solid 2px #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 45%;
+  left: -15px;
+  margin-top: -9px;
+}
+.create-btn:after {
+  content: '';
+  width: 15px;
+  height: 15px;
+  border: 0;
+  border-top: solid 2px #000b00;
+  border-right: solid 2px #000b00;
+  border-color: #fff;
+  position: absolute;
+  top: 48%;
+  left: -7px;
+  margin-top: -2px;
+  transform: rotate(45deg);
+}
+
+
+
+
 .NFTs-container {
   height: 500px;
   text-align: center;
   font-size: 40px;
-}
-
-.btn,
-button.btn {
-  font-size: 1.6rem;
-  font-weight: 700;
-  line-height: 1.5;
-  position: relative;
-  display: inline-block;
-  padding: 1rem 4rem;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-  text-align: center;
-  vertical-align: middle;
-  text-decoration: none;
-  letter-spacing: 0.1em;
-  color: #fff;
-  border-radius: 0.5rem;
-}
-
-.btn-c {
-  font-size: 1.8rem;
-
-  border: none;
-
-  position: relative;
-  top: 65%;
-  left: 45%;
-
-  padding: 2rem 5rem 2rem 3rem;
-
-  color: #fff;
-  border-radius: 8px;
-  background-image: -webkit-linear-gradient(
-    335deg,
-    #231557 0%,
-    #44107a 25%,
-    #ff1361 90%,
-    #fff800 100%
-  );
-  background-image: linear-gradient(
-    115deg,
-    #231557 0%,
-    #44107a 25%,
-    #ff1361 90%,
-    #fff800 100%
-  );
-  -webkit-box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
-}
-
-.btn-c span {
-  position: relative;
-}
-
-.btn-c:before {
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: 100%;
-
-  content: "";
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-
-  background-image: -webkit-linear-gradient(
-    335deg,
-    #231557 0%,
-    #44107a 15%,
-    #ff1361 70%,
-    #fff800 100%
-  );
-
-  background-image: linear-gradient(
-    115deg,
-    #231557 0%,
-    #44107a 15%,
-    #ff1361 70%,
-    #fff800 100%
-  );
-}
-
-.btn-c:after {
-  font-family: "Font Awesome 5 Free";
-  font-size: 1.6rem;
-  line-height: 1;
-
-  position: absolute;
-  top: calc(50% - 0.8rem);
-  right: 1rem;
-
-  margin: 0;
-  padding: 0;
-
-  content: "\f30b";
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-}
-
-.btn-c:hover {
-  color: #fff;
-}
-
-.btn-c:hover:before {
-  opacity: 0;
-}
-
-.btn-c:hover:after {
-  right: 0.5rem;
 }
 
 .service-container {
