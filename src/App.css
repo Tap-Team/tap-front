@@ -80,6 +80,8 @@
   background-size: cover;
   width: 100%;
   height: 650px;
+  background-position: center top;
+  background-attachment: fixed;
 }
 
 .top-container h1 {
@@ -617,4 +619,9 @@ label {
 
 .outer:hover .inner:after {
   bottom: 0;
+}
+
+.imageid {
+  width: 100%;
+  height: 100%;
 }

@@ -7,8 +7,8 @@ import imgIdea from './img/mark-fletcher-brown-nN5L5GXKFz8-unsplash.jpg';
 import imgNFT from './img/chain-5842371_1920.jpg';
 
 class Top extends React.Component {
-    render() {
 
+    render() {
         return (
             <div className="top-wrapper">
                 <Issue />

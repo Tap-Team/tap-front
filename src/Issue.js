@@ -1,6 +1,8 @@
 import React from 'react';
 import firebase from './firebase';
 import axios from 'axios';
+import testImage from './img/blockchain-3446557_1920.jpg';
+
 
 
 
@@ -24,7 +26,7 @@ class Issue extends React.Component {
             if(user){
                 this.setState({
                     user: user,
-                    uid: user.uid
+                    uid: user.uid,
                 });
             } else{
                 this.setState({
@@ -37,6 +39,7 @@ class Issue extends React.Component {
 
 
     issueToken(st) {
+        console.log(st);
         if(st.user != null){
             axios.post("https://tap-api.shmn7iii.net/v2/tokens",{
                 uid: st.uid,
@@ -53,34 +56,41 @@ class Issue extends React.Component {
 
 
     onFileChange(e) {
+
         const imageFile = e.target.files[0];
-        //現在の（まだimageURLが更新されてない状態)で
         const imageURL = URL.createObjectURL(imageFile);
-        
+        var newImageURL = imageURL;
+        console.log(newImageURL);
         this.setState({
-            imageURL: imageURL
+            imageURL: newImageURL
         });
-
-        console.log("imageURL");
-        //null！！！！！！
         console.log(this.state.imageURL);
-        //input-files????????????????????/////
-        this.toBase64Url(document.getElementById("imageid"))
+        console.log(this.state);
+        //this.toBase64Url(document.getElementById("imageid"));
+    }
 
+    
+    componentDidUpdate(prevProps,prevState){
+        if(this.state.imageURL !== prevState.imageURL){
+            var test = document.getElementById("imageid");
+            console.log("document.getElementById");
+            console.log(test);
+            console.log(this.state);
+            console.log(document);
+            this.toBase64Url(document.getElementById("imageid"));
+        }
     }
 
     toBase64Url(img) {
         var canvas = document.createElement("canvas");
-
         canvas.width = img.width;
         canvas.height = img.height;
         console.log(img.width);
         console.log(img.height);
-        console.log(canvas.width);
         var ctx = canvas.getContext("2d");
         ctx.drawImage(img, 0, 0);
+        //ここimage/pngじゃなくてimageidでは？
         var dataURL = canvas.toDataURL("image/png");
-
         this.setState({
             base64: dataURL
         });
@@ -103,18 +113,19 @@ class Issue extends React.Component {
                         <div className="upload-area">
                             <div>
                                 {/* ここのthis.state.imageURLが更新されてない？ */}
-                                <img id="imageid" src={this.state.imageURL} alt=""/>
+                                <img id="imageid" src={this.state.imageURL} alt="" style={{width:"100%", height:"100%"}} />
 
                             </div>
                             <div>
                                 <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet"></link>
                                 <i className="far fa-image"></i>
                                 <p>Drag and drop a image or click</p>
-                                <input type="file" accept="image/png" id="input-files" onChange={ (e) => { this.onFileChange(e) } } />
+                                {/*クリックされた既にある画像に対して処理が行われてる。一回目に最初に何もないupload-areaをクリックした際にnullのstateの更新がされて、二回目に一回目の画像をクリックするので一回目の画像がstateに更新される*/}
+                                <input type="file" accept="image/png" id="input-files" onChange={ this.onFileChange } />
                             </div>
                         </div>
                         <div className="issue-btn">
-                            <button onClick={this.issueToken(this.state)}>発行</button>
+                            <button onClick={this.issueToken.bind(this,this.state)}>発行</button>
                         </div>
                         <div>
                             <div className="outer" onClick={() => {this.handleClickClose()}}>
