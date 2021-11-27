@@ -72,25 +72,25 @@ class Issue extends React.Component {
 
     toBase64Url(img) {
         //オブジェクトの生成
-        var image = new Image();
+        //https://www.chihayafuru.jp/tech/index.php/archives/770
+        //↑のサイトを参考にiamgeオブジェクトつくったりonloadの中に入れてみたりしたら現在のwidthとかは取得できるようになったけど５００エラー出るようになった。token_dataがnullになってる
+        const image = new Image();
         var imageurl = img.getAttribute('src');
-        image.src = imageurl;
         console.log("imageurl");
         console.log(imageurl);
         image.src = imageurl;
-        var canvas = document.createElement("canvas");
-        canvas.width = img.width;
-        canvas.height = img.height;
-        //canvas.→img.
-        var ctx = canvas.getContext("2d");
-        console.log(img);
-        console.log("image");
-        console.log(image);
-        console.log("img.width");
-        console.log(img.width);
-        console.log("img.height");
-        console.log(img.height);
         image.onload = function(){
+            var canvas = document.createElement("canvas");
+            console.log(img);
+            console.log("image");
+            console.log(image);
+            canvas.width = img.width;
+            canvas.height = img.height;
+            console.log("img.width");
+            console.log(img.width);
+            console.log("img.height");
+            console.log(img.height);
+            var ctx = canvas.getContext("2d");
             ctx.drawImage(image, 0, 0);
             //ここimage/pngじゃなくてimageidでは？
             var dataURL = canvas.toDataURL("image/png");
