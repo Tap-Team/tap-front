@@ -79,25 +79,38 @@ class Issue extends React.Component {
         console.log("imageurl");
         console.log(imageurl);
         image.src = imageurl;
-        image.onload = function(){
-            var canvas = document.createElement("canvas");
-            console.log(img);
-            console.log("image");
-            console.log(image);
-            canvas.width = img.width;
-            canvas.height = img.height;
-            console.log("img.width");
-            console.log(img.width);
-            console.log("img.height");
-            console.log(img.height);
-            var ctx = canvas.getContext("2d");
-            ctx.drawImage(image, 0, 0);
-            //ここimage/pngじゃなくてimageidでは？
-            var dataURL = canvas.toDataURL("image/png");
-            this.setState({
-                base64: dataURL
-            });
-        }
+        //image.onload = function(){
+        var canvas = document.createElement("canvas");
+        console.log(img);
+        console.log("image");
+        console.log(image);
+        canvas.width = img.width;
+        canvas.height = img.height;
+        console.log("img.width");
+        console.log(img.width);
+        console.log("img.height");
+        console.log(img.height);
+        var ctx = canvas.getContext("2d");
+        ctx.drawImage(image, 0, 0);
+        console.log(canvas);
+        var dataURL = canvas.toDataURL("image/png");
+        this.setState({
+            base64: dataURL
+        });
+        console.log(dataURL);
+        console.log(this.state.base64);
+        //}
+
+        console.log("----------------")
+        console.log(image);
+        console.log("img.width");
+        console.log(img.width);
+        console.log("img.height");
+        console.log(img.height);
+        console.log(this.state.base64);
+        //token_dataがnullになってるからここでちゃんとsetされてないっていう→onloadの外に出したらなおった
+        //でもonloadの外だとimag.widthとかnullになってるし前の画像現象起きてる
+        //onloadの中入れても外には反映されないんじゃないかなあ
       }
 
       handleClickIssue() {
