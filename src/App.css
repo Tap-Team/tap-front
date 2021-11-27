@@ -23,36 +23,38 @@
   position: fixed;
   top: 0;
   width: 100%;
-  height: 12%;
+  height: 65px;
   background-color: white;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
   /*スクロールした際にCreateボタンが上に来ちゃうから仕方なく書いたz-indexくん*/
   z-index: 100;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
-.header-wrapper p {
-  font-family: 'Caveat', cursive;
-  /*font-family: 'Sacramento', cursive; */
-  font-size: 200%;
-  margin-left: 3%;
+.header-wrapper h1 {
+  font-size: 2rem;
+  margin-left: 2%;
+  position: relative;
+  top: -17%;
+  display: inline-block;
+}
+
+.signin-header{
+  position: relative;
+  top: -63px;
+  right: 15px;
 }
 
 .twitter-auth {
-  margin-left: 60%;
-  margin-top: -5%;
-}
-
-.header-right {
-  margin-top: -5%;
-  margin-right: 2%;
+  position: relative;
+  top: -12px;
+  right: -10px;
 }
 
 .header-right img {
   border-radius: 50%; 
-  width: 3%;
-  height: 3%;
+  width: 30px;
+  height: 30px;
+
 }
 
 .header-modal-inner {
@@ -82,32 +84,39 @@
   height: 650px;
   background-position: center top;
   background-attachment: fixed;
+  position: relative;
+}
+
+.top-explain {
+  position: relative;
+  top: 35%;
+  left: 3%;
 }
 
 .top-container h1 {
-  position: absolute;
   color: white;
-  font-size: 7rem;
-  top: 15%;
-  left: 42%;
-  text-align: center;
+  font-size: 4rem;
+  position: relative;
 }
 
-.top-container p {
-  position: absolute;
+.top-p1 {
+  position: relative;
   color: white;
-  top: 45%;
-  left: 45%;
-  text-align: center;
+  top: -30px;
+}
+
+.top-p2 {
+  position: relative;
+  color: white;
+  top: -30px;
 }
 
 
 .create-btn {
-  font-size: 2.5rem;
+  font-size: 2rem;
   text-align: center;
   position: relative;
-  top: 70%;
-  left: 45%;
+  top: -20px;
   display: inline-block;
   padding-left: 20px;
   color: rgba(255,255,255,0.9);
@@ -119,30 +128,27 @@
   color: inherit;
 }
 
+
 .create-btn a::before {
   content: '';
-  width: 2rem;
-  height: 2rem;
-  border-top: solid 2px rgba(255,255,255,0.9);
-  border-right: solid 2px rgba(255,255,255,0.9);
-  border-left: solid 2px rgba(255,255,255,0.9);
-  border-bottom: solid 2px rgba(255,255,255,0.9);
-  border-radius: 50%;
+  width: 7rem;
+  height: 2.3rem;
+  border-bottom: solid 3px rgba(255,255,255);;
   position: absolute;
-  top: 40%;
-  left: -25px;
-  margin-top: -9px;
+  left: 0%;
 }
+
 .create-btn a::after {
   content: '';
-  width: 1rem;
-  height: 1rem;
-  border-top: solid 0.1rem rgba(255,255,255,0.9);;
-  border-right: solid 0.1rem rgba(255,255,255,0.9);;
+  width: 0.8rem;
+  height: 0.8rem;
+  border-top: solid 0.1rem rgba(255,255,255);;
+  border-right: solid 0.1rem rgba(255,255,255);;
   position: absolute;
-  left: -15%;
-  top: 39%;
+  left: -3%;
+  top: 35%;
   transform: rotate(45deg);
+  
 }
 
 .create-btn a:hover {
@@ -150,9 +156,6 @@
 }
 
 .create-btn a:hover::before{
-  border-top: solid 2px rgba(255,255,255,0.6);
-  border-right: solid 2px rgba(255,255,255,0.6);
-  border-left: solid 2px rgba(255,255,255,0.6);
   border-bottom: solid 2px rgba(255,255,255,0.6);
 }
 
@@ -487,12 +490,12 @@
   background-color: rgb(255,255,255);
   border-radius: 8px;
 }
-.upload-wrapper {
+/* .upload-wrapper {
   position: relative;
   overflow: hidden;
   display: inline-block;
   width: 100%;
-}
+} */
 
 .upload-container {
   height: 500px;
@@ -509,20 +512,18 @@
   font-weight: bold;
 }
 
-.upload-wrapper input[type=file] {
+/* .upload-wrapper input[type=file] {
   font-size: 100px;
   position: absolute;
   left: 0;
   top: 0;
   opacity: 0;
-}
+} */
 
 .upload-area {
   top: 10%;
   left: 0;
   margin: auto;
-  width: 50%;
-  height: 400px;
   position: relative;
   border: 2px dotted rgba(0, 0, 0, 0.4);
 }
@@ -543,6 +544,10 @@
   opacity: 0.8;
   font-family: 'Comic Sans MS';
   text-align: center;
+}
+
+.imageid{
+  position: absolute;
 }
 
 #input-files {
@@ -619,9 +624,4 @@ label {
 
 .outer:hover .inner:after {
   bottom: 0;
-}
-
-.imageid {
-  width: 100%;
-  height: 100%;
 }

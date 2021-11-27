@@ -5,7 +5,7 @@ class Header extends React.Component {
     render() {
         return (
             <div className="header-wrapper">
-                <p>Tap!</p>
+                <h1>Tap!</h1>
                 <div className="signin-header">
                     <SignIn />
                 </div>

@@ -1,10 +1,6 @@
 import React from 'react';
 import firebase from './firebase';
 import axios from 'axios';
-import testImage from './img/blockchain-3446557_1920.jpg';
-
-
-
 
 class Issue extends React.Component {
     constructor(props) {
@@ -60,40 +56,45 @@ class Issue extends React.Component {
         const imageFile = e.target.files[0];
         const imageURL = URL.createObjectURL(imageFile);
         var newImageURL = imageURL;
-        console.log(newImageURL);
         this.setState({
             imageURL: newImageURL
         });
-        console.log(this.state.imageURL);
-        console.log(this.state);
-        //this.toBase64Url(document.getElementById("imageid"));
+        console.log("1");
     }
 
-    
     componentDidUpdate(prevProps,prevState){
         if(this.state.imageURL !== prevState.imageURL){
-            var test = document.getElementById("imageid");
-            console.log("document.getElementById");
-            console.log(test);
-            console.log(this.state);
-            console.log(document);
+            console.log("2");
             this.toBase64Url(document.getElementById("imageid"));
+            console.log("3");
         }
     }
 
     toBase64Url(img) {
-        var canvas = document.createElement("canvas");
-        canvas.width = img.width;
-        canvas.height = img.height;
-        console.log(img.width);
-        console.log(img.height);
-        var ctx = canvas.getContext("2d");
-        ctx.drawImage(img, 0, 0);
-        //ここimage/pngじゃなくてimageidでは？
-        var dataURL = canvas.toDataURL("image/png");
-        this.setState({
-            base64: dataURL
-        });
+        const image = new Image();
+        var imageurl = img.getAttribute('src');
+        console.log("imageurl");
+        console.log(imageurl);
+        image.src = imageurl;
+        image.onload = function(){
+            var canvas = document.createElement("canvas");
+            console.log(img);
+            console.log("image");
+            console.log(image);
+            canvas.width = img.width;
+            canvas.height = img.height;
+            console.log("img.width");
+            console.log(img.width);
+            console.log("img.height");
+            console.log(img.height);
+            var ctx = canvas.getContext("2d");
+            ctx.drawImage(image, 0, 0);
+            //ここimage/pngじゃなくてimageidでは？
+            var dataURL = canvas.toDataURL("image/png");
+            this.setState({
+                base64: dataURL
+            });
+        }
       }
 
       handleClickIssue() {
@@ -104,16 +105,49 @@ class Issue extends React.Component {
         this.setState({isModalOpen: false});
       }
 
+    //もし画像の高さが500pxより小さかったらwidthを100%、heightを画像の高さに。そうじゃなかったらwidthを画像の幅に、heightを500pxに。
+    imgWidth(){
+        if (this.state.imageURL!=null){
+            if(this.state.imageURL.weight<="500px"){
+                console.log("hri:h<=500px");
+                return "100%";
+            }else{
+                console.log("width:h>500px");
+                return "auto";
+            }
+        }else{
+            console.log("width:h=null");
+            return "100%";
+        }
+    }
+
+    imgHeight(){
+        if (this.state.imageURL!=null){
+            if(this.state.imageURL.height<="500px"){
+                console.log("height:<=500px");
+                //this.state.imageURLになんか違うの入ってる？
+                return "auto";
+            }else{
+                //今絶対これになってる（500が500pxって認識されてない
+                console.log("height:>500px");
+                return "100%";
+            }
+        }else{
+            console.log("height:null");
+            return "100%";
+        }
+    }
+
     render() {
         let modal;
         if (this.state.isModalOpen) {
             modal =(
                 <div id="modal" className="issue-modal">
                     <div className="upload-modal-inner">
-                        <div className="upload-area">
+                        <div className="upload-area" style={{width:"100%", heght:"100%"}}>
                             <div>
                                 {/* ここのthis.state.imageURLが更新されてない？ */}
-                                <img id="imageid" src={this.state.imageURL} alt="" style={{width:"100%", height:"100%"}} />
+                                <img id="imageid" src={this.state.imageURL} alt="" style={{width:this.imgWidth(), height:this.imgHeight()}} />
 
                             </div>
                             <div>
@@ -141,10 +175,13 @@ class Issue extends React.Component {
 
         return (
             <div className="top-container">
-                <h1>Tap!</h1>
-                <p>nannkaiikanzino</p>
-                <div className="create-btn">
-                    <a href onClick={() => {this.handleClickIssue()}}>Create</a>
+                <div className="top-explain">
+                    <h1>NFT without Cryptos</h1>
+                        <div className="top-p1">Tap! allows you to prove ownership by issuing NFT to your digital content.</div>
+                        <div className="top-p2">And, you don't need crypto asseets when you issue.</div>
+                        <div className="create-btn">
+                            <a href onClick={() => {this.handleClickIssue()}}>Create</a>
+                        </div>
                 </div>
                 {modal}
             </div>

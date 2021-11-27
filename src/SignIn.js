@@ -55,6 +55,10 @@ class SignIn extends React.Component {
     logout() {
       firebase.auth().signOut();
       console.log("logout");
+      this.setState({
+        loading: false,
+        user: null
+      });
     }
 
     render() {
