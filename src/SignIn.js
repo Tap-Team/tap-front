@@ -67,16 +67,17 @@ class SignIn extends React.Component {
         modal = (
           <div id="modal" className='header-modal' onClick={(event)=>{event.stopPropagation()}}>
             <div className='header-modal-inner'>
-              <button
-                className='modal-close-btn'
+              <img src={this.state.user.photoURL} alt="icon" />
+              <a href
+                className='wallet'
                 onClick={() => {this.handleClickClose()}}
               >
-                wallet
-              </button>
-              <button
+                ウォレット
+              </a>
+              <a href className="logout"
                onClick={() => {this.logout()}}>
-                Logout
-              </button>
+                ログアウト
+              </a>
               <button
                 className='modal-close-btn'
                 onClick={() => {this.handleClickClose()}}

@@ -59,15 +59,42 @@
 
 .header-modal-inner {
   position: absolute;
-  top: 120%;
+  top: 50%;
   right: -1300px;
   left: 0;
   width: 150px;
-  height: 100px;
+  height: 200px;
   padding: 20px;
   margin: auto;
   background-color: rgb(255,255,255);
   border-radius: 8px;
+  box-shadow:0px 0px 10px;
+}
+
+.header-modal-inner img{
+  border-radius: 50%; 
+  width: 70px;
+  height: 70px;
+}
+
+.logout {
+  font-size: 0.5rem;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  color: rgba(43,43,43,0.9);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.wallet {
+  font-size: 0.5rem;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  color: rgba(43,43,43,0.9);
+  text-decoration: none;
+  cursor: pointer;
 }
 
 
@@ -98,18 +125,21 @@
   font-size: 4rem;
   position: relative;
   width: 100%;
+  cursor: default;
 }
 
 .top-p1 {
   position: relative;
   color: white;
   top: -30px;
+  cursor: default;
 }
 
 .top-p2 {
   position: relative;
   color: white;
   top: -30px;
+  cursor: default;
 }
 
 
@@ -177,11 +207,13 @@
 
 .NFTs-container h2{
   margin-bottom: 5%;
+  cursor: default;
 }
 
 .NFTs-container img {
   width: 95%;
   position: relative;
+  z-index: -9;
 }
 
 .Slider {
@@ -193,6 +225,10 @@
   height: 1500px;
   text-align: center;
   font-size: 50px;
+}
+
+.service-container h2 {
+  cursor: default;
 }
 
 .service-card1 {
@@ -505,6 +541,7 @@
   margin: auto;
   background-color: rgb(255,255,255);
   border-radius: 8px;
+  z-index: 10;
 }
 /* .upload-wrapper {
   position: relative;

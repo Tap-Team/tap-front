@@ -10,7 +10,8 @@ class Issue extends React.Component {
             uid: null,
             base64: null,
             imageURL: null,
-            isModalOpen: false
+            isModalOpen: false,
+            context: null
         };
 
         this.handleClickClose = this.handleClickClose.bind(this);
@@ -72,6 +73,7 @@ class Issue extends React.Component {
             this.toBase64Url(document.getElementById("imageid"));
             console.log("3");
         }
+        console.log(this.state.base64);
     }
     
         //この処理を発行ボタンの時に一緒にやる？
@@ -86,8 +88,8 @@ class Issue extends React.Component {
         console.log("imageurl");
         console.log(imageurl);
         image.src = imageurl;
-
-        image.onload = function(){
+        var self = this;
+        image.onload = () => {
             var canvas = document.createElement("canvas");
             console.log(img);
             console.log("image");
@@ -102,11 +104,11 @@ class Issue extends React.Component {
             ctx.drawImage(image, 0, 0);
             console.log(canvas);
             var dataURL = canvas.toDataURL("image/png");
-            this.setState({
+            self.setState({
                 base64: dataURL
             });
             console.log(dataURL);
-            console.log(this.state.base64);
+            console.log(self.state.base64);
         }
 
         console.log("----------------")
@@ -120,6 +122,28 @@ class Issue extends React.Component {
         //でもonloadの外だとimag.widthとかnullになってるし前の画像現象起きてる
         //中の処理は二週目の処理っぽい？普通の処理→conpopnentDidUpdate→toBase64→onloadの中→発行押して初めてissueToken
         //onloadの中でsetStateした内容が外で反映されてない
+      }
+
+      handleOnload(img,image){
+        var canvas = document.createElement("canvas");
+        console.log(img);
+        console.log("image");
+        console.log(image);
+        canvas.width = img.width;
+        canvas.height = img.height;
+        console.log("img.width");
+        console.log(img.width);
+        console.log("img.height");
+        console.log(img.height);
+        var ctx = canvas.getContext("2d");
+        ctx.drawImage(image, 0, 0);
+        console.log(canvas);
+        var dataURL = canvas.toDataURL("image/png");
+        this.setState({
+            base64: dataURL
+        });
+        console.log(dataURL);
+        console.log(this.state.base64);
       }
 
       handleClickIssue() {
@@ -172,6 +196,7 @@ class Issue extends React.Component {
                         <div className="upload-area" style={{width:"100%", heght:"100%"}}>
                             <div>
                                 {/* ここのthis.state.imageURLが更新されてない？ */}
+
                                 <img id="imageid" src={this.state.imageURL} alt="" style={{width:this.imgWidth(), height:this.imgHeight()}} />
 
                             </div>
