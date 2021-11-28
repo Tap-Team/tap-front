@@ -90,13 +90,14 @@
 .top-explain {
   position: relative;
   top: 35%;
-  left: 3%;
+  margin: 3%;
 }
 
 .top-container h1 {
   color: white;
   font-size: 4rem;
   position: relative;
+  width: 100%;
 }
 
 .top-p1 {
@@ -171,7 +172,22 @@
   height: 500px;
   text-align: center;
   font-size: 40px;
+  width: 98%;
 }
+
+.NFTs-container h2{
+  margin-bottom: 5%;
+}
+
+.NFTs-container img {
+  width: 95%;
+  position: relative;
+}
+
+.Slider {
+  width: 50%;
+}
+
 
 .service-container {
   height: 1500px;

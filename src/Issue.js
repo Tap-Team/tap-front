@@ -73,6 +73,7 @@ class Issue extends React.Component {
             console.log("3");
         }
     }
+    
         //この処理を発行ボタンの時に一緒にやる？
         //発行押したときにこの処理やって、conponentDidUpdateでissueTokenの内容やるとか？
     toBase64Url(img) {
@@ -80,31 +81,32 @@ class Issue extends React.Component {
         //https://www.chihayafuru.jp/tech/index.php/archives/770
         //↑のサイトを参考にiamgeオブジェクトつくったりonloadの中に入れてみたりしたら現在のwidthとかは取得できるようになったけど５００エラー出るようになった。token_dataがnullになってる
         const image = new Image();
+        console.log(img);
         var imageurl = img.getAttribute('src');
         console.log("imageurl");
         console.log(imageurl);
         image.src = imageurl;
 
         image.onload = function(){
-        var canvas = document.createElement("canvas");
-        console.log(img);
-        console.log("image");
-        console.log(image);
-        canvas.width = img.width;
-        canvas.height = img.height;
-        console.log("img.width");
-        console.log(img.width);
-        console.log("img.height");
-        console.log(img.height);
-        var ctx = canvas.getContext("2d");
-        ctx.drawImage(image, 0, 0);
-        console.log(canvas);
-        var dataURL = canvas.toDataURL("image/png");
-        this.setState({
-            base64: dataURL
-        });
-        console.log(dataURL);
-        console.log(this.state.base64);
+            var canvas = document.createElement("canvas");
+            console.log(img);
+            console.log("image");
+            console.log(image);
+            canvas.width = img.width;
+            canvas.height = img.height;
+            console.log("img.width");
+            console.log(img.width);
+            console.log("img.height");
+            console.log(img.height);
+            var ctx = canvas.getContext("2d");
+            ctx.drawImage(image, 0, 0);
+            console.log(canvas);
+            var dataURL = canvas.toDataURL("image/png");
+            this.setState({
+                base64: dataURL
+            });
+            console.log(dataURL);
+            console.log(this.state.base64);
         }
 
         console.log("----------------")
