@@ -36,6 +36,10 @@ class Issue extends React.Component {
 
     issueToken(st) {
         console.log(st);
+        console.log("issueToken");
+        //null
+        console.log(this.state.base64);
+
         if(st.user != null){
             axios.post("https://tap-api.shmn7iii.net/v2/tokens",{
                 uid: st.uid,
@@ -69,7 +73,8 @@ class Issue extends React.Component {
             console.log("3");
         }
     }
-
+        //この処理を発行ボタンの時に一緒にやる？
+        //発行押したときにこの処理やって、conponentDidUpdateでissueTokenの内容やるとか？
     toBase64Url(img) {
         //オブジェクトの生成
         //https://www.chihayafuru.jp/tech/index.php/archives/770
@@ -79,7 +84,8 @@ class Issue extends React.Component {
         console.log("imageurl");
         console.log(imageurl);
         image.src = imageurl;
-        //image.onload = function(){
+
+        image.onload = function(){
         var canvas = document.createElement("canvas");
         console.log(img);
         console.log("image");
@@ -99,7 +105,7 @@ class Issue extends React.Component {
         });
         console.log(dataURL);
         console.log(this.state.base64);
-        //}
+        }
 
         console.log("----------------")
         console.log(image);
@@ -110,7 +116,8 @@ class Issue extends React.Component {
         console.log(this.state.base64);
         //token_dataがnullになってるからここでちゃんとsetされてないっていう→onloadの外に出したらなおった
         //でもonloadの外だとimag.widthとかnullになってるし前の画像現象起きてる
-        //onloadの中入れても外には反映されないんじゃないかなあ
+        //中の処理は二週目の処理っぽい？普通の処理→conpopnentDidUpdate→toBase64→onloadの中→発行押して初めてissueToken
+        //onloadの中でsetStateした内容が外で反映されてない
       }
 
       handleClickIssue() {
