@@ -1,5 +1,6 @@
 import React from 'react';
 import SignIn from './SignIn';
+import {Link} from 'react-router-dom';
 
 class Header extends React.Component {
     render() {
@@ -9,6 +10,8 @@ class Header extends React.Component {
                 <div className="signin-header">
                     <SignIn />
                 </div>
+                <Link to="/">Back Test</Link>
+                <Link to="/main">Main Test</Link>
             </div>
         );
     }

@@ -37,7 +37,7 @@ class Top extends React.Component {
                     <Slider {...this.settings}>
                         {this.images.map((img) => {
                             return (
-                                <div>
+                                <div className="picture">
                                     <img src={img} alt="pictuer" />
                                 </div>
                             );
