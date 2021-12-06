@@ -1,119 +1,78 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Token from './token';
+import firebase from './firebase';
 
+const fetchTokens  = async (userId) => {
+  const userRes = await axios.get(
+    `https://tap-api.shmn7iii.net/v2/users/${userId}`
+  );
+    
+  // TODO: dataの中にdataがあるのは変なので要変更（バックエンド）
+  // TODO: tokensって命名よりもtokenIds の方が適切？
+  const tokenIds = userRes.data.data.tokens;
 
-class Main extends React.Component {
+  // 全てのtokenIdに紐づくデータにアクセスするためのリクエストを作成
+  const requests = tokenIds.map(tokenId =>
+    axios.get('https://tap-api.shmn7iii.net/v2/tokens/' + String(tokenId))
+  );
 
-    render() {
-        let tokenList1 = [
-        {
-        name:"test",
-        image:""
-        }
-        ]
-        let tokenList2 = [
-        ];
-        let tokenList3 = [
-        ];
-        
-        var getToken = axios.get("https://tap-api.shmn7iii.net/v2/tokens")
-            .then(response => {
-                console.log(getToken);
-                return response.data;
-            })
-            .then(json => {
-                var data = json;
-                //トークンの数
-                const le = Object.keys(data["data"]).length;
-                console.log("test")
-                let num = 1;
-                for (let i = 1; i<le+1; i++){
-                    //変数base64にトークンのbase64の文字列を渡す
-                    var base64 = data["data"][i-1]["token_data"];
-                    //もしiが３の倍数なら３列目
-                    if(i%3===0){
-                        tokenList3.push({name3:'test'+String(num),image3:String(base64)});
-                        num++;
-                    //もしiが1の倍数なら1列目
-                    }else if(i%3===1){
-                        tokenList1.push({name1:'test'+String(num),image1:String(base64)});
-                        num++;
-                    //もしiが2の倍数なら2列目
-                    }else{
-                        tokenList2.push({name2:'test'+String(num),image2:String(base64)});
-                        num++;
-                    }
-                }
-                console.log("1");
-                console.log(tokenList1);
-                console.log("2");
-                console.log(tokenList2);
-                console.log("3");
-                console.log(tokenList3);
-                return json;
-            })
-            .catch(error => {
-                console.log(error);
-                console.log("失敗");
-            });
-        
-        console.log("aaaaaaaaaaa");
-        console.log(tokenList1);
+  // 作成したリクエストを全部、並列で実行
+  // tokenRess = 実行結果全部の配列
+  const tokenRess = await Promise.all(requests);
 
+  // 実行結果をもとに、name と image のセットを作成
+  const fetchedTokens = tokenRess.map(tokenRes => {
+    const name = 'TEST';
+    const image = tokenRes.data.data.token_data;
+    return { name, image };
+  });
 
-        return (
-            <div className='main-wrapper'>
-                <div className='main'>
-                    <div className='copy-container'>
-                        <h1>NFT一覧</h1>
-                    </div>
-                    <div className='token-container'>
-                        <div className="parents">
-                            <div className="div-parent1">
-                                {tokenList1.map((tokenItem) => {
-                                    return (
-                                        <Token
-                                        name={tokenItem.name}
-                                        image={tokenItem.image}
-                                        //Warning: Each child in a list should have a unique “key” prop.回避
-                                        key = {tokenItem}
-                                        />
-                                    );
-                                    })}
-                            </div>
-                        </div>
-                        <div className="parents">
-                            <div className="div-parent2">
-                                {tokenList2.map((tokenItem) => {
-                                    return (
-                                        <Token
-                                        name={tokenItem.name}
-                                        image={tokenItem.image}
-                                        key = {tokenItem}
-                                        />
-                                    );
-                                    })}
-                            </div>
-                        </div>
-                        <div className="parents">
-                            <div className="div-parent3">
-                                {tokenList3.map((tokenItem) => {
-                                    return (
-                                        <Token
-                                        name={tokenItem.name}
-                                        image={tokenItem.image}
-                                        key = {tokenItem}
-                                        />
-                                    );
-                                    })}
-                            </div>
-                        </div>
-                    </div>
-                </div>
+  return fetchedTokens;
+}
+
+const useTokens = () => {
+  const [tokens, setTokens] = useState([]);
+
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged(async (user) => {
+      if (!user?.uid) {
+        console.error("ユーザーが取得できませんでした。")
+        return;
+      }
+      const fetchedTokens = await fetchTokens(user.uid);
+      setTokens(fetchedTokens);
+    })
+  }, []);
+
+  console.log(tokens)
+  return tokens;
+}
+
+function Main() {
+  const tokens = useTokens();
+
+  const COLUMN = 3;
+  return (
+    <div className="main-wrapper">
+      <div className="main">
+        <div className="copy-container">
+          <h1>NFT一覧</h1>
+        </div>
+        <div className="token-container">
+          {[...Array(COLUMN)].map((_, i) => (
+            <div className="parents">
+              {tokens
+                .filter((_, index) => index % COLUMN === i)
+                .map(({ name, image }, index) => {
+                  return <Token name={name} image={image} key={index} />;
+                })}
             </div>
-        );
-    }
+          ))}
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default Main;

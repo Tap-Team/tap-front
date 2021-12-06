@@ -2,12 +2,12 @@ import React from 'react';
 import firebase from './firebase';
 import SignInScreen from './SignInScreen';
 import axios from 'axios';
-
+import {Link} from 'react-router-dom';
 
 class SignIn extends React.Component {
     state = {
       loading: true,
-      user: null
+      user: null,
     };
 
     //モーダル
@@ -17,12 +17,12 @@ class SignIn extends React.Component {
     }
     handleClickToken(event) {
       this.setState({isModalOpen: true});
-      document.addEventListener('click',this.handleClickClose)
-      event.stopPropagation()
+      // document.addEventListener('click',this.handleClickClose)
+      // event.stopPropagation()
     }
     
     handleClickClose() {
-      this.setState({isModalOpen: false});
+            this.setState({isModalOpen: false});
       document.removeEventListener('click',this.handleClickClose)
     }
   
@@ -35,7 +35,8 @@ class SignIn extends React.Component {
         if(user){
           this.setState({
             loading: false,
-            user: user
+            user: user,
+            AuthChecked: true
           });
           var createAcount = axios.post("https://tap-api.shmn7iii.net/v2/users",{
                 uid: user.uid
@@ -67,24 +68,23 @@ class SignIn extends React.Component {
         modal = (
           <div id="modal" className='header-modal' onClick={(event)=>{event.stopPropagation()}}>
             <div className='header-modal-inner'>
-              <img src={this.state.user.photoURL} alt="icon" />
-              <div className="header-modal-name">{this.state.user.displayName}</div>
-              <a href
-                className='wallet'
-                onClick={() => {this.handleClickClose()}}
-              >
-                ウォレット
+              <div className="wallet-area">
+                <Link to="/main"  className="wallet-link" style={{ textDecoration: 'none' ,color: 'black'}}>ウォレット</Link>
+              </div>
+
+              <div className="logout-area">
+                <a href className="logout"
+                onClick={() => {this.logout()}}>
+                  ログアウト
               </a>
-              <a href className="logout"
-               onClick={() => {this.logout()}}>
-                ログアウト
-              </a>
-              <button
-                className='modal-close-btn'
-                onClick={() => {this.handleClickClose()}}
-              >
-                とじる
-              </button>
+              </div>
+
+              <div className="header-modal-close-btn-area">
+                <a href className='header-modal-close-btn'
+                onClick={() => {this.handleClickClose()}}>
+                  モーダルを閉じる
+                </a>
+              </div>
             </div>
           </div>
         );

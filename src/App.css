@@ -30,23 +30,26 @@
   z-index: 100;
 }
 
-.header-wrapper h1 {
+.Tap {
   font-size: 2rem;
-  margin-left: 2%;
+  margin: 0px;
   position: relative;
-  top: -17%;
-  display: inline-block;
+  left: 20px;
+  display: block;
+  padding: 10px;
+  color: #000b00;
+  font-family: fantasy;
 }
 
 .signin-header{
   position: relative;
-  top: -63px;
+  top: 0px;
   right: 15px;
 }
 
 .twitter-auth {
   position: relative;
-  top: -12px;
+  top: -30px;
   right: -10px;
 }
 
@@ -54,50 +57,94 @@
   border-radius: 50%; 
   width: 30px;
   height: 30px;
+  position: relative;
+  top: -40px;
+  right: 10px;
 
 }
 
 .header-modal-inner {
   position: absolute;
-  top: 50%;
-  right: -1300px;
+  top: 5%;
+  right: -90%;
   left: 0;
-  width: 150px;
-  height: 200px;
-  padding: 20px;
+  width: 160px;
   margin: auto;
   background-color: rgb(255,255,255);
   border-radius: 8px;
-  box-shadow:0px 0px 10px;
+  text-align: center;
+  box-shadow: 0 0 8px gray;
 }
 
-.header-modal-inner img{
-  border-radius: 50%; 
-  width: 50px;
-  height: 50px;
-  margin: 5% 0 10% 10%;
+.header-modal:before{
+  content: '';
+  position: absolute;
+  display: block;
+  z-index: 1;
+  border-style: solid;
+  border-color: white transparent;
+  border-width: 0 10px 10px 10px;
+  top: -5px;
+  left: 98.5%;
+  margin-left: -10px;
+  /* box-shadow: 0 0 8px gray; */
 }
 
 .logout {
   font-size: 0.5rem;
   text-align: center;
   position: relative;
+  top:25%;
   display: inline-block;
   color: rgba(43,43,43,0.9);
   text-decoration: none;
   cursor: pointer;
 }
 
-.wallet {
+.logout-area {
+  height: 45px;
+}
+
+.logout-area:hover {
+  background-color:rgba(0, 0, 0, 0.05);
+}
+
+.wallet-link {
   font-size: 0.5rem;
   text-align: center;
   position: relative;
+  top: 25%;
   display: inline-block;
   color: rgba(43,43,43,0.9);
   text-decoration: none;
   cursor: pointer;
 }
 
+.wallet-area {
+  height: 45px;
+}
+
+.wallet-area:hover {
+  background-color:rgba(0, 0, 0, 0.05);
+}
+
+.header-modal-close-btn {
+  font-size: 0.5rem;
+  text-align: center;
+  position: relative;
+  top: 25%;
+  display: inline-block;
+  color: rgba(43,43,43,0.9);
+  cursor: pointer;
+}
+
+.header-modal-close-btn-area {
+  height: 45px;
+}
+
+.header-modal-close-btn-area:hover {
+  background-color:rgba(0, 0, 0, 0.05);
+}
 
 /*トップ*/
 .top-wrapper {
@@ -141,6 +188,10 @@
   color: white;
   top: -30px;
   cursor: default;
+}
+
+.create-link a:hover {
+  color: rgba(255,255,255,0.6);
 }
 
 
@@ -222,7 +273,7 @@
 }
 
 .service-container {
-  height: 1500px;
+  height: 1800px;
   text-align: center;
   font-size: 50px;
 }
@@ -458,6 +509,7 @@
   text-align: right;
 }
 
+
 /*Main*/
 .parents {
   display: inline-block;
@@ -494,12 +546,6 @@
   padding: 3% 10%;
 }
 
-.Tap {
-  display: inline-block;
-  font-size: 20px;
-  margin: 1%;
-}
-
 .Privacy-Policy {
   display: inline-block;
   margin: 2%;
@@ -521,64 +567,36 @@
 
 /*Issue*/
 
-.issue-modal {
+/* .issue-modal {
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   background-color: rgba(0,0,0,0.6);
-}
-
-.upload-modal-inner {
-  position: absolute;
-  top: 15%;
-  right: 0;
-  left: 0;
-  width: 850px;
-  height: 500px;
-  padding: 20px;
-  margin: auto;
-  background-color: rgb(255,255,255);
-  border-radius: 8px;
-  z-index: 10;
-}
-/* .upload-wrapper {
-  position: relative;
-  overflow: hidden;
-  display: inline-block;
-  width: 100%;
 } */
 
-.upload-container {
-  height: 500px;
+.upload {
   padding: 5%;
 }
 
-.input-btn {
-  border: 2px solid gray;
-  color: gray;
-  background-color: white;
-  padding: 8px 20px;
-  border-radius: 8px;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-/* .upload-wrapper input[type=file] {
-  font-size: 100px;
-  position: absolute;
-  left: 0;
-  top: 0;
-  opacity: 0;
-} */
 
 .upload-area {
-  top: 10%;
-  left: 0;
-  margin: auto;
   position: relative;
+  top: 10%;
+  margin: 10%;
+
   border: 2px dotted rgba(0, 0, 0, 0.4);
+  border-radius: 5%;
+}
+
+.upload-area:hover{
+  position: relative;
+  top: 10%;
+  margin: 10%;
+  border: 2px dotted rgba(0, 0, 0, 0.4);
+  border-radius: 5%;
+  background-color: rgba(150,150,150,0.2);
 }
 
 .upload-area i {
@@ -600,7 +618,8 @@
 }
 
 .imageid{
-  position: absolute;
+  position: relative;
+  text-align: center;
 }
 
 #input-files {
@@ -616,20 +635,6 @@
   position:absolute;
   top: 90%;
   left: 49%;
-}
-
-.outer {
-  position: relative;
-  margin: auto;
-  width: 35px;
-  cursor: pointer;
-  top: -400px;
-  left: 380px;
-}
-
-.inner {
-  width: inherit;
-  text-align: center;
 }
 
 label { 

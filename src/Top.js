@@ -14,6 +14,7 @@ import image3 from './img/happa1024.png';
 import image4 from './img/koppu1024.png';
 import image5 from './img/melon6.png';
 import image6 from './img/ume2.png';
+import {Link} from 'react-router-dom';
 
 
 class Top extends React.Component {
@@ -31,7 +32,17 @@ class Top extends React.Component {
     render() {
         return (
             <div className="top-wrapper">
-                <Issue />
+                <div className="top-container">
+                    <div className="top-explain">
+                        <h1>NFT without Cryptoassets</h1>
+                            <div className="top-p1">Tap! allows you to prove ownership by issuing NFT to your digital content.</div>
+                            <div className="top-p2">And, you don't need crypto asseets when you issue.</div>
+                            <div className="create-btn">
+                                {/* <a href onClick={() => {this.handleClickIssue()}}>Create</a> */}
+                                <Link to="/create"  className="create-link" style={{ textDecoration: 'none' ,color: 'white'}}>Create</Link>
+                            </div>
+                    </div>
+                </div>
                 <div className="NFTs-container">
                     <h2>NFTs</h2>
                     <Slider {...this.settings}>

@@ -3,18 +3,9 @@ import Main from './Main';
 import Header from './Header';
 import Footer from './Footer';
 import Top from './Top';
+import Issue from './Issue';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-// function App() {
-//   return (
-//     <div className="App">
-//         <Header />
-//         <Top />
-//         <Main />
-//         <Footer />
-//     </div>
-//   );
-// }
 
 function TEST(){
   return (
@@ -22,8 +13,10 @@ function TEST(){
       <Header /> 
       <Routes>
         <Route exact path="/" element={<Top />} />
+        <Route path="/create" element={<Issue />} />
         <Route path="/main" element={<Main />} />
       </Routes>
+      <Footer />
   </BrowserRouter>
   );
 }
