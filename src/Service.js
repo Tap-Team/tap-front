@@ -77,7 +77,7 @@ function Service() {
                     </div>
                     <div className="explanation-inner-sentence">
                         <p>アカウント名を指定してトークンを移転することが可能になるシステム。Tap!のプラットフォーム上での金銭的なやりとりは一切発生させません。</p>
-                        <p>Comming soon...</p>
+                        <p>Coming soon...</p>
                     </div>
                     <div className="detail4">
                         <p>detail</p>
@@ -95,7 +95,7 @@ function Service() {
                     </div>
                     <div className="explanation-inner-sentence">
                         <p>ブロックチェーンを活用し、参加者による認証システムを用意します。不正なトークンが発行された場合はトークンに対して「ちょっと待て」することが可能で、対象のトークンにはフラグが建てられ参加者による検証が始まります。期間内に所定数以上の不正報告があればトークンは焼却orブロックが破棄されるシステムです。</p>
-                        <p>Comming soon...</p>
+                        <p>Coming soon...</p>
                     </div>
                     <div className="detail5">
                         <p>detail</p>
