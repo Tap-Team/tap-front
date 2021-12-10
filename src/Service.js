@@ -4,17 +4,13 @@ import imgStop from './img/james-lee-y15-SmlLTe8-unsplash.jpg';
 import imgWant from './img/michael-browning-LmxoicGTLDQ-unsplash.jpg';
 import imgIdea from './img/mark-fletcher-brown-nN5L5GXKFz8-unsplash.jpg';
 import imgNFT from './img/chain-5842371_1920.jpg';
-import image1 from './img/bill.png';
-import image2 from './img/fullmoon2.png';
-import image3 from './img/happa1024.png';
-import image4 from './img/koppu1024.png';
-import image5 from './img/melon6.png';
-import image6 from './img/ume2.png';
 
 function Service() {
     return (
         <div className="service-container">
-        <h2>SERVICE</h2>
+        <div className="service">
+            <h2>SERVICE</h2>
+        </div>
         <div className="service-card1">
             <div className="gray-box"></div>
             <img className="service-img1" src={imgNFT} alt=""/>
@@ -25,9 +21,6 @@ function Service() {
                     </div>
                     <div className="explanation-inner-sentence">
                         <p>NFTにより唯一性を保証、所有者情報を明確に保持します。つまり作品に対しNFTを発行することで所有権・唯一性の主張が可能になります。</p>
-                    </div>
-                    <div className="detail1">
-                        <p>detail</p>
                     </div>
                 </div>
             </div>
@@ -44,9 +37,6 @@ function Service() {
                         <p>既存のNFTの発行には暗号通貨が必要であり参入ハードルが高まる原因になりがち。そこで我々はあえて切り離すというNFTへの新しいアプローチを提案します。</p>
                         <p>"非Crptpo的なNFTの活用"と位置付け、NFTに触れたことのないユーザーへNFTに触れる体験を提供することが私たちの目的です。</p>
                     </div>
-                    <div className="detail2">
-                        <p>detail</p>
-                    </div>
                 </div>
             </div>
         </div>
@@ -60,9 +50,6 @@ function Service() {
                     </div>
                     <div className="explanation-inner-sentence">
                         <p>トークンのタイムスタンプを根拠に「俺が先だが?」ができるシステム。「全く同じ画像」の発行を拒否する仕組みにより偽物の発行は不可になります。</p>
-                    </div>
-                    <div className="detail3">
-                        <p>detail</p>
                     </div>
                 </div>
             </div>
@@ -79,9 +66,6 @@ function Service() {
                         <p>アカウント名を指定してトークンを移転することが可能になるシステム。Tap!のプラットフォーム上での金銭的なやりとりは一切発生させません。</p>
                         <p>Coming soon...</p>
                     </div>
-                    <div className="detail4">
-                        <p>detail</p>
-                    </div>
                 </div>
             </div>
         </div>
@@ -96,9 +80,6 @@ function Service() {
                     <div className="explanation-inner-sentence">
                         <p>ブロックチェーンを活用し、参加者による認証システムを用意します。不正なトークンが発行された場合はトークンに対して「ちょっと待て」することが可能で、対象のトークンにはフラグが建てられ参加者による検証が始まります。期間内に所定数以上の不正報告があればトークンは焼却orブロックが破棄されるシステムです。</p>
                         <p>Coming soon...</p>
-                    </div>
-                    <div className="detail5">
-                        <p>detail</p>
                     </div>
                 </div>
             </div>

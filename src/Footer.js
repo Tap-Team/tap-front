@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 class Footer extends React.Component {
     render() {
@@ -10,13 +11,10 @@ class Footer extends React.Component {
                         <p>Tap!</p>
                     </div>
                     <div className="Privacy-Policy">
-                        <p>Privacy Policy</p>
+                        <Link to="/privacypolicy"  className="link-black" style={{ textDecoration: 'none'}}>PrivacyPolicy</Link>
                     </div>
                     <div className="Terms-of-Service">
-                        <p>Terms of Service</p>
-                    </div>
-                    <div className="Terms">
-                        <p>Terms</p>
+                        <Link to="/tos"  className="link-black" style={{ textDecoration: 'none'}}>Terms of Service</Link>
                     </div>
                 </div>
                 <div className="copy">

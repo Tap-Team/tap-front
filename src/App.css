@@ -150,7 +150,7 @@
 /*トップ*/
 .top-wrapper {
   width: 100%;
-  height: 500px;
+  height: 600px;
 }
 
 .top-container {
@@ -289,6 +289,7 @@
 
 .service-container h2 {
   cursor: default;
+  font-size: 5rem;
 }
 
 .service-card1 {
@@ -394,91 +395,7 @@
   padding: 5% 0;
 }
 
-.detail1{
-  text-align: right;
-  position: relative;
-  right: 5%;
-  font-size: 1.1rem;
-}
 
-.detail2{
-  text-align: right;
-  position: relative;
-  right: 5%;
-  font-size: 1.1rem;
-}
-
-.detail3{
-  text-align: right;
-  position: relative;
-  right: 5%;
-  top: 55px;
-  font-size: 1.1rem;
-}
-
-.detail4{
-  text-align: right;
-  position: relative;
-  right: 5%;
-  top: -20px;
-  font-size: 1.1rem;
-}
-
-.detail5{
-  text-align: right;
-  position: relative;
-  right: 5%;
-  top: 5px;
-  font-size: 1.1rem;
-}
-
-.detail1 ::before {
-  content: '';
-  width: 6rem;
-  height: 2.3rem;
-  border-bottom: solid 3px #636466;;
-  position: absolute;
-  right: -7%;;
-}
-
-
-.detail2 ::before {
-  content: '';
-  width: 6rem;
-  height: 2.3rem;
-  border-bottom: solid 3px #636466;;
-  position: absolute;
-  right: -7%;;
-}
-
-.detail3 ::before {
-  content: '';
-  width: 6rem;
-  height: 2.3rem;
-  border-bottom: solid 3px #636466;;
-  position: absolute;
-  right: -7%;;
-}
-.detail4 ::before {
-  content: '';
-  width: 6rem;
-  height: 2.3rem;
-  border-bottom: solid 3px #636466;;
-  position: absolute;
-  right: -7%;;
-}
-
-.detail5 ::before {
-  content: '';
-  width: 6rem;
-  height: 2.3rem;
-  border-bottom: solid 3px #636466;;
-  position: absolute;
-  right: -7%;;
-}
-
-
-/*モーダル*/
 .modal {
   position: fixed;
   top: 0;
@@ -620,7 +537,8 @@
 /*Main*/
 .parents {
   display: inline-block;
-  margin: 5%;
+  margin: 1%;
+  width: 23%;
 }
 
 .copy-container {
@@ -803,4 +721,85 @@ label {
 
 .outer:hover .inner:after {
   bottom: 0;
+}
+
+.privacy-modal{
+  position: absolute;
+  top: 20%;
+  right: 0;
+  left: 0;
+  width: 850px;
+  height: 400px;
+  padding: 30px;
+  margin: auto;
+  background-color: rgb(255,255,255);
+  border-radius: 8px;
+}
+
+.privacy-modal h1{
+  font-size: 2.5rem;
+  margin: 2rem;
+}
+
+.privacy-modal p{
+  font-size: 1rem;
+  margin: 2rem;
+}
+
+.tos-modal {
+  position: absolute;
+  top: 20%;
+  right: 0;
+  left: 0;
+  width: 850px;
+  height: 400px;
+  padding: 30px;
+  margin: auto;
+  background-color: rgb(255,255,255);
+  border-radius: 8px;
+}
+
+.tos-modal h1{
+  font-size: 2.5rem;
+  margin: 2rem;
+}
+
+.tos-modal p{
+  font-size: 1rem;
+  margin: 2rem;
+}
+
+.link-black {
+  display: block;
+  text-decoration: none;
+  color: black;
+}
+
+.link-white {
+  display: block;
+  text-decoration: none;
+  color: white;
+}
+
+.modal-switch-btn {
+  margin: 5px;
+  width: 200px;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 500;
+  background-color: black;
+  border-radius: 100vh;
+  transition: 0.3s;
+  
+}
+
+.modal-switch-btn:hover {
+  transform: translateY(3px);
+  text-decoration: none;
+  box-shadow: 0 2px 0 #aaaaaa;
+}
+
+.tosPrivacy-btn{
+  position: relative;
+  left: 25px;
 }

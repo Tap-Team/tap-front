@@ -1,41 +1,60 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import firebase from './firebase';
-const fetchCreatedAt = async userId => {
-  const userRes = await axios.get(
-    `https://tap-api.shmn7iii.net/v2/users/${userId}`
-  );
-  // TODO: dataの中にdataがあるのは変なので要変更（バックエンド）
-  // TODO: tokensって命名よりもtokenIds の方が適切？
-  const created_at = userRes.data.data.created_at;
-  return created_at;
-};
-const useCreate = () => {
-  const [create_at, setCreate_at] = useState([]);
-  useEffect(() => {
-    firebase.auth().onAuthStateChanged(async user => {
-      if (!user?.uid) {
-        console.error('ユーザーが取得できませんでした。');
-        return;
-      }
-      const create_at = await fetchCreatedAt(user.uid);
-      setCreate_at(create_at);
-    });
-  }, []);
-  return create_at;
-};
+
+// const fetchCreatedAt = async userId => {
+//   const userRes = await axios.get(
+//     `https://tap-api.shmn7iii.net/v2/users/${userId}`
+//   );
+//   // TODO: dataの中にdataがあるのは変なので要変更（バックエンド）
+//   // TODO: tokensって命名よりもtokenIds の方が適切？
+//   const created_at = userRes.data.data.created_at;
+//   return created_at;
+// };
+
+// const useCreate = () => {
+//   const [create_at, setCreate_at] = useState([]);
+//   useEffect(() => {
+//     firebase.auth().onAuthStateChanged(async user => {
+//       if (!user?.uid) {
+//         console.error('ユーザーが取得できませんでした。');
+//         return;
+//       }
+//       const create_at = await fetchCreatedAt(user.uid);
+//       setCreate_at(create_at);
+//     });
+//   }, []);
+//   return create_at;
+// };
+
+const useUserName = () => {
+    const [userName, setUserName] = useState("");
+  
+    useEffect(() => {
+      firebase.auth().onAuthStateChanged(async (user) => {
+        if (!user?.uid) {
+          console.error("ユーザーが取得できませんでした。")
+          return;
+        }
+        const getName = await user.displayName;
+        setUserName(getName);
+      })
+    }, []);
+
+    return userName;
+  }
 
 const MODALS = {
-  DEFAULT: 'default',
-  TRANSFER: 'transfer',
-  BURN: 'burn',
-  BURNCOMP: 'burnComp'
+    DEFAULT: 'default',
+    TRANSFER: 'transfer',
+    BURN: 'burn',
+    BURNCOMP: 'burnComp'
 };
 
-function Token2({ image, name, tokenId, userId }) {
+function Token2({ image, name, tokenId, userId, time}) {
   const [modalName, setModalName] = useState(null);
-  const createAt = useCreate();
   const [text, setText] = useState('');
+  const userName = useUserName()
 
   const handleTokenItemClick = () => {
     setModalName(MODALS.DEFAULT)
@@ -82,11 +101,9 @@ function Token2({ image, name, tokenId, userId }) {
       <div className="modal-explanation">
         <div className="explanation">
           <h3>所有者</h3>
-          <p>test</p>
+          <p>{userName}</p>
           <h3>発行時</h3>
-          <p>{createAt}</p>
-          <h3>移転歴</h3>
-          <p>test</p>
+          <p>{time}</p>
         </div>
         <div className="btn">
           <button
@@ -217,18 +234,12 @@ function Token2({ image, name, tokenId, userId }) {
         <img src={image} alt="" width="400" />
       </div>
       <div className="modal-explanation">
-        <div className="explanation">
-            <h3>所有者</h3>
-            <p>test</p>
-            <h3>発行時</h3>
-            <p>{createAt}</p>
-            <h3>移転歴</h3>
-            <p>test</p>
+            <div className="alert">
+                <h3>焼却（削除）しました</h3>
             </div>
         <div className="btn">
-          <p>焼却（削除）しました</p>
           <button
-            className="modal-burn-btn"
+            className="modal-close-btn"
             onClick={() => {
               handleClickClose();
             }}

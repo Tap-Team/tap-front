@@ -88,18 +88,10 @@ class Issue extends React.Component {
         var self = this;
         image.onload = () => {
             var canvas = document.createElement("canvas");
-            console.log(img);
-            console.log("image");
-            console.log(image);
             canvas.width = img.width;
             canvas.height = img.height;
-            console.log("img.width");
-            console.log(img.width);
-            console.log("img.height");
-            console.log(img.height);
             var ctx = canvas.getContext("2d");
             ctx.drawImage(image, 0, 0);
-            console.log(canvas);
             var dataURL = canvas.toDataURL("image/png");
             self.setState({
                 base64: dataURL
@@ -140,11 +132,11 @@ class Issue extends React.Component {
                     </div>
                     <div className="drop">
                         <p>Drag and drop a image or click</p>
-                        <p>Small images, please :-)</p>
+                        <p>Small png image please :-)</p>
                     </div>
-                    <div className="upload-area" style={{width:"450",height:"350px"}}>
+                    <div className="upload-area" style={{width:"auto",height:"auto"}}>
                         <div className="imageidParent">
-                            <img id="imageid" src={this.state.imageURL} alt="" style={{width:"1450",height:"1350px"}}/>
+                            <img id="imageid" src={this.state.imageURL} alt="" style={{width:"auto",height:"350"}}/>
                             <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet"></link>
                             <input className="file-area" type="file" accept="image/png" id="input-files" onChange={ this.onFileChange } />
                         </div>
