@@ -76,6 +76,7 @@
   box-shadow: 0 0 8px gray;
 }
 
+
 .header-modal:before{
   content: '';
   position: absolute;
@@ -91,7 +92,7 @@
 }
 
 .logout {
-  font-size: 0.5rem;
+  font-size: 0.8rem;
   text-align: center;
   position: relative;
   top:25%;
@@ -110,11 +111,11 @@
 }
 
 .wallet-link {
-  font-size: 0.5rem;
+  font-size: 0.8rem;
   text-align: center;
   position: relative;
-  top: 25%;
-  display: inline-block;
+  top: 35%;
+  display: block;
   color: rgba(43,43,43,0.9);
   text-decoration: none;
   cursor: pointer;
@@ -129,7 +130,7 @@
 }
 
 .header-modal-close-btn {
-  font-size: 0.5rem;
+  font-size: 0.8rem;
   text-align: center;
   position: relative;
   top: 25%;
@@ -149,7 +150,7 @@
 /*トップ*/
 .top-wrapper {
   width: 100%;
-  height: 4700px;
+  height: 500px;
 }
 
 .top-container {
@@ -190,8 +191,16 @@
   cursor: default;
 }
 
+.create-link {
+  color: white;
+}
+
 .create-link a:hover {
   color: rgba(255,255,255,0.6);
+}
+
+.create-link a:visited{
+  color: white;
 }
 
 
@@ -273,7 +282,7 @@
 }
 
 .service-container {
-  height: 1800px;
+  height: 3500px;
   text-align: center;
   font-size: 50px;
 }
@@ -285,35 +294,30 @@
 .service-card1 {
   width: 100%;
   height: 600px;
-  text-align: center;
   margin-top: 15%;
 }
 
 .service-card2 {
   width: 100%;
   height: 600px;
-  text-align: center;
   margin-top: 5%;
 }
 
 .service-card3 {
   width: 100%;
   height: 600px;
-  text-align: center;
   margin-top: 5%;
 }
 
 .service-card4 {
   width: 100%;
   height: 600px;
-  text-align: center;
   margin-top: 5%;
 }
 
 .service-card5 {
   width: 100%;
   height: 600px;
-  text-align: center;
   margin-top: 5%;
 }
 .service-img1 {
@@ -342,9 +346,8 @@
   top: -110%;
   padding: 1%;
   font-size: 15px;
-  text-align: center;
   background-color: white;
-  box-shadow: 6px 6px 10px 0px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
   z-index: -1;
 }
 
@@ -356,17 +359,16 @@
   top: -110%;
   padding: 1%;
   font-size: 15px;
-  text-align: center;
   background-color: white;
-  box-shadow: 6px 6px 10px 0px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
   z-index: -1;
 }
 
-.service-explain h1{
+.explanation-inner-title{
   color: #404142
 }
 
-.service-explain p {
+.explanation-inner-sentence{
   color: #636466
 }
 
@@ -379,6 +381,101 @@
   z-index: -2;
 }
 
+.explanation-inner{
+  padding: 5%;
+}
+
+.explanation-inner-title{
+  font-size: 0.5rem;
+}
+
+.explanation-inner-sentence {
+  text-align: left;
+  padding: 5% 0;
+}
+
+.detail1{
+  text-align: right;
+  position: relative;
+  right: 5%;
+  font-size: 1.1rem;
+}
+
+.detail2{
+  text-align: right;
+  position: relative;
+  right: 5%;
+  font-size: 1.1rem;
+}
+
+.detail3{
+  text-align: right;
+  position: relative;
+  right: 5%;
+  top: 55px;
+  font-size: 1.1rem;
+}
+
+.detail4{
+  text-align: right;
+  position: relative;
+  right: 5%;
+  top: -20px;
+  font-size: 1.1rem;
+}
+
+.detail5{
+  text-align: right;
+  position: relative;
+  right: 5%;
+  top: 5px;
+  font-size: 1.1rem;
+}
+
+.detail1 ::before {
+  content: '';
+  width: 6rem;
+  height: 2.3rem;
+  border-bottom: solid 3px #636466;;
+  position: absolute;
+  right: -7%;;
+}
+
+
+.detail2 ::before {
+  content: '';
+  width: 6rem;
+  height: 2.3rem;
+  border-bottom: solid 3px #636466;;
+  position: absolute;
+  right: -7%;;
+}
+
+.detail3 ::before {
+  content: '';
+  width: 6rem;
+  height: 2.3rem;
+  border-bottom: solid 3px #636466;;
+  position: absolute;
+  right: -7%;;
+}
+.detail4 ::before {
+  content: '';
+  width: 6rem;
+  height: 2.3rem;
+  border-bottom: solid 3px #636466;;
+  position: absolute;
+  right: -7%;;
+}
+
+.detail5 ::before {
+  content: '';
+  width: 6rem;
+  height: 2.3rem;
+  border-bottom: solid 3px #636466;;
+  position: absolute;
+  right: -7%;;
+}
 
 
 /*モーダル*/
@@ -389,6 +486,7 @@
   bottom: 0;
   left: 0;
   background-color: rgba(0,0,0,0.6);
+  display: inline-block;
 }
 
 .modal-inner {
@@ -404,20 +502,41 @@
   border-radius: 8px;
 }
 
-.modal-explanation {
-  display: inline-block;
-  padding: 5%;
+.modal-img {
+  position: absolute;
+  margin: 3%;
 }
 
-
-.modal-img {
-  display: inline-block;
+.modal-explanation {
+  position: absolute;
+  left: 50%;
+  top: 25%;
 }
 
 .explanation {
   position: absolute;
-  top: 8%;
   font-size: 20px;
+  line-height: 0.5em;
+  width: 100%;
+}
+
+.alert {
+  position: absolute;
+  font-size: 20px;
+  line-height: 0.5em;
+  width: 100%;
+}
+
+.alert p {
+  padding: 5%;
+  font-size: 1rem;
+}
+
+.btn {
+  position: relative;
+  top: 320px;
+  width: 400px;
+
 }
 
 
@@ -425,20 +544,13 @@
 .modal-close-btn {
   margin: 5px;
   width: 100px;
-  color: #333;
-  font-size: 18px;
-  font-weight: 700;
-  background-color: #cccccc;
-  box-shadow: 0 5px 0 #aaaaaa;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 500;
+  background-color: black;
+  border-radius: 100vh;
   transition: 0.3s;
   
-}
-
-.modal-close-btn::after {
-  content: '';
-  width: 5px;
-  height: 5px;
-  transform: rotate(45deg);
 }
 
 .modal-close-btn:hover {
@@ -449,25 +561,22 @@
 
 
 .modal-transfer-btn {
-  justify-content: space-between;
-  align-items: center;
   margin: 5px;
   width: 100px;
-  color: #333;
-  font-size: 18px;
-  font-weight: 700;
-  background-color: #cccccc;
-  box-shadow: 0 5px 0 #aaaaaa;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 500;
+  background-color: black;
+  border-radius: 100vh;
   transition: 0.3s;
-  
 }
 
-.modal-transfer-btn::after {
+/* .modal-transfer-btn::after {
   content: '';
   width: 5px;
   height: 5px;
   transform: rotate(45deg);
-}
+} */
 
 .modal-transfer-btn:hover {
   transform: translateY(3px);
@@ -477,15 +586,13 @@
 
 
 .modal-burn-btn {
-  justify-content: space-between;
-  align-items: center;
   margin: 5px;
   width: 100px;
-  color: #333;
-  font-size: 18px;
-  font-weight: 700;
-  background-color: #cccccc;
-  box-shadow: 0 5px 0 #aaaaaa;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 500;
+  background-color: black;
+  border-radius: 100vh;
   transition: 0.3s;
 }
 
@@ -521,7 +628,7 @@
 }
 
 .main-wrapper {
-  background-color: #f4fafa;
+  background-color: white;
 }
 
 .main {
@@ -561,68 +668,60 @@
   margin: 2%;
 }
 
-.copy {
-  color: #9ea1a3;
+.upload {
+  padding: 5% 30%;
+  height: auto;
 }
 
-/*Issue*/
+.CreateNewNFT{
+  font-size: 3rem;
+  position: relative;
+  margin: 0 0;
+  font-family: fantasy;
+}
 
-/* .issue-modal {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: rgba(0,0,0,0.6);
-} */
-
-.upload {
-  padding: 5%;
+.drop{
+  font-size: 1rem;
+  position:relative;
+  top: -25px;
+  margin: -0.5%;
+  line-height: 0.5em
 }
 
 
 .upload-area {
   position: relative;
-  top: 10%;
-  margin: 10%;
-
   border: 2px dotted rgba(0, 0, 0, 0.4);
   border-radius: 5%;
 }
 
 .upload-area:hover{
   position: relative;
-  top: 10%;
-  margin: 10%;
   border: 2px dotted rgba(0, 0, 0, 0.4);
   border-radius: 5%;
   background-color: rgba(150,150,150,0.2);
 }
 
-.upload-area i {
-  position: absolute;
-  font-size: 120px;
-  opacity: 0.1;
-  width: 100%;
-  left: 42%;
-  top: 80px;
-}
-
-.upload-area p {
-  width: 100%;
-  position: absolute;
-  top: 200px;
-  opacity: 0.8;
-  font-family: 'Comic Sans MS';
-  text-align: center;
-}
-
-.imageid{
+.imageid {
   position: relative;
   text-align: center;
 }
 
-#input-files {
+.imageidParent{
+  position: relative;
+  text-align: center;
+  width: 450px;
+  height: 350px;
+}
+
+.imageidParent img{
+  width: auto;
+  height: 350px;
+}
+
+.file-area {
+  border: none;
+  outline: none;
   top: 0;
   left: 0;
   opacity: 0;
@@ -631,10 +730,32 @@
   height: 100%;
 }
 
+
 .issue-btn {
-  position:absolute;
-  top: 90%;
-  left: 49%;
+  width: 100px;
+  margin: 5% 0;
+  position: relative;
+  color: white;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 500;
+  background-color: black;
+  border-radius: 100vh;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.issue-btn::after {
+  content: '';
+  width: 5px;
+  height: 5px;
+  transform: rotate(45deg);
+}
+
+.issue-btn:hover {
+  transform: translateY(3px);
+  text-decoration: none;
+  box-shadow: 0 2px 0 #aaaaaa;
 }
 
 label { 

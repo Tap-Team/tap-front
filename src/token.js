@@ -27,6 +27,10 @@ class Token extends React.Component {
   
   handleClickClose() {
     this.setState({isModalOpen: false});
+    document.removeEventListener('click',this.handleClickClose)
+  }
+
+  handleClickClose2() {
     this.setState({isModalOpen2: false});
     document.removeEventListener('click',this.handleClickClose)
   }
@@ -75,7 +79,7 @@ class Token extends React.Component {
                 </button>
                 <button
                   className='modal-close-btn'
-                  onClick={() => {this.handleClickClose()}}
+                  onClick={() => {this.handleClickClose2()}}
                 >
                   閉じる
                 </button>
@@ -101,9 +105,11 @@ class Token extends React.Component {
       modal = (
         <div id="modal" className='modal' onClick={(event)=>{event.stopPropagation()}}>
           <div className='modal-inner'>
+
             <div className='modal-img'>
               <img src={this.props.image} alt="" width="400"/>
             </div>
+
             <div className="modal-explanation">
               <div className="explanation">
                 <p>所有者</p>
@@ -143,7 +149,7 @@ class Token extends React.Component {
           onClick={(event) => {this.handleClickToken(event)}}
         >
           <img src={this.props.image} alt="" width="300" />
-          <p>{this.props.name}</p>
+          {/* <p>{this.props.name}</p> */}
 
         </div>
         {modal}

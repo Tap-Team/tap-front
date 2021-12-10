@@ -69,7 +69,7 @@ class SignIn extends React.Component {
           <div id="modal" className='header-modal' onClick={(event)=>{event.stopPropagation()}}>
             <div className='header-modal-inner'>
               <div className="wallet-area">
-                <Link to="/main"  className="wallet-link" style={{ textDecoration: 'none' ,color: 'black'}}>ウォレット</Link>
+                <Link to="/main"  className="wallet-link" style={{ textDecoration: 'none' ,color: 'black'}} onClick={() =>{this.handleClickClose()}}>ウォレット</Link>
               </div>
 
               <div className="logout-area">

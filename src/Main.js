@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Token from './token';
+import Token2 from './token2';
 import firebase from './firebase';
+import Sample from './SpinnerPage';
 
 const fetchTokens  = async (userId) => {
   const userRes = await axios.get(
@@ -23,9 +24,10 @@ const fetchTokens  = async (userId) => {
 
   // 実行結果をもとに、name と image のセットを作成
   const fetchedTokens = tokenRess.map(tokenRes => {
-    const name = 'TEST';
+    // const name = '無題';
     const image = tokenRes.data.data.token_data;
-    return { name, image };
+    const tokenId = tokenRes.data.data.token_id;
+    return { image, tokenId, userId };
   });
 
   return fetchedTokens;
@@ -50,8 +52,14 @@ const useTokens = () => {
 }
 
 function Main() {
-  const tokens = useTokens();
 
+  const style = {
+    width: "50%",
+    margin: "0 auto",
+    marginTop: 150,
+  };
+
+  const tokens = useTokens();
   const COLUMN = 3;
   return (
     <div className="main-wrapper">
@@ -59,13 +67,19 @@ function Main() {
         <div className="copy-container">
           <h1>NFT一覧</h1>
         </div>
+        <div className="App">
+          <div style={style}>
+            <Sample />
+          </div>
+        </div>
+        {/* <SpinnerPage /> */}
         <div className="token-container">
           {[...Array(COLUMN)].map((_, i) => (
             <div className="parents">
               {tokens
                 .filter((_, index) => index % COLUMN === i)
-                .map(({ name, image }, index) => {
-                  return <Token name={name} image={image} key={index} />;
+                .map(({ name, image,tokenId, userId }, index) => {
+                  return <Token2 name={name} image={image} key={index} tokenId={tokenId} userId={userId}/>;
                 })}
             </div>
           ))}

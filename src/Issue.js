@@ -11,7 +11,9 @@ class Issue extends React.Component {
             base64: null,
             imageURL: null,
             isModalOpen: false,
-            context: null
+            context: null,
+            loading: true,
+            laoding: false
         };
 
         this.handleClickClose = this.handleClickClose.bind(this);
@@ -105,36 +107,18 @@ class Issue extends React.Component {
             console.log(dataURL);
             console.log(self.state.base64);
         }
-
-        console.log("----------------")
-        console.log(image);
-        console.log("img.width");
-        console.log(img.width);
-        console.log("img.height");
-        console.log(img.height);
-        console.log(this.state.base64);
       }
 
       handleOnload(img,image){
         var canvas = document.createElement("canvas");
-        console.log(img);
-        console.log("image");
-        console.log(image);
         canvas.width = img.width;
         canvas.height = img.height;
-        console.log("img.width");
-        console.log(img.width);
-        console.log("img.height");
-        console.log(img.height);
         var ctx = canvas.getContext("2d");
         ctx.drawImage(image, 0, 0);
-        console.log(canvas);
         var dataURL = canvas.toDataURL("image/png");
         this.setState({
             base64: dataURL
         });
-        console.log(dataURL);
-        console.log(this.state.base64);
       }
 
       handleClickIssue() {
@@ -145,45 +129,28 @@ class Issue extends React.Component {
         this.setState({isModalOpen: false});
       }
 
-    imgWidthHeight2(img){
-        if(img != null){
-            if(img.width>img.height){
-                //よこなが！！！
-                console.log("よこなが")
-                return {width:"500px",height:"auto"}
-            }else if(img.width<img.height){
-                //たてなが！！！
-                console.log("たてなが")
-                return {width:"auto",height:"500px"}
-            }else{
-                console.log("else")
-                console.log(img.width)
-                return {width:"1000px",height:"500px"}
-            }
-        }else{
-            return {width:"500px",height:"500px"}
-        }
-    }
+
 
 
     render() {
         return (
                 <div className="upload">
-                    <h3>Create new NFT</h3>
-                    <p>Drag and drop a image or click</p>
-                    <div className="upload-area" style={{width:"400px",height:"400px"}}>
-                        <div>
-                            <img id="imageid" src={this.state.imageURL} alt="" style={{width:"400px",height:"400px"}} />
-                        </div>
-                        <div>
+                    <div className="CreateNewNFT">
+                        <p>Create new NFT</p>
+                    </div>
+                    <div className="drop">
+                        <p>Drag and drop a image or click</p>
+                        <p>Small images, please :-)</p>
+                    </div>
+                    <div className="upload-area" style={{width:"450",height:"350px"}}>
+                        <div className="imageidParent">
+                            <img id="imageid" src={this.state.imageURL} alt="" style={{width:"1450",height:"1350px"}}/>
                             <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet"></link>
-                            <i className="far fa-image"></i>
-                            <p>Drag and drop a image or click</p>
                             <input className="file-area" type="file" accept="image/png" id="input-files" onChange={ this.onFileChange } />
                         </div>
                     </div>
                     <div className="issue-btn">
-                        <button onClick={this.issueToken.bind(this,this.state)}>発行</button>
+                        <a href onClick={this.issueToken.bind(this,this.state)}>発行</a>
                     </div>
             </div>
         );

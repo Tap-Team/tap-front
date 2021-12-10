@@ -4,6 +4,7 @@ import Header from './Header';
 import Footer from './Footer';
 import Top from './Top';
 import Issue from './Issue';
+import Service from './Service';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 
@@ -16,6 +17,8 @@ function TEST(){
         <Route path="/create" element={<Issue />} />
         <Route path="/main" element={<Main />} />
       </Routes>
+      {/* <Tap /> */}
+      {/* <Service /> */}
       <Footer />
   </BrowserRouter>
   );
