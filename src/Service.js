@@ -25,8 +25,7 @@ function Service() {
                     </div>
                     <div className="explanation-inner-sentence">
                         <p>NFTにより唯一性を保証、所有者情報を明確に保持</p>
-                        <p>アカウントに紐づけたウォレットを作成、トークンを発行</p>
-                        <p>発行したトークンと対称の作品データを紐づけて保存</p>
+                        <p>作品に対しNFTを発行することで所有権・唯一性の主張が可能に</p>
                     </div>
                     <div className="detail1">
                         <p>detail</p>
@@ -43,9 +42,9 @@ function Service() {
                         <h1>NFTと暗号通貨の切り離し</h1>
                     </div>
                     <div className="explanation-inner-sentence">
-                        <p>投資的性質を持つ暗号通貨に抵抗意識がある</p>
-                        <p>→暗号通貨と親和性の高いNFTを、あえて暗号通貨から切り離して提供するサービス</p>
-                        <p>"非Crptpo的なNFTの活用"</p>
+                        <p>既存のNFTの発行には暗号通貨が必要であり参入ハードルが高まる原因になりがち</p>
+                        <p>そこで我々はあえて切り離すというNFTへの新しいアプローチを提案</p>
+                        <p>"非Crptpo的なNFTの活用"と位置づけし、NFTに触れたことのないユーザーへNFTに触れる体験を提供</p>
                     </div>
                     <div className="detail2">
                         <p>detail</p>
@@ -62,8 +61,8 @@ function Service() {
                         <h1>『俺が先だがシステム』</h1>
                     </div>
                     <div className="explanation-inner-sentence">
-                        <p>作品の唯一性を保証</p>
-                        <p>トークンのタイムスタンプを根拠に「俺が先だが？」できる</p>
+                        <p>トークンのタイムスタンプを根拠に「俺が先だが?」ができるシステム</p>
+                        <p>「全く同じ画像」の発行を拒否する仕組みにより偽物の発行は不可に</p>
                     </div>
                     <div className="detail3">
                         <p>detail</p>
@@ -80,9 +79,9 @@ function Service() {
                     <h1>『それ欲しいシステム』</h1>
                     </div>
                     <div className="explanation-inner-sentence">
-                        <p>トークンの移転機能</p>
-                        <p>アカウント名を指定し対応するウォレットにトークンを移転</p>
+                        <p>アカウント名を指定してトークンを移転することが可能</p>
                         <p>Tap!のプラットフォーム上での金銭的なやりとりは一切発生させない</p>
+                        <p>Comming soon...</p>
                     </div>
                     <div className="detail4">
                         <p>detail</p>
@@ -99,8 +98,11 @@ function Service() {
                         <h1>『ちょっと待てシステム』</h1>
                     </div>
                     <div className="explanation-inner-sentence">
-                        <p>不正トークンが発行された場合に対して「ちょっと待て」</p>
-                        <p>ブロックチェーンである性質を活かした複数人による認証システム</p>
+                        <p>ブロックチェーンを活用し、参加者による認証システムを用意</p>
+                        <p>不正なトークンが発行された場合はトークンに対して「ちょっと待て」</p>
+                        <p>「ちょっと待て」されたトークンにはフラグが建てられ、参加者により検証</p>
+                        <p>期間内に所定数以上の不正報告があればトークンは燃やされるorブロックは破棄される</p>
+                        <p>Comming soon...</p>
                     </div>
                     <div className="detail5">
                         <p>detail</p>
